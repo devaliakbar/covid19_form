@@ -19,7 +19,7 @@ if (isset($_COOKIE['keep_login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <title>Home</title>
+    <title>Record</title>
 </head>
 
 <body>
@@ -40,33 +40,33 @@ if (isset($_COOKIE['keep_login'])) {
             <div class="row">
 
                 <div class="form-group mb-3 col-md-3">
-                    <input  type="text" placeholder="Organisation Name">
+                    <input id="organisation_name" type="text" placeholder="Organisation Name">
                 </div>
 
                 <div class="form-group mb-3 col-md-3 ">
-                    <input  type="text" placeholder="Ward Number">
+                    <input id="ward_no"  type="text" placeholder="Ward Number">
                 </div>
 
                 <div class="form-group mb-3 col-md-3 ">
-                    <input  type="text" placeholder="Full Name">
+                    <input id="full_name"  type="text" placeholder="Full Name">
                 </div>
 
                 <div class="form-group radio-inline col-auto mb-3 col-md-3">
                     <label >Sex</label>
                     <label  class="custom-radio">Male <input  id="sex" name="sex" type="radio"><span class="checkmark ml-2"></label>
-                    <label  class="custom-radio">Female <input id="sex" name="sex" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">Female <input  name="sex" type="radio"><span class="checkmark ml-2"></label>
                 </div>
 
                 <div class="form-group mb-3 col-md-3 ">
-                    <input  type="text" placeholder="Age">
+                    <input id="age" type="number" placeholder="Age">
                 </div>
 
                 <div class="form-group mb-3 col-md-3 ">
-                    <input  type="text" placeholder="Address">
+                    <input id="address" type="text" placeholder="Address">
                 </div>
 
                 <div class="form-group mb-3 col-md-3 ">
-                    <input  type="text" placeholder="Current country">
+                    <input id="current_country"  type="text" placeholder="Current country">
                 </div>
 
 
@@ -74,27 +74,27 @@ if (isset($_COOKIE['keep_login'])) {
 
                 <div class="form-group radio-inline col-auto mb-3 col-md-3">
                     <label >Already Registered In Norka</label>
-                    <label  class="custom-radio">Yes <input  id="registered_norka" name="registered_norka" type="radio"><span class="checkmark ml-2"></label>
-                    <label  class="custom-radio">No <input id="registered_norka" name="registered_norka" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">Yes <input  id="return_registered" name="return_registered" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">No <input name="return_registered" type="radio"><span class="checkmark ml-2"></label>
                 </div>
 
                 <div class="form-group radio-inline col-auto mb-3 col-md-3">
                     <label >Any desease ?</label>
-                    <label  class="custom-radio">Yes <input  id="deseases" name="deseases" type="radio"><span class="checkmark ml-2"></label>
-                    <label  class="custom-radio">No <input id="deseases" name="deseases" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">Yes <input  id="any_disease" name="any_disease" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">No <input name="any_disease" type="radio"><span class="checkmark ml-2"></label>
                 </div>
 
 
                 <div class="form-group mb-3 col-md-3 ">
-                    <input  type="text" placeholder="If Yes Explain">
+                    <input id="disease_info" type="text" placeholder="If Yes Explain">
                 </div>
 
 
 
                 <div class="form-group radio-inline col-auto mb-3 col-md-3">
                     <label >Does home have facility for Home Quarantine</label>
-                    <label  class="custom-radio">Yes <input  id="home_quarantine" name="home_quarantine" type="radio"><span class="checkmark ml-2"></label>
-                    <label  class="custom-radio">No <input id="home_quarantine" name="home_quarantine" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">Yes <input  id="room_available" name="room_available" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">No <input  name="room_available" type="radio"><span class="checkmark ml-2"></label>
                 </div>
 
 
@@ -103,55 +103,55 @@ if (isset($_COOKIE['keep_login'])) {
 
 <div class="form-group radio-inline col-auto mb-3 col-md-3">
                     <label >Aged Person</label>
-                    <label  class="custom-radio">Yes <input  id="aged_persons" name="aged_persons" type="radio"><span class="checkmark ml-2"></label>
-                    <label  class="custom-radio">No <input id="aged_persons" name="aged_persons" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">Yes <input  id="aged_person" name="aged_person" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">No <input name="aged_person" type="radio"><span class="checkmark ml-2"></label>
                 </div>
 
                 <div class="form-group radio-inline col-auto mb-3 col-md-3">
                     <label >Bed Rest Person</label>
-                    <label  class="custom-radio">Yes <input  id="bed_persons" name="bed_persons" type="radio"><span class="checkmark ml-2"></label>
-                    <label  class="custom-radio">No <input id="bed_persons" name="bed_persons" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">Yes <input  id="bed_rest_person" name="bed_rest_person" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">No <input  name="bed_rest_person" type="radio"><span class="checkmark ml-2"></label>
                 </div>
 
                 <div class="form-group radio-inline col-auto mb-3 col-md-3">
                     <label >Intensive Desease Persons</label>
-                    <label  class="custom-radio">Yes <input  id="desease_persons" name="desease_persons" type="radio"><span class="checkmark ml-2"></label>
-                    <label  class="custom-radio">No <input id="desease_persons" name="desease_persons" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">Yes <input  id="desease_people" name="desease_people" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">No <input name="desease_people" type="radio"><span class="checkmark ml-2"></label>
                 </div>
 
 
                 <div class="form-group radio-inline col-auto mb-3 col-md-3">
                     <label >Pregnant Persons</label>
-                    <label  class="custom-radio">Yes <input  id="pregnant_persons" name="pregnant_persons" type="radio"><span class="checkmark ml-2"></label>
-                    <label  class="custom-radio">No <input id="pregnant_persons" name="pregnant_persons" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">Yes <input  id="pregnant_people" name="pregnant_people" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">No <input  name="pregnant_people" type="radio"><span class="checkmark ml-2"></label>
                 </div>
 
 
                 <div class="form-group radio-inline col-auto mb-3 col-md-3">
                     <label >RRT Recommendation for Home Quarintine</label>
-                    <label  class="custom-radio">Yes <input  id="rrt_recommendation" name="rrt_recommendation" type="radio"><span class="checkmark ml-2"></label>
-                    <label  class="custom-radio">No <input id="rrt_recommendation" name="rrt_recommendation" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">Yes <input  id="confirmation_from_rrt" name="confirmation_from_rrt" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">No <input  name="confirmation_from_rrt" type="radio"><span class="checkmark ml-2"></label>
                 </div>
 
                 <div class="form-group radio-inline col-auto mb-3 col-md-3">
                     <label >If No, Relative Home Available</label>
-                    <label  class="custom-radio">Yes <input  id="relative_home" name="relative_home" type="radio"><span class="checkmark ml-2"></label>
-                    <label  class="custom-radio">No <input id="relative_home" name="relative_home" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">Yes <input  id="relative_home_available" name="relative_home_available" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">No <input name="relative_home_available" type="radio"><span class="checkmark ml-2"></label>
                 </div>
 
                 <div class="form-group radio-inline col-auto mb-3 col-md-3">
                     <label >If Yes, RRT Recommended For Relative House</label>
-                    <label  class="custom-radio">Yes <input  id="relative_home_recommended" name="relative_home_recommended" type="radio"><span class="checkmark ml-2"></label>
-                    <label  class="custom-radio">No <input id="relative_home_recommended" name="relative_home_recommended" type="radio"><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">Yes <input  id="relative_confirmation_from_rrt" name="relative_confirmation_from_rrt" type="radio" ><span class="checkmark ml-2"></label>
+                    <label  class="custom-radio">No <input  name="relative_confirmation_from_rrt" type="radio" ><span class="checkmark ml-2"></label>
                 </div>
 
 
                 <div class="form-group mb-3 col-md-3 ">
-                    <input  type="text" placeholder="RRT Conviner Name and Sign">
+                    <input id="rrt_name"  type="text" placeholder="RRT Conviner Name and Sign">
                 </div>
 
                 <div class="form-group mb-3 col-md-3 form-group-inline ml-auto bill-actions text-right">
-                    <button class="btn-primary mr-2">Save</button>
+                    <button onclick="save()" class="btn-primary mr-2">Save</button>
                     <button class="btn-dark"> Print </button>
                 </div>
 
@@ -172,6 +172,7 @@ if (isset($_COOKIE['keep_login'])) {
     <script src="js/resizableColumns.min.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/add/add.js"></script>
 </body>
 
 </html>
