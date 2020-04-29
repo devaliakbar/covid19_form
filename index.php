@@ -28,10 +28,10 @@ if (isset($_COOKIE['keep_login'])) {
 
     <div class="header">
     <h1>Home</h1>
-    <div class="breadcrumb">
+    <div class="ml-auto">
 
-        <a href="add.php"><i class="fa fa-plus" aria-hidden="true"></i></a>
-        <button onclick='$("form").submit();'>Log Out</button>
+        <a href="add.php" class="btn btn-dark mr-3">Add Record</a>
+        <button class="btn btn-dark log-btn" onclick='$("form").submit();'>Log Out</button>
 
 
     </div>

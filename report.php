@@ -52,7 +52,7 @@ if (mysqli_num_rows($result) > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <title>Log In</title>
+    <title>Report</title>
 </head>
 
 <body>
@@ -62,352 +62,448 @@ if (mysqli_num_rows($result) > 0) {
             <div class="wrapper">
                 <div class="row">
                     <div class="col-12">
+                        <h6>ഫോറം 2</h4>
 
-                        <div class="head">
-                            <h6>Form 2</h4>
-                                <h1>Format to collect details from foreighn malayalees who come back at the time of
-                                    pandemic
+                            <div class="head">
+                                <h1>കോവിഡ് കാലത്ത് തിരിച്ചെത്താൻ സാധ്യതയുള്ള വിദേശ മലയാളികളുടെ വിവര ശേഖരണത്തിനുള്ള മാതൃക
                                 </h1>
-                        </div>
+                            </div>
 
-                        <div class="content">
+                            <div class="content">
 
-                            <form class="">
+                                <form class="">
 
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="company">Name of the Company</label>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <label for="company">തദ്ദേശ സ്ഥാപനത്തിന്റെ പേര്</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" id="company" class="form-control" value="<?php echo $details['organisation_name']; ?>">
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <input type="text" id="company" class="form-control" value="<?php echo $details['organisation_name']; ?>">
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <label for="ward">വാർഡ് നം.</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" id="ward" class="form-control" value="<?php echo $details['ward_no']; ?>">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="ward">Ward No</label>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <label for="name">പേര്</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" id="name" class="form-control" value="<?php echo $details['full_name']; ?>">
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <input type="text" id="ward" class="form-control"
-                                        value="<?php echo $details['ward_no']; ?>">
-                                    </div>
-                                </div>
 
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="name">Name</label>
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" id="name" class="form-control"
-                                        value="<?php echo $details['full_name']; ?>">
-                                    </div>
-                                </div>
+                                    <div class="row">
 
-                                <div class="row">
+                                        <div class="col">
+                                            <div class="row">
 
-                                    <div class="col">
-                                        <div class="row">
+                                                <div class="col-md-6">
 
-                                            <div class="col-md-6">
+                                                    <div class="form-row">
 
-                                                <div class="form-row">
+                                                        <div class="col">
+                                                            <label>പുരുഷൻ</label>
+                                                        </div>
+                                                        <div class="col">
 
-                                                    <div class="col">
-                                                        <label for="M">Male</label>
-                                                    </div>
-                                                    <div class="col">
-                                                        <input type="radio" name="gender" id="M" class="form-control"
+                                                            <label class="checkbox">
+                                                                <input type="checkbox" <?php echo $details['sex'] == '1' ? 'checked' : ''; ?>>
+                                                                <span class="checkmark"></span>
+                                                            </label>
 
-                                                        <?php echo $details['sex'] == '1' ? 'checked' : ''; ?>
-                                                        >
-                                                    </div>
-                                                    <div class="col">
-                                                        <label for="F">Female</label>
-                                                    </div>
-                                                    <div class="col">
-                                                        <input type="radio" name="gender" id="F" class="form-control"
-                                                        <?php echo $details['sex'] == '0' ? 'checked' : ''; ?>
-                                                        >
+                                                        </div>
+
                                                     </div>
 
                                                 </div>
 
-                                            </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label>സ്ത്രീ</label>
+                                                        </div>
+                                                        <div class="col">
 
-                                            <div class="col-md-6">
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col">
-                                        <div class="form-row">
-                                            <div class="col">
-                                                <label for="age">Age</label>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="age" class="form-control"
-                                                value="<?php echo $details['age']; ?>">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="col-auto">
-                                        <label for="addr">Address</label>
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" id="addr" class="form-control"
-                                        value="<?php echo $details['address']; ?>">
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="resi">Country of present residency </label>
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" id="resi" class="form-control"
-                                        value="<?php echo $details['current_country']; ?>">
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="ret">Registered in norca as a returning person</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <input type="text" id="ret" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="disease">Person with disease</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <input type="text" id="disease" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="col-12">
-                                        <label for="sympt">If Yes, describe the symptoms</label>
-                                    </div>
-                                    <div class="col-12">
-                                        <input type="text" id="sympt" class="form-control"
-                                        value="<?php echo $details['disease_info']; ?>">
-                                    </div>
-                                </div>
+                                                            <label class="checkbox">
+                                                                <input type="checkbox" <?php echo $details['sex'] == '0' ? 'checked' : ''; ?>>
+                                                                <span class="checkmark"></span>
+                                                            </label>
 
 
-
-                                <div class="row">
-
-                                    <div class="col">
-                                        <label for="age">Attached washroom room available at home for quarantine</label>
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="form-row">
-
-                                            <div class="col">
-                                                <input type="radio" name="gender" id=""
-                                                <?php echo $details['room_available'] == '1' ? 'checked' : ''; ?>>
-                                            </div>
-                                            <div class="col">
-                                                <input type="radio" name="gender" id=""
-                                                <?php echo $details['room_available'] == '0' ? 'checked' : ''; ?>>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="age">If yes, specify the other family members</label>
-                                    </div>
-
-                                </div>
-
-                                <div class="row">
-                                    <div class="col">
-
-                                        <div class="row">
-                                            <div class="col">
-                                                <label for="age">overaged peoples</label>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <input type="radio" name="gender" id=""
-                                                        <?php echo $details['aged_person'] == '1' ? 'checked' : ''; ?>>
+                                                        </div>
                                                     </div>
-                                                    <div class="col">
-                                                        <input type="radio" name="gender" id=""
-                                                        <?php echo $details['aged_person'] == '0' ? 'checked' : ''; ?>>
-                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col">
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label for="age">വയസ്സ്</label>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" id="age" class="form-control" value="<?php echo $details['age']; ?>">
                                                 </div>
                                             </div>
                                         </div>
 
                                     </div>
-                                    <div class="col">
 
-                                        <div class="row">
-                                            <div class="col">
-                                                <label for="age">Bed Rest peoples</label>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <input type="radio" name="gender" id=""
-                                                        <?php echo $details['bed_rest_person'] == '1' ? 'checked' : ''; ?>>
-                                                    </div>
-                                                    <div class="col">
-                                                        <input type="radio" name="gender" id=""
-                                                        <?php echo $details['bed_rest_person'] == '0' ? 'checked' : ''; ?>>
-                                                    </div>
+                                    <div class="form-row address-group">
+                                        <div class="col-auto">
+                                            <label for="addr">വിലാസം</label>
+                                        </div>
+                                        <div class="col">
+                                            <textarea name="" id="addr" class="form-control"><?php echo $details['address']; ?></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <label for="resi">ഇപ്പോൾ താമസിക്കുന്ന രാജ്യം</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" id="resi" class="form-control" value="<?php echo $details['current_country']; ?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <label for="ret">തിരിച്ചെത്തുന്നതിനായി നോർക്കയിൽ രജിസ്റ്റർ ചെയ്തിട്ടുണ്ടോ</label>
+                                        </div>
+                                        <div class="col-auto bd-l">
+                                            <div class="row">
+                                                <div class="col">
+
+                                                    <label class="checkbox yes">
+                                                        <input type="checkbox" <?php echo $details['return_registered'] == '1' ? 'checked' : ''; ?>>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="col">
+                                                    <label class="checkbox no">
+                                                        <input type="checkbox" <?php echo $details['return_registered'] == '0' ? 'checked' : ''; ?>>
+                                                        <span class="checkmark"></span>
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <label for="disease">രോഗങ്ങളെന്തെങ്കിലും ഉള്ള ആളാണോ</label>
+                                        </div>
+                                        <div class="col-auto bd-l">
+                                            <div class="row">
+
+                                                <div class="col">
+                                                    <label class="checkbox yes">
+                                                        <input type="checkbox" <?php echo $details['any_disease'] == '1' ? 'checked' : ''; ?>>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="col">
+                                                    <label class="checkbox no">
+                                                        <input type="checkbox" <?php echo $details['any_disease'] == '0' ? 'checked' : ''; ?>>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <label for="sympt">അതെ എങ്കിൽ രോഗത്തിന്റെ
+വിവരം</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-12">
+                                            <input type="text" id="sympt" class="form-control" value="<?php echo $details['disease_info']; ?>">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="row">
+
+                                        <div class="col">
+                                            <label for="age">ഹോം ക്വാറന്റൈനിങ്ങിനാവശ്യമായ ശുചി മുറിയോട് കൂടിയ പ്രത്യേക മുറി വീട്ടിൽ ലഭ്യമാണോ</label>
+                                        </div>
+
+                                        <div class="col-auto bd-l">
+                                            <div class="form-row">
+
+                                                <div class="col">
+
+                                                    <label class="checkbox yes">
+                                                        <input type="checkbox" <?php echo $details['room_available'] == '1' ? 'checked' : ''; ?>>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+
+                                                </div>
+                                                <div class="col">
+                                                    <label class="checkbox no">
+                                                        <input type="checkbox" <?php echo $details['room_available'] == '0' ? 'checked' : ''; ?>>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
 
                                     </div>
-                                </div>
 
+                                    <div class="row">
 
-                                <div class="row">
-                                    <div class="col">
+                                        <div class="col">
+                                            <label for="age">ആണെങ്കിൽ വീട്ടിലെ മറ്റ് അംഗങ്ങളിൽ</label>
+                                        </div>
+                                    </div>
 
-                                        <div class="row">
-                                            <div class="col">
-                                                <label for="age">With dangerous diseases</label>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <input type="radio" name="" id=""
-                                                        <?php echo $details['desease_people'] == '1' ? 'checked' : ''; ?>>
-                                                    </div>
-                                                    <div class="col">
-                                                        <input type="radio" name="" id=""
-                                                        <?php echo $details['desease_people'] == '0' ? 'checked' : ''; ?>>
+                                    <div class="row">
+                                        <div class="col">
+
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="age">പ്രായാധിക്യമുള്ളവർ</label>
+                                                </div>
+                                                <div class="col-auto bd-l">
+                                                    <div class="row">
+                                                        <div class="col">
+
+                                                            <label class="checkbox yes">
+                                                                <input type="checkbox" <?php echo $details['aged_person'] == '1' ? 'checked' : ''; ?>>
+                                                                <span class="checkmark"></span>
+                                                            </label>
+
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <label class="checkbox no">
+                                                                <input type="checkbox" <?php echo $details['aged_person'] == '0' ? 'checked' : ''; ?>>
+                                                                <span class="checkmark"></span>
+                                                            </label>
+
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
+                                        <div class="col">
 
-                                    </div>
-                                    <div class="col">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="age">കിടപ്പ് രോഗികൾ</label>
+                                                </div>
+                                                <div class="col-auto bd-l pl--5">
+                                                    <div class="row">
+                                                        <div class="col">
 
-                                        <div class="row">
-                                            <div class="col">
-                                                <label for="age">Pregnant lady</label>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <input type="radio" name="" id=""
-                                                        <?php echo $details['pregnant_people'] == '1' ? 'checked' : ''; ?>>
-                                                    </div>
-                                                    <div class="col">
-                                                        <input type="radio" name="" id=""
-                                                        <?php echo $details['pregnant_people'] == '0' ? 'checked' : ''; ?>>
+                                                            <label class="checkbox yes">
+                                                                <input type="checkbox" name="gender" id="" <?php echo $details['bed_rest_person'] == '1' ? 'checked' : ''; ?>>
+                                                                <span class="checkmark"></span>
+                                                            </label>
+
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <label class="checkbox no">
+                                                                <input type="checkbox" name="gender" id="" <?php echo $details['bed_rest_person'] == '0' ? 'checked' : ''; ?>>
+                                                                <span class="checkmark"></span>
+                                                            </label>
+
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col">
+
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="age">ഗുരുതര രോഗമുള്ളവർ</label>
+                                                </div>
+                                                <div class="col-auto bd-l">
+                                                    <div class="row">
+                                                        <div class="col">
+
+                                                            <label class="checkbox yes">
+                                                                <input type="checkbox" name="" id="" <?php echo $details['desease_people'] == '1' ? 'checked' : ''; ?>>
+                                                                <span class="checkmark"></span>
+                                                            </label>
+
+                                                        </div>
+                                                        <div class="col">
+                                                            <label class="checkbox no">
+                                                                <input type="checkbox" name="" id="" <?php echo $details['desease_people'] == '0' ? 'checked' : ''; ?>>
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col">
+
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="age">ഗർഭിണികൾ</label>
+                                                </div>
+                                                <div class="col-auto bd-l pl--5">
+                                                    <div class="row">
+                                                        <div class="col">
+
+                                                            <label class="checkbox yes">
+                                                                <input type="checkbox" name="" id="" <?php echo $details['pregnant_people'] == '1' ? 'checked' : ''; ?>>
+                                                                <span class="checkmark"></span>
+                                                            </label>
+
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <label class="checkbox no">
+                                                                <input type="checkbox" name="" id="" <?php echo $details['pregnant_people'] == '0' ? 'checked' : ''; ?>>
+                                                                <span class="checkmark"></span>
+                                                            </label>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+
+                                        <div class="col">
+                                            <label for="age">ഹോം ക്വാറന്റൈനിങ്ങിന് വീട്ടിൽ സൗകര്യമുണ്ടോ എന്നത് സംബന്ധിച്ച് ആർ ആർ ടി യുടെ ശിപാർശ</label>
                                         </div>
 
-                                    </div>
-                                </div>
+                                        <div class="col-auto bd-l">
 
+                                            <div class="row">
+                                                <div class="col">
 
-                                <div class="row">
+                                                    <label class="checkbox yes">
+                                                        <input type="checkbox" name="" id="" <?php echo $details['confirmation_from_rrt'] == '1' ? 'checked' : ''; ?>>
+                                                        <span class="checkmark"></span>
+                                                    </label>
 
-                                    <div class="col">
-                                        <label for="age">Recomendation from rrt home for hom e quarantine</label>
-                                    </div>
+                                                </div>
+                                                <div class="col">
 
-                                    <div class="col-auto">
+                                                    <label class="checkbox no">
+                                                        <input type="checkbox" name="" id="" <?php echo $details['confirmation_from_rrt'] == '0' ? 'checked' : ''; ?>>
+                                                        <span class="checkmark"></span>
+                                                    </label>
 
-                                        <div class="row">
-                                            <div class="col">
-                                                <input type="radio" name="" id=""
-                                                <?php echo $details['confirmation_from_rrt'] == '1' ? 'checked' : ''; ?>>
+                                                </div>
                                             </div>
-                                            <div class="col">
-                                                <input type="radio" name="" id=""
-                                                <?php echo $details['confirmation_from_rrt'] == '0' ? 'checked' : ''; ?>>
-                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col">
+                                            <label for="age">ഇല്ല എന്നാണെങ്കിൽ ഹോം ക്വാറന്റൈനിങ്ങിനാവശ്യമായ മുറി വീട്ടിൽ ലഭ്യമല്ലങ്കിൽ ബന്ധുക്കളുടെ വീട്ടിൽ ലഭ്യമാണോ</label>
                                         </div>
 
-                                    </div>
-                                </div>
+                                        <div class="col-auto bd-l">
 
-                                <div class="row">
+                                            <div class="row">
+                                                <div class="col">
 
-                                    <div class="col">
-                                        <label for="age">If not available in your home, how about yotr neighbour's</label>
-                                    </div>
+                                                    <label class="checkbox yes">
+                                                        <input type="checkbox" name="" id="" <?php echo $details['relative_home_available'] == '1' ? 'checked' : ''; ?>>
+                                                        <span class="checkmark"></span>
+                                                    </label>
 
-                                    <div class="col-auto">
+                                                </div>
+                                                <div class="col">
 
-                                        <div class="row">
-                                            <div class="col">
-                                                <input type="radio" name="" id=""
-                                                <?php echo $details['relative_home_available'] == '1' ? 'checked' : ''; ?>>
+                                                    <label class="checkbox no">
+                                                        <input type="checkbox" name="" id="" <?php echo $details['relative_home_available'] == '0' ? 'checked' : ''; ?>>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+
+
+                                                </div>
                                             </div>
-                                            <div class="col">
-                                                <input type="radio" name="" id=""
-                                                <?php echo $details['relative_home_available'] == '0' ? 'checked' : ''; ?>>
-                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col">
+                                            <label for="age">ഉണ്ടെങ്കിൽ ടി സൗകര്യം ആർ ആർ ടി ഹോം ക്വാറന്റൈനിങ്ങിന് ശിപാർശ ചെയ്യുന്നുവോ</label>
                                         </div>
 
-                                    </div>
-                                </div>
+                                        <div class="col-auto bd-l">
 
-                                <div class="row">
+                                            <div class="row">
+                                                <div class="col">
 
-                                    <div class="col">
-                                        <label for="age">If yes available in your home, how about yotr neighbour's</label>
-                                    </div>
+                                                    <label class="checkbox yes">
+                                                        <input type="checkbox" name="" id="" <?php echo $details['relative_confirmation_from_rrt'] == '1' ? 'checked' : ''; ?>>
+                                                        <span class="checkmark"></span>
+                                                    </label>
 
-                                    <div class="col-auto">
+                                                </div>
+                                                <div class="col">
 
-                                        <div class="row">
-                                            <div class="col">
-                                                <input type="radio" name="" id=""
-                                                <?php echo $details['relative_confirmation_from_rrt'] == '1' ? 'checked' : ''; ?>>
+                                                    <label class="checkbox no">
+                                                        <input type="checkbox" name="" id="" <?php echo $details['relative_confirmation_from_rrt'] == '0' ? 'checked' : ''; ?>>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+
+                                                </div>
                                             </div>
-                                            <div class="col">
-                                                <input type="radio" name="" id=""
-                                                <?php echo $details['relative_confirmation_from_rrt'] == '0' ? 'checked' : ''; ?>>
-                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-auto">
+                                            <label for="age">ആർ ആർ ടി കൺവീനറുടെ പേരും ഒപ്പും</label>
                                         </div>
 
-                                    </div>
-                                </div>
+                                        <div class="col">
 
-                                <div class="row">
+                                            <input type="text" class="form-control" value="<?php echo $details['rrt_name']; ?>">
 
-                                    <div class="col-auto">
-                                        <label for="age">name and siign of rrt officer</label>
-                                    </div>
-
-                                    <div class="col">
-
-                                        <div class="row">
-                                            <input type="text" class="form-control"
-                                            value="<?php echo $details['rrt_name']; ?>">
                                         </div>
-
                                     </div>
-                                </div>
 
-                            </form>
+                                </form>
 
-                        </div>
+                            </div>
 
                     </div>
                 </div>
@@ -422,8 +518,12 @@ if (mysqli_num_rows($result) > 0) {
     <script src="js/resizableColumns.min.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/custom.js"></script>
-
     <script src="js/login/login.js"></script>
+    <script>
+    $(document).ready(function () {
+    print()
+});
+    </script>
 </body>
 
 </html>

@@ -1,5 +1,32 @@
 var query;
 $(document).ready(function () {
+  $("#any_disease").change(function () {
+    if ($("#any_disease").prop("checked")) {
+      $("#disease").show();
+    }
+  });
+
+  $("#false_desease").change(function () {
+    if ($("#false_desease").prop("checked")) {
+      $("#disease").hide();
+    }
+  });
+
+  $("#room_available").change(function () {
+    if ($("#room_available").prop("checked")) {
+      $("#home-quar").show();
+    }
+  });
+
+  $("#no_room_available").change(function () {
+    if ($("#no_room_available").prop("checked")) {
+      $("#home-quar").hide();
+    }
+  });
+
+  $("#disease").hide();
+  $("#home-quar").hide();
+
   const urlParams = new URLSearchParams(window.location.search);
   query = urlParams.get("q");
   if (query != null) {
@@ -58,6 +85,7 @@ var displayDetails = (personDetails) => {
   if (personDetails["any_disease"] == "1") {
     $("#any_disease").attr("checked", "checked");
     //IF DESEASES
+    $("#disease").show();
     $("#disease_info").val(personDetails["disease_info"]);
   } else {
     $('[name="any_disease"]').attr("checked", "checked");
@@ -65,7 +93,7 @@ var displayDetails = (personDetails) => {
 
   if (personDetails["room_available"] == "1") {
     $("#room_available").attr("checked", "checked");
-
+    $("#home-quar").show();
     //CONDITION IF ROOM AVAILABLE
     if (personDetails["aged_person"] == "1") {
       $("#aged_person").attr("checked", "checked");

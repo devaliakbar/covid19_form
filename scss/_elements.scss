@@ -221,7 +221,8 @@ button {
 
 
 //buttons
-button {
+button,
+.btn {
     border: none;
     background-color: transparent;
     font-weight: bold;
@@ -231,6 +232,7 @@ button {
     cursor: pointer;
     outline: none;
     transition: .3s;
+    text-decoration: none;
 }
 
 button:hover {
@@ -270,7 +272,9 @@ button#btn-cancel:hover {
     }
 }
 
-
+.log-btn{
+    padding: 11.5px 15px; 
+}
 
 .btn-primary {
     background: $blue-primary;
