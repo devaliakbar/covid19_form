@@ -29,7 +29,11 @@ if (isset($_COOKIE['keep_login'])) {
     <div class="header">
     <h1>Home</h1>
     <div class="breadcrumb">
+
         <a href="add.php"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        <button onclick='$("form").submit();'>Log Out</button>
+
+
     </div>
     <div class="bottom-header">
     </div>
@@ -37,7 +41,7 @@ if (isset($_COOKIE['keep_login'])) {
 <div class="content">
     <div class="table-wrap">
         <div class="searchbox">
-            <form class="form-inline main">
+            <form method="post" class="form-inline main">
                 <div class="form-group">
                     <input type="text" id="search_key" class="form-control" placeholder="Search" aria-describedby="helpId">
                     <button disabled><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -59,49 +63,12 @@ if (isset($_COOKIE['keep_login'])) {
                     </div>
                 </div>
                 <div class="tbody">
-                    <a href="service-detail.php" class="tr">
-                        <div class="td">asas</div>
-                        <div class="td">asas</div>
-                        <div class="td">asas</div>
-                        <div class="td">asas</div>
-                        <div class="td">asas</div>
-                        <div class="td">asas</div>
-                    </a>
 
-                    <a href="service-detail.php" class="tr">
-                        <div class="td">asas</div>
-                        <div class="td">asas</div>
-                        <div class="td">asas</div>
-                        <div class="td">asas</div>
-                        <div class="td">asas</div>
-                        <div class="td">asas</div>
-                    </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </main>
@@ -119,3 +86,16 @@ if (isset($_COOKIE['keep_login'])) {
 </body>
 
 </html>
+
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    setcookie(
+        "keep_login",
+        "false",
+        time() + (10 * 365 * 24 * 60 * 60)
+    );
+
+    header("Location: login.php");
+    exit();
+}?>

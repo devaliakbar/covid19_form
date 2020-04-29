@@ -47,6 +47,7 @@ VALUES(
 );";
 
 if (mysqli_query($conn, $addRecordQuery)) {
+    $response["id"] = mysqli_insert_id($conn);
     $response["success"] = true;
 } else {
     $response["status"] = "FAILED";

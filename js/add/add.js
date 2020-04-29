@@ -1,3 +1,123 @@
+var query;
+$(document).ready(function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  query = urlParams.get("q");
+  if (query != null) {
+    fetchData();
+  } else {
+    $(".dlt").hide();
+    $(".print").hide();
+  }
+});
+
+//FETCH IF UPDATE
+var fetchData = async () => {
+  showLoader();
+
+  const response = await fetch("api/get_persons_detail.php?q=" + query, {
+    method: "GET",
+  });
+  hideLoader();
+  if (response.status == 200) {
+    var jsonResponce = await response.json();
+    if (jsonResponce["success"]) {
+      displayDetails(jsonResponce["person_details"]);
+    } else {
+      alert("Failed To Connect");
+    }
+  } else {
+    alert("Failed To Connect");
+  }
+};
+//SETTING PREV VALUES
+var displayDetails = (personDetails) => {
+  $("#organisation_name").val(personDetails["organisation_name"]);
+
+  $("#ward_no").val(personDetails["ward_no"]);
+
+  $("#full_name").val(personDetails["full_name"]);
+
+  if (personDetails["sex"] == "1") {
+    $("#sex").attr("checked", "checked");
+  } else {
+    $('[name="sex"]').attr("checked", "checked");
+  }
+
+  $("#age").val(personDetails["age"]);
+
+  $("#address").val(personDetails["address"]);
+
+  $("#current_country").val(personDetails["current_country"]);
+
+  if (personDetails["return_registered"] == "1") {
+    $("#return_registered").attr("checked", "checked");
+  } else {
+    $('[name="return_registered"]').attr("checked", "checked");
+  }
+
+  if (personDetails["any_disease"] == "1") {
+    $("#any_disease").attr("checked", "checked");
+    //IF DESEASES
+    $("#disease_info").val(personDetails["disease_info"]);
+  } else {
+    $('[name="any_disease"]').attr("checked", "checked");
+  }
+
+  if (personDetails["room_available"] == "1") {
+    $("#room_available").attr("checked", "checked");
+
+    //CONDITION IF ROOM AVAILABLE
+    if (personDetails["aged_person"] == "1") {
+      $("#aged_person").attr("checked", "checked");
+    } else {
+      $('[name="aged_person"]').attr("checked", "checked");
+    }
+
+    if (personDetails["bed_rest_person"] == "1") {
+      $("#bed_rest_person").attr("checked", "checked");
+    } else {
+      $('[name="bed_rest_person"]').attr("checked", "checked");
+    }
+
+    if (personDetails["desease_people"] == "1") {
+      $("#desease_people").attr("checked", "checked");
+    } else {
+      $('[name="desease_people"]').attr("checked", "checked");
+    }
+
+    if (personDetails["pregnant_people"] == "1") {
+      $("#pregnant_people").attr("checked", "checked");
+    } else {
+      $('[name="pregnant_people"]').attr("checked", "checked");
+    }
+
+    if (personDetails["confirmation_from_rrt"] == "1") {
+      $("#confirmation_from_rrt").attr("checked", "checked");
+    } else {
+      $('[name="confirmation_from_rrt"]').attr("checked", "checked");
+    }
+
+    if (personDetails["relative_home_available"] == "1") {
+      $("#relative_home_available").attr("checked", "checked");
+    } else {
+      $('[name="relative_home_available"]').attr("checked", "checked");
+    }
+
+    if (personDetails["relative_confirmation_from_rrt"] == "1") {
+      $("#relative_confirmation_from_rrt").attr("checked", "checked");
+    } else {
+      $('[name="relative_confirmation_from_rrt"]').attr("checked", "checked");
+    }
+
+    $("#rrt_name").val(personDetails["rrt_name"]);
+
+    //
+  } else {
+    $('[name="room_available"]').attr("checked", "checked");
+  }
+};
+
+//SAVE
 var save = () => {
   var record = {};
 
@@ -79,20 +199,26 @@ var save = () => {
     record.relative_home_available = 0;
   }
 
-  record.rrt_name = $("#rrt_name").val().trim();
-
   if ($("#relative_confirmation_from_rrt").prop("checked")) {
     record.relative_confirmation_from_rrt = 1;
   } else {
     record.relative_confirmation_from_rrt = 0;
   }
 
+  record.rrt_name = $("#rrt_name").val().trim();
+
   saveToServer(record);
 };
 
 var saveToServer = async (body) => {
+  var url = "api/add.php";
+  if (query != null) {
+    url = "api/update.php";
+    body.id = query;
+  }
+
   showLoader();
-  const response = await fetch("api/add.php", {
+  const response = await fetch(url, {
     method: "POST",
     body: JSON.stringify(body),
   });
@@ -100,11 +226,43 @@ var saveToServer = async (body) => {
   if (response.status == 200) {
     var jsonResponce = await response.json();
     if (jsonResponce["success"]) {
+      if (query == null) {
+        query = jsonResponce["id"];
+      }
+      $(".dlt").show();
+      $(".print").show();
+
       alert("Successfully Saved");
     } else {
       alert("Failed To Save");
     }
   } else {
     alert("Failed To Save");
+  }
+};
+
+var deleteRecord = async () => {
+  var deleteConfirm = confirm("Are you sure, do you want to delete?");
+
+  if (deleteConfirm == false) {
+    return;
+  }
+
+  showLoader();
+  const response = await fetch("api/delete.php", {
+    method: "POST",
+    body: JSON.stringify({ id: query }),
+  });
+  hideLoader();
+  if (response.status == 200) {
+    var jsonResponce = await response.json();
+    if (jsonResponce["success"]) {
+      alert("Successfully Deleted");
+      window.location.replace("index.php");
+    } else {
+      alert("Failed To Delete");
+    }
+  } else {
+    alert("Failed To Delete");
   }
 };

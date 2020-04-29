@@ -152,7 +152,8 @@ if (isset($_COOKIE['keep_login'])) {
 
                 <div class="form-group mb-3 col-md-3 form-group-inline ml-auto bill-actions text-right">
                     <button onclick="save()" class="btn-primary mr-2">Save</button>
-                    <button class="btn-dark"> Print </button>
+                    <button class="btn-dark print"> Print </button>
+                    <button onclick="deleteRecord()" class="btn-dark dlt"> Delete </button>
                 </div>
 
             </div>
