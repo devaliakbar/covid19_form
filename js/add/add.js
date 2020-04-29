@@ -125,11 +125,13 @@ var save = () => {
     return alert("Please enter name");
   }
 
-  record.organisation_name = $("#organisation_name").val().trim();
+  record.organisation_name = mysql_real_escape_string(
+    $("#organisation_name").val().trim()
+  );
 
-  record.ward_no = $("#ward_no").val().trim();
+  record.ward_no = mysql_real_escape_string($("#ward_no").val().trim());
 
-  record.full_name = $("#full_name").val().trim();
+  record.full_name = mysql_real_escape_string($("#full_name").val().trim());
 
   if ($("#sex").prop("checked")) {
     record.sex = 1;
@@ -139,9 +141,11 @@ var save = () => {
 
   record.age = $("#age").val().trim() == "" ? 0 : $("#age").val().trim();
 
-  record.address = $("#address").val().trim();
+  record.address = mysql_real_escape_string($("#address").val().trim());
 
-  record.current_country = $("#current_country").val().trim();
+  record.current_country = mysql_real_escape_string(
+    $("#current_country").val().trim()
+  );
 
   if ($("#return_registered").prop("checked")) {
     record.return_registered = 1;
@@ -155,7 +159,9 @@ var save = () => {
     record.any_disease = 0;
   }
 
-  record.disease_info = $("#disease_info").val().trim();
+  record.disease_info = mysql_real_escape_string(
+    $("#disease_info").val().trim()
+  );
 
   if ($("#room_available").prop("checked")) {
     record.room_available = 1;
@@ -205,7 +211,7 @@ var save = () => {
     record.relative_confirmation_from_rrt = 0;
   }
 
-  record.rrt_name = $("#rrt_name").val().trim();
+  record.rrt_name = mysql_real_escape_string($("#rrt_name").val().trim());
 
   saveToServer(record);
 };
@@ -266,3 +272,30 @@ var deleteRecord = async () => {
     alert("Failed To Delete");
   }
 };
+
+function mysql_real_escape_string(str) {
+  return str.replace(/[\0\x08\x09\x1a\n\r"'\\\%]/g, function (char) {
+    switch (char) {
+      case "\0":
+        return "\\0";
+      case "\x08":
+        return "\\b";
+      case "\x09":
+        return "\\t";
+      case "\x1a":
+        return "\\z";
+      case "\n":
+        return "\\n";
+      case "\r":
+        return "\\r";
+      case '"':
+      case "'":
+      case "\\":
+      case "%":
+        return "\\" + char; // prepends a backslash to backslash, percent,
+      // and double/single quotes
+      default:
+        return char;
+    }
+  });
+}

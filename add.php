@@ -29,7 +29,7 @@ if (isset($_COOKIE['keep_login'])) {
     <div class="header">
         <h1>Record</h1>
         <div class="breadcrumb">
-            <a href="index.php"><i class="fas fa-home"></i></a>
+            <a href="#" onclick="window.location.replace('index.php')"><i class="fas fa-home"></i></a>
         </div>
         <div class="bottom-header">
         </div>
