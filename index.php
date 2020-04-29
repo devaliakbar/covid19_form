@@ -39,8 +39,8 @@ if (isset($_COOKIE['keep_login'])) {
         <div class="searchbox">
             <form class="form-inline main">
                 <div class="form-group">
-                    <input type="text" name="" class="form-control" placeholder="Search" aria-describedby="helpId">
-                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <input type="text" id="search_key" class="form-control" placeholder="Search" aria-describedby="helpId">
+                    <button disabled><i class="fa fa-search" aria-hidden="true"></i></button>
                 </div>
             </form>
 
@@ -51,14 +51,23 @@ if (isset($_COOKIE['keep_login'])) {
                 <div class="thead">
                     <div class="tr">
                         <div class="th" class="filter">Sl No</div>
-                        <div class="th" class="filter editable">Service Id</div>
-                        <div class="th" class="filter editable">Type</div>
-                        <div class="th" class="filter editable">Complaint</div>
-                        <div class="th" class="filter">Current Status</div>
-                        <div class="th" class="filter">Quick Service</div>
+                        <div class="th" class="filter editable">Person Name</div>
+                        <div class="th" class="filter editable">Sex</div>
+                        <div class="th" class="filter editable">Age</div>
+                        <div class="th" class="filter">Country</div>
+                        <div class="th" class="filter">Address</div>
                     </div>
                 </div>
                 <div class="tbody">
+                    <a href="service-detail.php" class="tr">
+                        <div class="td">asas</div>
+                        <div class="td">asas</div>
+                        <div class="td">asas</div>
+                        <div class="td">asas</div>
+                        <div class="td">asas</div>
+                        <div class="td">asas</div>
+                    </a>
+
                     <a href="service-detail.php" class="tr">
                         <div class="td">asas</div>
                         <div class="td">asas</div>
