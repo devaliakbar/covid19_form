@@ -40,3 +40,17 @@ if (mysqli_query($conn, $personInfoCreateQuery)) {
 } else {
     echo "Error creating table: " . mysqli_error($conn);
 }
+
+$deleteAllUserQuery = 'DELETE FROM user_info';
+if (mysqli_query($conn, $deleteAllUserQuery)) {
+    echo "<br>Cleared Users successfully<br>";
+} else {
+    echo "Failed To Delete Old Users: " . mysqli_error($conn);
+}
+
+$addUserQuery = "INSERT INTO user_info(user_username, user_password)VALUES('admin', 'admin');";
+if (mysqli_query($conn, $addUserQuery)) {
+    echo "<br>Added Username : admin and Password : admin<br>";
+} else {
+    echo "Failed To Create Users: " . mysqli_error($conn);
+}
