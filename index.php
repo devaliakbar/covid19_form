@@ -27,10 +27,9 @@ if (isset($_COOKIE['keep_login'])) {
     <main class="items-manage-page">
 
     <div class="header">
-    <h1>Services</h1>
+    <h1>Home</h1>
     <div class="breadcrumb">
         <a href="add.php"><i class="fa fa-plus" aria-hidden="true"></i></a>
-        <a href="index.php"><i class="fas fa-home"></i></a>
     </div>
     <div class="bottom-header">
     </div>
@@ -44,55 +43,7 @@ if (isset($_COOKIE['keep_login'])) {
                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </div>
             </form>
-<!--
-            <form class="form-additional form-inline row">
 
-                <div class="form-group col-auto">
-                    <input type="text" name="" class="form-control" placeholder="Name" aria-describedby="helpId">
-                </div>
-
-                <div class="form-group col-auto">
-                    <input type="text" name="" class="form-control" placeholder="Mobile" aria-describedby="helpId">
-                </div>
-
-                <div class="form-group col-auto">
-                    <input type="text" name="" class="form-control" placeholder="Job No" aria-describedby="helpId">
-                </div>
-
-                <div class="form-group col-auto">
-                    <select name="">
-                        <option selected disabled>Work Type</option>
-                        <option value="month">Repair</option>
-                        <option value="between">Modify</option>
-                    </select>
-                </div>
-
-                <div class="form-group col-auto">
-                    <select name="">
-                        <option selected disabled>Status</option>
-                        <option value="month">Pending</option>
-                        <option value="between">Doing</option>
-                        <option value="between">Completed</option>
-                    </select>
-                </div>
-
-                <div class="form-group search-by-date single col-auto ml-auto">
-                    <select name="" class="mr-2">
-                        <option value="single">Date</option>
-                        <option value="month">Month & Year</option>>
-                        <option value="between">Between</option>
-                    </select>
-
-                    <input type="date" name="" class="form-control day" id="single" placeholder="Search">
-
-                    <div class="date-between">
-                        <input type="date" name="" id="from"><span class="mx-2">To</span> <input type="date" name=""
-                            id="to">
-                    </div>
-                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                </div>
-
-            </form> -->
 
         </div>
         <div class="table-responsive">
