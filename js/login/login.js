@@ -16,7 +16,6 @@ var login = async (username, password) => {
   hideLoader();
   if (response.status == 200) {
     var jsonResponce = await response.json();
-    console.log(jsonResponce);
     if (jsonResponce["success"]) {
       $("form").submit();
     } else {

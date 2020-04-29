@@ -12,9 +12,9 @@ var save = () => {
   record.full_name = $("#full_name").val().trim();
 
   if ($("#sex").prop("checked")) {
-    record.sex = true;
+    record.sex = 1;
   } else {
-    record.sex = false;
+    record.sex = 0;
   }
 
   record.age = $("#age").val().trim() == "" ? 0 : $("#age").val().trim();
@@ -24,68 +24,87 @@ var save = () => {
   record.current_country = $("#current_country").val().trim();
 
   if ($("#return_registered").prop("checked")) {
-    record.return_registered = true;
+    record.return_registered = 1;
   } else {
-    record.return_registered = false;
+    record.return_registered = 0;
   }
 
   if ($("#any_disease").prop("checked")) {
-    record.any_disease = true;
+    record.any_disease = 1;
   } else {
-    record.any_disease = false;
+    record.any_disease = 0;
   }
 
   record.disease_info = $("#disease_info").val().trim();
 
   if ($("#room_available").prop("checked")) {
-    record.room_available = true;
+    record.room_available = 1;
   } else {
-    record.room_available = false;
+    record.room_available = 0;
   }
 
   if ($("#aged_person").prop("checked")) {
-    record.aged_person = true;
+    record.aged_person = 1;
   } else {
-    record.aged_person = false;
+    record.aged_person = 0;
   }
 
   if ($("#bed_rest_person").prop("checked")) {
-    record.bed_rest_person = true;
+    record.bed_rest_person = 1;
   } else {
-    record.bed_rest_person = false;
+    record.bed_rest_person = 0;
   }
 
   if ($("#desease_people").prop("checked")) {
-    record.desease_people = true;
+    record.desease_people = 1;
   } else {
-    record.desease_people = false;
+    record.desease_people = 0;
   }
 
   if ($("#pregnant_people").prop("checked")) {
-    record.pregnant_people = true;
+    record.pregnant_people = 1;
   } else {
-    record.pregnant_people = false;
+    record.pregnant_people = 0;
   }
 
   if ($("#confirmation_from_rrt").prop("checked")) {
-    record.confirmation_from_rrt = true;
+    record.confirmation_from_rrt = 1;
   } else {
-    record.confirmation_from_rrt = false;
+    record.confirmation_from_rrt = 0;
   }
 
   if ($("#relative_home_available").prop("checked")) {
-    record.relative_home_available = true;
+    record.relative_home_available = 1;
   } else {
-    record.relative_home_available = false;
+    record.relative_home_available = 0;
   }
 
   record.rrt_name = $("#rrt_name").val().trim();
 
   if ($("#relative_confirmation_from_rrt").prop("checked")) {
-    record.relative_confirmation_from_rrt = true;
+    record.relative_confirmation_from_rrt = 1;
   } else {
-    record.relative_confirmation_from_rrt = false;
+    record.relative_confirmation_from_rrt = 0;
   }
 
-  console.log(record);
+  saveToServer(record);
+};
+
+var saveToServer = async (body) => {
+  showLoader();
+  const response = await fetch("api/add.php", {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+  hideLoader();
+  if (response.status == 200) {
+    var jsonResponce = await response.json();
+    if (jsonResponce["success"]) {
+      alert("Successfully Saved");
+    } else {
+      alert("Failed To Save");
+    }
+  } else {
+    alert("Failed To Save");
+  }
 };
