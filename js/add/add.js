@@ -299,3 +299,7 @@ function mysql_real_escape_string(str) {
     }
   });
 }
+
+var showReport = () => {
+  window.open("report.php?q=" + query);
+};
