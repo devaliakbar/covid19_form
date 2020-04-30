@@ -65,8 +65,8 @@ if (mysqli_num_rows($result) > 0) {
                         <h6>ഫോറം 2</h4>
 
                             <div class="head">
-                                <h1>കോവിഡ് കാലത്ത് തിരിച്ചെത്താൻ സാധ്യതയുള്ള വിദേശ മലയാളികളുടെ വിവര ശേഖരണത്തിനുള്ള മാതൃക
-                                </h1>
+                                <h3>കോവിഡ് കാലത്ത് തിരിച്ചെത്താൻ സാധ്യതയുള്ള വിദേശ മലയാളികളുടെ വിവര ശേഖരണത്തിനുള്ള മാതൃക
+                                </h3>
                             </div>
 
                             <div class="content">
@@ -78,7 +78,7 @@ if (mysqli_num_rows($result) > 0) {
                                             <label for="company">തദ്ദേശ സ്ഥാപനത്തിന്റെ പേര്</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" id="company" class="form-control" value="<?php echo $details['organisation_name']; ?>">
+                                            <input type="text" style="font-weight: bold;" id="company" class="form-control" value="<?php echo $details['organisation_name']; ?>">
                                         </div>
                                     </div>
 
@@ -87,7 +87,7 @@ if (mysqli_num_rows($result) > 0) {
                                             <label for="ward">വാർഡ് നം.</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" id="ward" class="form-control" value="<?php echo $details['ward_no']; ?>">
+                                            <input type="text" style="font-weight: bold;" id="ward" class="form-control" value="<?php echo $details['ward_no']; ?>">
                                         </div>
                                     </div>
 
@@ -96,7 +96,7 @@ if (mysqli_num_rows($result) > 0) {
                                             <label for="name">പേര്</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" id="name" class="form-control" value="<?php echo $details['full_name']; ?>">
+                                            <input type="text" style="font-weight: bold;" id="name" class="form-control" value="<?php echo $details['full_name']; ?>">
                                         </div>
                                     </div>
 
@@ -151,7 +151,7 @@ if (mysqli_num_rows($result) > 0) {
                                                     <label for="age">വയസ്സ്</label>
                                                 </div>
                                                 <div class="col">
-                                                    <input type="text" id="age" class="form-control" value="<?php echo $details['age']; ?>">
+                                                    <input type="text" style="font-weight: bold;" id="age" class="form-control" value="<?php echo $details['age']; ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -172,7 +172,7 @@ if (mysqli_num_rows($result) > 0) {
                                             <label for="resi">ഇപ്പോൾ താമസിക്കുന്ന രാജ്യം</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" id="resi" class="form-control" value="<?php echo $details['current_country']; ?>">
+                                            <input type="text" style="font-weight: bold;" id="resi" class="form-control" value="<?php echo $details['current_country']; ?>">
                                         </div>
                                     </div>
 
@@ -232,7 +232,7 @@ if (mysqli_num_rows($result) > 0) {
                                     </div>
                                     <div class="form-row">
                                         <div class="col-12">
-                                            <input type="text" id="sympt" class="form-control" value="<?php echo $details['disease_info']; ?>">
+                                            <input type="text" style="font-weight: bold;" id="sympt" class="form-control" value="<?php echo $details['disease_info']; ?>">
                                         </div>
                                     </div>
 
@@ -496,7 +496,7 @@ if (mysqli_num_rows($result) > 0) {
 
                                         <div class="col">
 
-                                            <input type="text" class="form-control" value="<?php echo $details['rrt_name']; ?>">
+                                            <input type="text" style="font-weight: bold;" class="form-control" value="<?php echo $details['rrt_name']; ?>">
 
                                         </div>
                                     </div>
