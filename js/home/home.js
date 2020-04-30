@@ -47,14 +47,16 @@ var fillTable = (persons) => {
   for (var i = 0; i < persons.length; i++) {
     var gender = persons[i]["sex"] == "1" ? "Male" : "Female";
     var appendRaw =
-      " <a href='add.php?q=" + persons[i]["_id"] + "' class='tr'>";
+      "<div class='tr'>";
     appendRaw += "<div class='td'>" + (i + 1) + "</div>";
     appendRaw += "<div class='td'>" + persons[i]["full_name"] + "</div>";
     appendRaw += "<div class='td'>" + gender + "</div>";
     appendRaw += "<div class='td'>" + persons[i]["age"] + "</div>";
     appendRaw += "<div class='td'>" + persons[i]["current_country"] + "</div>";
     appendRaw += "<div class='td'>" + persons[i]["address"] + "</div>";
-    appendRaw += "</a>";
+    appendRaw += "<a href='report.php?q=" + persons[i]["_id"] + "' class='td'> <i class='fas fa-eye'></i></a>";
+    appendRaw += "<a href='add.php?q=" + persons[i]["_id"] + "' class='td'> <i class='fa fa-edit' aria-hidden='true'></i></div></a>";
+    appendRaw += "</div>";
     jQuery(".tbody").append(appendRaw);
   }
 };

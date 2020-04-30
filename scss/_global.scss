@@ -651,6 +651,18 @@ main {
             }
         }
     }
+
+    &.with-edit{
+        .tr,tr{
+            td,.td{
+                &:nth-last-child(2),
+                &:last-child{
+                    width: 30px;
+                    text-align: center;
+                }
+            }
+        }
+    }
 }
 .modal,
 .prompt {

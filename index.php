@@ -50,7 +50,7 @@ if (isset($_COOKIE['keep_login'])) {
 
 
         </div>
-        <div class="table-responsive">
+        <div class="table-responsive with-edit">
             <div class="resizable editable data-table table">
                 <div class="thead">
                     <div class="tr">
@@ -60,6 +60,8 @@ if (isset($_COOKIE['keep_login'])) {
                         <div class="th" class="filter editable">Age</div>
                         <div class="th" class="filter">Country</div>
                         <div class="th" class="filter">Address</div>
+                        <div class="th" class="filter"></div>
+                        <div class="th" class="filter"></div>
                     </div>
                 </div>
                 <div class="tbody">

@@ -36,7 +36,7 @@ if (isset($_COOKIE['keep_login'])) {
             <input type="password" placeholder="Password" id="password">
         </div>
         <div class="form-group login-btns">
-
+            
             <button class="modal-dismiss btn-primary mb-1" id="login">Log In</button>
         </div>
     </div>
