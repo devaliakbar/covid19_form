@@ -30,7 +30,8 @@ if (isset($_COOKIE['keep_login'])) {
     <h1>Home</h1>
     <div class="ml-auto">
 
-        <a href="add.php" class="btn btn-dark mr-3">Add Record</a>
+    <a href="quarantine_form_list.php" class="btn btn-dark mr-3">An Another One</a>
+        <a href="norka_add.php" class="btn btn-dark mr-3">Add Record</a>
         <button class="btn btn-dark log-btn" onclick='$("form").submit();'>Log Out</button>
 
 
@@ -84,7 +85,7 @@ if (isset($_COOKIE['keep_login'])) {
     <script src="js/resizableColumns.min.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/custom.js"></script>
-    <script src="js/home/home.js"></script>
+    <script src="js/norka_home/home.js"></script>
 </body>
 
 </html>

@@ -187,7 +187,7 @@ if (isset($_COOKIE['keep_login'])) {
     <script src="js/resizableColumns.min.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/custom.js"></script>
-    <script src="js/add/add.js"></script>
+    <script src="js/norka_add/add.js"></script>
 </body>
 
 </html>

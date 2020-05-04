@@ -292,7 +292,7 @@ var deleteRecord = async () => {
     var jsonResponce = await response.json();
     if (jsonResponce["success"]) {
       alert("Successfully Deleted");
-      window.location.replace("index.php");
+      window.location.replace("quarantine_form_list.php");
     } else {
       alert("Failed To Delete");
     }
@@ -329,5 +329,5 @@ function mysql_real_escape_string(str) {
 }
 
 var showReport = () => {
-  window.open("report.php?q=" + query);
+  window.open("quarantine_report.php?q=" + query);
 };
