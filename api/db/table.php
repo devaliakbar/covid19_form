@@ -83,6 +83,7 @@ $quarantineInfoCreateQuery = "CREATE TABLE quarantine_info(
     observation_started_date DATE,
     observation_end_date DATE,
     current_health_status VARCHAR(50),
+    risk_categorization BOOLEAN,
     sample_to_test_taken BOOLEAN,
     date_of_sample_taken DATE,
     result VARCHAR(50),
