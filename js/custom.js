@@ -1,4 +1,10 @@
 (function ($) {
+
+  
+  $(window).scroll(function(){
+    windowHeight = $(document).height();
+    console.log(windowHeight);
+  });
   // Navbar
   var allPanels = $(".dropdown > ul").hide();
 
@@ -115,14 +121,15 @@
     $("header").hide();
   }
 
-  //Add list
-  // $(".add-group button").click(function(){
-  //   var content =  $(this).siblings("input").val();
-  //   $(this).parent().siblings(".add-list").append("<div class='item'>"+content+"<span class='close'>X<span/></div>");
-  // })
-  // $(document).on('click','.close',function(){
-  //   $(this).parent().remove();
-  // });
+  // Add list
+  $(".add-group button").click(function(){
+    var content =  $(this).siblings("input").val();
+    $(this).parent().siblings(".add-list").append("<div class='item'>"+content+"<span class='close'>X<span/></div>");
+  })
+  $(document).on('click','.close',function(){
+    $(this).parent().remove();
+  });
+
 })(jQuery);
 
 var openedNav = 0;

@@ -518,7 +518,6 @@ if (mysqli_num_rows($result) > 0) {
     <script src="js/resizableColumns.min.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/custom.js"></script>
-    <script src="js/login/login.js"></script>
     <script>
     $(document).ready(function () {
     print()

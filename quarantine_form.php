@@ -27,7 +27,7 @@ if (isset($_COOKIE['keep_login'])) {
     <main class="payments-page">
 
         <div class="header">
-            <h1>Record</h1>
+            <h1>Basic Info</h1>
             <div class="breadcrumb">
                 <a href="#" onclick="window.location.replace('quarantine_form_list.php')"><i class="fas fa-home"></i></a>
             </div>
@@ -37,139 +37,408 @@ if (isset($_COOKIE['keep_login'])) {
 
         <div class="content">
             <div class="modal">
-                <div class="row">
 
-                    <div class="form-group mb-3 col-md-3">
-                        <label  class="mb-2">തദ്ദേശ സ്ഥാപനത്തിന്റെ പേര്</label>
-                        <input id="organisation_name" type="text" placeholder="തദ്ദേശ സ്ഥാപനത്തിന്റെ പേര്">
-                    </div>
+                <div class="basic-info">
+                    <div class="row">
 
-                    <div class="form-group mb-3 col-md-3 ">
-                    <label  class="mb-2">വാർഡ് നം.</label>
-                        <input id="ward_no" type="text" placeholder="വാർഡ് നം.">
-                    </div>
+                        <div class="form-group mb-3 col-md-3">
+                            <label class="mb-2">Name</label>
+                            <input id="organisation_name" type="text" placeholder="Name">
+                        </div>
 
-                    <div class="form-group mb-3 col-md-3 ">
-                    <label  class="mb-2">പേര്</label>
-                        <input id="full_name" type="text" placeholder="പേര്">
-                    </div>
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Age</label>
+                            <input id="ward_no" type="text" placeholder="Age">
+                        </div>
 
-                    <div class="form-group radio-inline col-auto mb-3 col-md-3">
+                        <div class="form-group radio-inline col-auto mb-3 col-md-3">
+                            <label class="">Gender : </label>
 
-                        <label class="custom-radio">പുരുഷൻ <input id="sex" name="sex" type="radio"><span class="checkmark ml-2"></label>
-                        <label class="custom-radio">സ്ത്രീ <input name="sex" type="radio"><span class="checkmark ml-2"></label>
-                    </div>
+                            <label class="custom-radio">Male <input id="sex" name="sex" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Female <input name="sex" type="radio"><span class="checkmark ml-2"></label>
+                        </div>
 
-                    <div class="form-group mb-3 col-md-3 ">
-                    <label  class="mb-2">വയസ്സ്</label>
-                        <input id="age" type="number" placeholder="വയസ്സ്">
-                    </div>
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Contact No</label>
+                            <input id="address" type="text" placeholder="Contact No">
+                        </div>
 
-                    <div class="form-group mb-3 col-md-3 ">
-                    <label  class="mb-2">വിലാസം</label>
-                        <input id="address" type="text" placeholder="വിലാസം">
-                    </div>
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">District</label>
+                            <input id="age" type="number" placeholder="District">
+                        </div>
 
-                    <div class="form-group mb-3 col-md-3 ">
-                    <label  class="mb-2">ഇപ്പോൾ താമസിക്കുന്ന രാജ്യം</label>
-                        <input id="current_country" type="text" placeholder="ഇപ്പോൾ താമസിക്കുന്ന രാജ്യം">
-                    </div>
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Address</label>
+                            <input id="" type="text" placeholder="Address">
+                        </div>
 
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Location</label>
+                            <input id="" type="text" placeholder="Location">
+                        </div>
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Passport No</label>
+                            <input id="" type="text" placeholder="Passport No">
+                        </div>
+                        <div class="col-12 pb-3">
+                            <hr class="my-4">
+                        </div>
 
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Origin Country</label>
+                            <input id="" type="text" placeholder="Origin Country">
+                        </div>
 
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Origin State</label>
+                            <input id="" type="text" placeholder="Origin State">
+                        </div>
 
-                    <div class="form-group radio-inline col-auto mb-3 col-md-3">
-                        <label>തിരിച്ചെത്തുന്നതിനായി നോർക്കയിൽ രജിസ്റ്റർ ചെയ്തിട്ടുണ്ടോ</label>
-                        <label class="custom-radio">ഉണ്ട് <input id="return_registered" name="return_registered" type="radio"><span class="checkmark ml-2"></label>
-                        <label class="custom-radio">ഇല്ല <input name="return_registered" type="radio"><span class="checkmark ml-2"></label>
-                    </div>
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Origin District</label>
+                            <input id="" type="text" placeholder="Origin District">
+                        </div>
 
-                    <div class="form-group radio-inline col-auto mb-3 col-md-3">
-                        <label>രോഗങ്ങളെന്തെങ്കിലും ഉള്ള ആളാണോ ?</label>
-                        <label class="custom-radio">അതെ <input id="any_disease" name="any_disease" type="radio"><span class="checkmark ml-2"></label>
-                        <label class="custom-radio">അല്ല <input id="false_desease" name="any_disease" type="radio"><span class="checkmark ml-2"></label>
-                    </div>
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">PHC Area</label>
+                            <input id="" type="text" placeholder="PHC Area">
+                        </div>
 
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Place to visit</label>
+                            <select name="">
+                                <option selected disabled>Place to visit</option>
+                                <option value="month">Inter District</option>
+                                <option value="between">Inter State</option>
+                                <option value="between">International</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group mb-3 col-md-12 " id="disease">
-                    <label>അതെ എങ്കിൽ രോഗത്തിന്റെ
-വിവരം</label>
-                        <input id="disease_info" type="text" placeholder="അതെ എങ്കിൽ രോഗത്തിന്റെ
-വിവരം">
-                    </div>
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Departure Date</label>
+                            <input id="" type="text" placeholder="Departure Date">
+                        </div>
 
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Arrival Date</label>
+                            <input id="" type="text" placeholder="Arrival Date">
+                        </div>
 
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Date of Information Received</label>
+                            <input id="" type="text" placeholder="Date of Information Received">
+                        </div>
 
-                    <div class="form-group radio-inline col-auto mb-3 col-md-12">
-                        <label>ഹോം ക്വാറന്റൈനിങ്ങിനാവശ്യമായ ശുചി മുറിയോട് കൂടിയ പ്രത്യേക മുറി വീട്ടിൽ ലഭ്യമാണോ</label>
-                        <label class="custom-radio">ഉണ്ട് <input id="room_available" name="room_available" type="radio"><span class="checkmark ml-2"></label>
-                        <label class="custom-radio">ഇല്ല <input id="no_room_available" name="room_available" type="radio"><span class="checkmark ml-2"></label>
-                    </div>
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Source Of Information</label>
+                            <select name="">
+                                <option selected disabled>Source Of Information</option>
+                                <option value="month">Airport</option>
+                                <option value="between">Check post</option>
+                                <option value="between">DMO Office</option>
+                                <option value="between">Ward Member</option>
+                                <option value="between">Junior Health Inspector(JHI)</option>
+                                <option value="between">Junior Public Health Nurse</option>
+                                <option value="between">ASHA Worker</option>
+                                <option value="between">Volunteers</option>
+                            </select>
+                        </div>
 
-                    <div class="col-12" id="home-quar">
-                        <div class="row">
-
-                            <div class="col-12 mb-2"><label for="">ആണെങ്കിൽ വീട്ടിലെ മറ്റ് അംഗങ്ങളിൽ</label></div>
-
-
-                            <div class="form-group radio-inline col-auto mb-3 col-md-3">
-                                <label>പ്രായാധിക്യമുള്ളവർ</label>
-                                <label class="custom-radio">ഉണ്ട് <input id="aged_person" name="aged_person" type="radio"><span class="checkmark ml-2"></label>
-                                <label class="custom-radio">ഇല്ല <input name="aged_person" type="radio"><span class="checkmark ml-2"></label>
-                            </div>
-
-                            <div class="form-group radio-inline col-auto mb-3 col-md-3">
-                                <label>കിടപ്പ് രോഗികൾ</label>
-                                <label class="custom-radio">ഉണ്ട് <input id="bed_rest_person" name="bed_rest_person" type="radio"><span class="checkmark ml-2"></label>
-                                <label class="custom-radio">ഇല്ല <input name="bed_rest_person" type="radio"><span class="checkmark ml-2"></label>
-                            </div>
-
-                            <div class="form-group radio-inline col-auto mb-3 col-md-3">
-                                <label>ഗുരുതര രോഗമുള്ളവർ</label>
-                                <label class="custom-radio">ഉണ്ട് <input id="desease_people" name="desease_people" type="radio"><span class="checkmark ml-2"></label>
-                                <label class="custom-radio">ഇല്ല <input name="desease_people" type="radio"><span class="checkmark ml-2"></label>
-                            </div>
-
-
-                            <div class="form-group radio-inline col-auto mb-3 col-md-3">
-                                <label>ഗർഭിണികൾ</label>
-                                <label class="custom-radio">ഉണ്ട് <input id="pregnant_people" name="pregnant_people" type="radio"><span class="checkmark ml-2"></label>
-                                <label class="custom-radio">ഇല്ല <input name="pregnant_people" type="radio"><span class="checkmark ml-2"></label>
-                            </div>
-
-
-                            <div class="form-group radio-inline col-auto mb-3 col-md-3">
-                                <label>ഹോം ക്വാറന്റൈനിങ്ങിന് വീട്ടിൽ സൗകര്യമുണ്ടോ എന്നത് സംബന്ധിച്ച് ആർ ആർ ടി യുടെ ശിപാർശ</label>
-                                <label class="custom-radio">ഉണ്ട് <input id="confirmation_from_rrt" name="confirmation_from_rrt" type="radio"><span class="checkmark ml-2"></label>
-                                <label class="custom-radio">ഇല്ല <input name="confirmation_from_rrt" type="radio"><span class="checkmark ml-2"></label>
-                            </div>
-
-                            <div class="form-group radio-inline col-auto mb-3 col-md-3">
-                                <label>ഇല്ല എന്നാണെങ്കിൽ ഹോം ക്വാറന്റൈനിങ്ങിനാവശ്യമായ മുറി വീട്ടിൽ ലഭ്യമല്ലങ്കിൽ ബന്ധുക്കളുടെ വീട്ടിൽ ലഭ്യമാണോ </label>
-                                <label class="custom-radio">ഉണ്ട് <input id="relative_home_available" name="relative_home_available" type="radio"><span class="checkmark ml-2"></label>
-                                <label class="custom-radio">ഇല്ല <input name="relative_home_available" type="radio"><span class="checkmark ml-2"></label>
-                            </div>
-
-                            <div class="form-group radio-inline col-auto mb-3 col-md-3">
-                                <label>ഉണ്ടെങ്കിൽ ടി സൗകര്യം ആർ ആർ ടി ഹോം ക്വാറന്റൈനിങ്ങിന് ശിപാർശ ചെയ്യുന്നുവോ</label>
-                                <label class="custom-radio">ഉണ്ട് <input id="relative_confirmation_from_rrt" name="relative_confirmation_from_rrt" type="radio"><span class="checkmark ml-2"></label>
-                                <label class="custom-radio">ഇല്ല <input name="relative_confirmation_from_rrt" type="radio"><span class="checkmark ml-2"></label>
-                            </div>
+                        <div class="col-12 pb-3">
+                            <hr class="my-4">
+                        </div>
 
 
-                            <div class="form-group mb-3 col-md-3 ">
-                            <label  class="mb-2">ആർ ആർ ടി കൺവീനറുടെ പേരും ഒപ്പും</label>
-                                <input id="rrt_name" type="text" placeholder="ആർ ആർ ടി കൺവീനറുടെ പേരും ഒപ്പും">
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Panchayat Ward No.</label>
+                            <input id="" type="text" placeholder="Panchayat Ward No.">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Source of Contact Number</label>
+                            <input id="" type="text" placeholder="Source of Contact Number">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Observation Started Date</label>
+                            <input id="" type="text" placeholder="Observation Started Date">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Observation End Date</label>
+                            <input id="" type="text" placeholder="Observation End Date">
+                        </div>
+
+
+
+                        <div class="form-group radio-inline col-auto mb-3 col-md-4">
+                            <label class="">Current Health Status : </label>
+
+                            <label class="custom-radio">Symptomatic<input name="Status" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Asymptomatic<input name="Status" type="radio"><span class="checkmark ml-2"></label>
+                        </div>
+
+                        <div class="form-group radio-inline col-auto mb-3 col-md-4">
+                            <label class="">Risk Categorization : </label>
+
+                            <label class="custom-radio">High <input name="Risk" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Low <input name="Risk" type="radio"><span class="checkmark ml-2"></label>
+                        </div>
+
+                        <div class="form-group radio-inline col-auto mb-3 col-md-4">
+                            <label class="">Sample to test Taken : </label>
+
+                            <label class="custom-radio">Yes <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">No <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Date of Sample Taken</label>
+                            <input id="" type="date" placeholder="Date of Sample Taken">
+                        </div>
+
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Result</label>
+                            <select name="">
+                                <option selected disabled>Result</option>
+                                <option value="month">NAPos</option>
+                                <option value="between">Neg</option>
+                                <option value="between">Pending</option>
+                                <option value="between">Discharged</option>
+                                <option value="between">Released</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group radio-inline col-auto mb-3 col-md-3 align-self-start pt-4">
+                            <label class="">Travelled with Positive Case : </label>
+
+                            <label class="custom-radio">Yes <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">No <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
+                        </div>
+                        <div class="form-group mb-3 col-md-6 ">
+                            <label class="mb-2">Details</label>
+                            <textarea name="" id="" rows="5"></textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <hr class="mt-4">
+                        </div>
+
+                        <div class="mb-2 col-md-12 ">
+                            <label class="mb-3 mt-4"><b>Family Info</b></label>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Under 5</label>
+                            <input id="" type="text" placeholder="Under 5">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Between 5 - 10</label>
+                            <input id="" type="text" placeholder="Between 5 - 10">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Between 17 - 59</label>
+                            <input id="" type="text" placeholder="Between 17 - 59">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">59 and above</label>
+                            <input id="" type="text" placeholder="59 and above">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-6 ">
+                            <label class="mb-2">Details</label>
+                            <textarea name="" id="" rows="5"></textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <hr class="mt-4">
+                        </div>
+
+
+                        <div class="mb-2 col-md-12 ">
+                            <label class="mb-3 mt-4"><b>Visited Places</b></label>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label class="mb-2">Name of the Location</label>
+                            <div class="add-group"><input id="" type="text" placeholder="Name of the Location"><button>+</button></div>
+                            <div class="add-list">
+                                <div class="item">Ernakulam<span class="close">X</span></div>
+                                <div class="item">Alapuzha<span class="close">X<span></span></span></div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group mb-3 col-md-3 form-group-inline ml-auto bill-actions text-right">
-                        <button onclick="save()" class="btn-primary">Save</button>
-                        <button onclick="showReport()" class="btn-dark print mx-3"> Print </button>
-                        <button onclick="deleteRecord()" class="btn-dark dlt"> Delete </button>
-                    </div>
+                        <div class="col-12">
+                            <hr class="mt-4">
+                        </div>
 
+                        <div class="mb-2 col-md-12 ">
+                            <label class="mb-3 mt-4"><b>Primary Contact Persons</b></label>
+                        </div>
+
+                        <div class="col-12 add-row-group">
+                            <div class="row no-gutters all-form-group-wrap">
+                                <div class="form-group mb-3 col-md-3">
+                                    <label class="mb-2">Name </label>
+                                    <input id="" type="text" placeholder="Name">
+                                </div>
+                                <div class="form-group mb-3 col-md-3">
+                                    <label class="mb-2">Mobile Number</label>
+                                    <input id="" type="text" placeholder="Name">
+                                </div>
+                                <div class="form-group mb-3 col-md-3">
+                                    <label class="mb-2">Location</label>
+                                    <input id="" type="text" placeholder="Location">
+                                </div>
+                                <div class="form-group mb-3 col-md-3 add-btn-wrap">
+                                    <label class="mb-2">Age</label>
+                                    <input id="" type="text" placeholder="Age">
+                                        <button>+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="table-responsive modal-responsive">
+
+                                <table class="resizable editable data-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="filter">Name</th>
+                                            <th class="filter editable">Mobile Number</th>
+                                            <th class="filter">Location</th>
+                                            <th class="filter editable">Age</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <hr class="mt-4">
+                        </div>
+
+                        <div class="mb-2 col-md-12 ">
+                            <label class="mb-3 mt-4"><b>Secondary Contact Persons</b></label>
+                        </div>
+
+
+                        <div class="col-12 add-row-group">
+                            <div class="row no-gutters all-form-group-wrap">
+                                <div class="form-group mb-3 col-md-3">
+                                    <label class="mb-2">Name </label>
+                                    <input id="" type="text" placeholder="Name">
+                                </div>
+                                <div class="form-group mb-3 col-md-3">
+                                    <label class="mb-2">Mobile Number</label>
+                                    <input id="" type="text" placeholder="Name">
+                                </div>
+                                <div class="form-group mb-3 col-md-3">
+                                    <label class="mb-2">Location</label>
+                                    <input id="" type="text" placeholder="Location">
+                                </div>
+                                <div class="form-group mb-3 col-md-3 add-btn-wrap">
+                                    <label class="mb-2">Age</label>
+                                    <input id="" type="text" placeholder="Age">
+                                        <button>+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="table-responsive modal-responsive">
+
+                                <table class="resizable editable data-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="filter">Name</th>
+                                            <th class="filter editable">Mobile Number</th>
+                                            <th class="filter">Location</th>
+                                            <th class="filter editable">Age</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                        <div class="sticky-save">
+
+                            <button onclick="save()" class="btn-primary">Save</button>
+                        </div>
+
+                        <!-- <div class="form-group col-auto ml-auto">
+                            <button onclick="save()" class="btn-primary">Submit</button>
+                            <button onclick="showReport()" class="btn-dark print mx-3"> Print </button>
+                            <button onclick="deleteRecord()" class="btn-dark dlt"> Delete </button>
+                        </div> -->
+
+                    </div>
+                </div>
+
+
+
+                <div class="primary-contact-detail">
+                    <div class="row">
+
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,47 +1,14 @@
 <?php
-include 'api/db/common.php';
-
-$query = '';
-if (isset($_GET['q'])) {
-    $query = $_GET['q'];
-}
-
-$queryForFechingRecords = "SELECT * FROM person_info WHERE _id = '" . $query . "'";
-
-$result = mysqli_query($conn, $queryForFechingRecords);
-if (mysqli_num_rows($result) > 0) {
-    $response["success"] = true;
-
-    $details = array();
-    while ($row = mysqli_fetch_assoc($result)) {
-        $details['_id'] = $row["_id"];
-        $details['organisation_name'] = $row["organisation_name"];
-        $details['ward_no'] = $row["ward_no"];
-        $details['full_name'] = $row["full_name"];
-        $details['sex'] = $row["sex"];
-        $details['age'] = $row["age"];
-        $details['address'] = $row["address"];
-        $details['current_country'] = $row["current_country"];
-        $details['return_registered'] = $row["return_registered"];
-        $details['any_disease'] = $row["any_disease"];
-        $details['disease_info'] = $row["disease_info"];
-        $details['room_available'] = $row["room_available"];
-        $details['aged_person'] = $row["aged_person"];
-        $details['bed_rest_person'] = $row["bed_rest_person"];
-        $details['desease_people'] = $row["desease_people"];
-        $details['pregnant_people'] = $row["pregnant_people"];
-        $details['confirmation_from_rrt'] = $row["confirmation_from_rrt"];
-        $details['relative_home_available'] = $row["relative_home_available"];
-        $details['relative_confirmation_from_rrt'] = $row["relative_confirmation_from_rrt"];
-        $details['rrt_name'] = $row["rrt_name"];
+if (isset($_COOKIE['keep_login'])) {
+    if ($_COOKIE['keep_login'] == 'false') {
+        header("Location: login.php");
+        exit();
     }
+} else {
+    header("Location: login.php");
+    exit();
 }
-
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
 
 
 <!DOCTYPE html>
@@ -52,478 +19,444 @@ if (mysqli_num_rows($result) > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <title>Report</title>
+    <title>Record</title>
 </head>
 
 <body>
-    <section class="form-2">
-        <div class="container">
 
-            <div class="wrapper">
-                <div class="row">
-                    <div class="col-12">
-                        <h6>ഫോറം 2</h4>
+    <main class="payments-page">
 
-                            <div class="head">
-                                <h3>കോവിഡ് കാലത്ത് തിരിച്ചെത്താൻ സാധ്യതയുള്ള വിദേശ മലയാളികളുടെ വിവര ശേഖരണത്തിനുള്ള മാതൃക
-                                </h3>
+        <div class="header">
+            <h1>Basic Info</h1>
+            <div class="breadcrumb">
+                <a href="#" onclick="window.location.replace('quarantine_form_list.php')"><i class="fas fa-home"></i></a>
+            </div>
+            <div class="bottom-header">
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="modal">
+
+                <div class="basic-info">
+                    <div class="row">
+
+                        <div class="form-group mb-3 col-md-3">
+                            <label class="mb-2">Name</label>
+                            <input id="organisation_name" type="text" placeholder="Name">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Age</label>
+                            <input id="ward_no" type="text" placeholder="Age">
+                        </div>
+
+                        <div class="form-group radio-inline col-auto mb-3 col-md-3">
+                            <label class="">Gender : </label>
+
+                            <label class="custom-radio">Male <input id="sex" name="sex" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Female <input name="sex" type="radio"><span class="checkmark ml-2"></label>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Contact No</label>
+                            <input id="address" type="text" placeholder="Contact No">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">District</label>
+                            <input id="age" type="number" placeholder="District">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Address</label>
+                            <input id="" type="text" placeholder="Address">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Location</label>
+                            <input id="" type="text" placeholder="Location">
+                        </div>
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Passport No</label>
+                            <input id="" type="text" placeholder="Passport No">
+                        </div>
+                        <div class="col-12 pb-3">
+                            <hr class="my-4">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Origin Country</label>
+                            <input id="" type="text" placeholder="Origin Country">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Origin State</label>
+                            <input id="" type="text" placeholder="Origin State">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Origin District</label>
+                            <input id="" type="text" placeholder="Origin District">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">PHC Area</label>
+                            <input id="" type="text" placeholder="PHC Area">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Place to visit</label>
+                            <select name="">
+                                <option selected disabled>Place to visit</option>
+                                <option value="month">Inter District</option>
+                                <option value="between">Inter State</option>
+                                <option value="between">International</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Departure Date</label>
+                            <input id="" type="text" placeholder="Departure Date">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Arrival Date</label>
+                            <input id="" type="text" placeholder="Arrival Date">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Date of Information Received</label>
+                            <input id="" type="text" placeholder="Date of Information Received">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Source Of Information</label>
+                            <select name="">
+                                <option selected disabled>Source Of Information</option>
+                                <option value="month">Airport</option>
+                                <option value="between">Check post</option>
+                                <option value="between">DMO Office</option>
+                                <option value="between">Ward Member</option>
+                                <option value="between">Junior Health Inspector(JHI)</option>
+                                <option value="between">Junior Public Health Nurse</option>
+                                <option value="between">ASHA Worker</option>
+                                <option value="between">Volunteers</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 pb-3">
+                            <hr class="my-4">
+                        </div>
+
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Panchayat Ward No.</label>
+                            <input id="" type="text" placeholder="Panchayat Ward No.">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Source of Contact Number</label>
+                            <input id="" type="text" placeholder="Source of Contact Number">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Observation Started Date</label>
+                            <input id="" type="text" placeholder="Observation Started Date">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Observation End Date</label>
+                            <input id="" type="text" placeholder="Observation End Date">
+                        </div>
+
+
+
+                        <div class="form-group radio-inline col-auto mb-3 col-md-4">
+                            <label class="">Current Health Status : </label>
+
+                            <label class="custom-radio">Symptomatic<input name="Status" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Asymptomatic<input name="Status" type="radio"><span class="checkmark ml-2"></label>
+                        </div>
+
+                        <div class="form-group radio-inline col-auto mb-3 col-md-4">
+                            <label class="">Risk Categorization : </label>
+
+                            <label class="custom-radio">High <input name="Risk" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Low <input name="Risk" type="radio"><span class="checkmark ml-2"></label>
+                        </div>
+
+                        <div class="form-group radio-inline col-auto mb-3 col-md-4">
+                            <label class="">Sample to test Taken : </label>
+
+                            <label class="custom-radio">Yes <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">No <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Date of Sample Taken</label>
+                            <input id="" type="date" placeholder="Date of Sample Taken">
+                        </div>
+
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Result</label>
+                            <select name="">
+                                <option selected disabled>Result</option>
+                                <option value="month">NAPos</option>
+                                <option value="between">Neg</option>
+                                <option value="between">Pending</option>
+                                <option value="between">Discharged</option>
+                                <option value="between">Released</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group radio-inline col-auto mb-3 col-md-3 align-self-start pt-4">
+                            <label class="">Travelled with Positive Case : </label>
+
+                            <label class="custom-radio">Yes <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">No <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
+                        </div>
+                        <div class="form-group mb-3 col-md-6 ">
+                            <label class="mb-2">Details</label>
+                            <textarea name="" id="" rows="5"></textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <hr class="mt-4">
+                        </div>
+
+                        <div class="mb-2 col-md-12 ">
+                            <label class="mb-3 mt-4"><b>Family Info</b></label>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Under 5</label>
+                            <input id="" type="text" placeholder="Under 5">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Between 5 - 10</label>
+                            <input id="" type="text" placeholder="Between 5 - 10">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Between 17 - 59</label>
+                            <input id="" type="text" placeholder="Between 17 - 59">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">59 and above</label>
+                            <input id="" type="text" placeholder="59 and above">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-6 ">
+                            <label class="mb-2">Details</label>
+                            <textarea name="" id="" rows="5"></textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <hr class="mt-4">
+                        </div>
+
+
+                        <div class="mb-2 col-md-12 ">
+                            <label class="mb-3 mt-4"><b>Visited Places</b></label>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label class="mb-2">Name of the Location</label>
+                            <div class="add-group"><input id="" type="text" placeholder="Name of the Location"><button>+</button></div>
+                            <div class="add-list">
+                                <div class="item">Ernakulam<span class="close">X</span></div>
+                                <div class="item">Alapuzha<span class="close">X<span></span></span></div>
                             </div>
-
-                            <div class="content">
-
-                                <form class="">
-
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <label for="company">തദ്ദേശ സ്ഥാപനത്തിന്റെ പേര്</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text"  id="company" class="form-control" value="<?php echo $details['organisation_name']; ?>">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <label for="ward">വാർഡ് നം.</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text"  id="ward" class="form-control" value="<?php echo $details['ward_no']; ?>">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <label for="name">പേര്</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text"  id="name" class="form-control" value="<?php echo $details['full_name']; ?>">
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-
-                                        <div class="col">
-                                            <div class="row">
-
-                                                <div class="col-md-6">
-
-                                                    <div class="form-row">
-
-                                                        <div class="col">
-                                                            <label>പുരുഷൻ</label>
-                                                        </div>
-                                                        <div class="col">
-
-                                                            <label class="checkbox">
-                                                                <input type="checkbox" <?php echo $details['sex'] == '1' ? 'checked' : ''; ?>>
-                                                                <span class="checkmark"></span>
-                                                            </label>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <label>സ്ത്രീ</label>
-                                                        </div>
-                                                        <div class="col">
-
-                                                            <label class="checkbox">
-                                                                <input type="checkbox" <?php echo $details['sex'] == '0' ? 'checked' : ''; ?>>
-                                                                <span class="checkmark"></span>
-                                                            </label>
-
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col">
-                                            <div class="form-row">
-                                                <div class="col">
-                                                    <label for="age">വയസ്സ്</label>
-                                                </div>
-                                                <div class="col">
-                                                    <input type="text"  id="age" class="form-control" value="<?php echo $details['age']; ?>">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="form-row address-group">
-                                        <div class="col-auto">
-                                            <label for="addr">വിലാസം</label>
-                                        </div>
-                                        <div class="col">
-                                            <textarea name="" id="addr" class="form-control"><?php echo $details['address']; ?></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <label for="resi">ഇപ്പോൾ താമസിക്കുന്ന രാജ്യം</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text"  id="resi" class="form-control" value="<?php echo $details['current_country']; ?>">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <label for="ret">തിരിച്ചെത്തുന്നതിനായി നോർക്കയിൽ രജിസ്റ്റർ ചെയ്തിട്ടുണ്ടോ</label>
-                                        </div>
-                                        <div class="col-auto bd-l">
-                                            <div class="row">
-                                                <div class="col">
-
-                                                    <label class="checkbox yes">
-                                                        <input type="checkbox" <?php echo $details['return_registered'] == '1' ? 'checked' : ''; ?>>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="col">
-                                                    <label class="checkbox no">
-                                                        <input type="checkbox" <?php echo $details['return_registered'] == '0' ? 'checked' : ''; ?>>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <label for="disease">രോഗങ്ങളെന്തെങ്കിലും ഉള്ള ആളാണോ</label>
-                                        </div>
-                                        <div class="col-auto bd-l">
-                                            <div class="row">
-
-                                                <div class="col">
-                                                    <label class="checkbox yes">
-                                                        <input type="checkbox" <?php echo $details['any_disease'] == '1' ? 'checked' : ''; ?>>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-
-                                                <div class="col">
-                                                    <label class="checkbox no">
-                                                        <input type="checkbox" <?php echo $details['any_disease'] == '0' ? 'checked' : ''; ?>>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <label for="sympt">അതെ എങ്കിൽ രോഗത്തിന്റെ
-വിവരം</label>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-12">
-                                            <input type="text"  id="sympt" class="form-control" value="<?php echo $details['disease_info']; ?>">
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="row">
-
-                                        <div class="col">
-                                            <label for="age">ഹോം ക്വാറന്റൈനിങ്ങിനാവശ്യമായ ശുചി മുറിയോട് കൂടിയ പ്രത്യേക മുറി വീട്ടിൽ ലഭ്യമാണോ</label>
-                                        </div>
-
-                                        <div class="col-auto bd-l">
-                                            <div class="form-row">
-
-                                                <div class="col">
-
-                                                    <label class="checkbox yes">
-                                                        <input type="checkbox" <?php echo $details['room_available'] == '1' ? 'checked' : ''; ?>>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-
-                                                </div>
-                                                <div class="col">
-                                                    <label class="checkbox no">
-                                                        <input type="checkbox" <?php echo $details['room_available'] == '0' ? 'checked' : ''; ?>>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row">
-
-                                        <div class="col">
-                                            <label for="age">ആണെങ്കിൽ വീട്ടിലെ മറ്റ് അംഗങ്ങളിൽ</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col">
-
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="age">പ്രായാധിക്യമുള്ളവർ</label>
-                                                </div>
-                                                <div class="col-auto bd-l">
-                                                    <div class="row">
-                                                        <div class="col">
-
-                                                            <label class="checkbox yes">
-                                                                <input type="checkbox" <?php echo $details['aged_person'] == '1' ? 'checked' : ''; ?>>
-                                                                <span class="checkmark"></span>
-                                                            </label>
-
-                                                        </div>
-                                                        <div class="col">
-
-                                                            <label class="checkbox no">
-                                                                <input type="checkbox" <?php echo $details['aged_person'] == '0' ? 'checked' : ''; ?>>
-                                                                <span class="checkmark"></span>
-                                                            </label>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="col">
-
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="age">കിടപ്പ് രോഗികൾ</label>
-                                                </div>
-                                                <div class="col-auto bd-l pl--5">
-                                                    <div class="row">
-                                                        <div class="col">
-
-                                                            <label class="checkbox yes">
-                                                                <input type="checkbox" name="gender" id="" <?php echo $details['bed_rest_person'] == '1' ? 'checked' : ''; ?>>
-                                                                <span class="checkmark"></span>
-                                                            </label>
-
-                                                        </div>
-                                                        <div class="col">
-
-                                                            <label class="checkbox no">
-                                                                <input type="checkbox" name="gender" id="" <?php echo $details['bed_rest_person'] == '0' ? 'checked' : ''; ?>>
-                                                                <span class="checkmark"></span>
-                                                            </label>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col">
-
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="age">ഗുരുതര രോഗമുള്ളവർ</label>
-                                                </div>
-                                                <div class="col-auto bd-l">
-                                                    <div class="row">
-                                                        <div class="col">
-
-                                                            <label class="checkbox yes">
-                                                                <input type="checkbox" name="" id="" <?php echo $details['desease_people'] == '1' ? 'checked' : ''; ?>>
-                                                                <span class="checkmark"></span>
-                                                            </label>
-
-                                                        </div>
-                                                        <div class="col">
-                                                            <label class="checkbox no">
-                                                                <input type="checkbox" name="" id="" <?php echo $details['desease_people'] == '0' ? 'checked' : ''; ?>>
-                                                                <span class="checkmark"></span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="col">
-
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="age">ഗർഭിണികൾ</label>
-                                                </div>
-                                                <div class="col-auto bd-l pl--5">
-                                                    <div class="row">
-                                                        <div class="col">
-
-                                                            <label class="checkbox yes">
-                                                                <input type="checkbox" name="" id="" <?php echo $details['pregnant_people'] == '1' ? 'checked' : ''; ?>>
-                                                                <span class="checkmark"></span>
-                                                            </label>
-
-                                                        </div>
-                                                        <div class="col">
-
-                                                            <label class="checkbox no">
-                                                                <input type="checkbox" name="" id="" <?php echo $details['pregnant_people'] == '0' ? 'checked' : ''; ?>>
-                                                                <span class="checkmark"></span>
-                                                            </label>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
-
-                                        <div class="col">
-                                            <label for="age">ഹോം ക്വാറന്റൈനിങ്ങിന് വീട്ടിൽ സൗകര്യമുണ്ടോ എന്നത് സംബന്ധിച്ച് ആർ ആർ ടി യുടെ ശിപാർശ</label>
-                                        </div>
-
-                                        <div class="col-auto bd-l">
-
-                                            <div class="row">
-                                                <div class="col">
-
-                                                    <label class="checkbox yes">
-                                                        <input type="checkbox" name="" id="" <?php echo $details['confirmation_from_rrt'] == '1' ? 'checked' : ''; ?>>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-
-                                                </div>
-                                                <div class="col">
-
-                                                    <label class="checkbox no">
-                                                        <input type="checkbox" name="" id="" <?php echo $details['confirmation_from_rrt'] == '0' ? 'checked' : ''; ?>>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-
-                                        <div class="col">
-                                            <label for="age">ഇല്ല എന്നാണെങ്കിൽ ഹോം ക്വാറന്റൈനിങ്ങിനാവശ്യമായ മുറി വീട്ടിൽ ലഭ്യമല്ലങ്കിൽ ബന്ധുക്കളുടെ വീട്ടിൽ ലഭ്യമാണോ</label>
-                                        </div>
-
-                                        <div class="col-auto bd-l">
-
-                                            <div class="row">
-                                                <div class="col">
-
-                                                    <label class="checkbox yes">
-                                                        <input type="checkbox" name="" id="" <?php echo $details['relative_home_available'] == '1' ? 'checked' : ''; ?>>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-
-                                                </div>
-                                                <div class="col">
-
-                                                    <label class="checkbox no">
-                                                        <input type="checkbox" name="" id="" <?php echo $details['relative_home_available'] == '0' ? 'checked' : ''; ?>>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-
-                                        <div class="col">
-                                            <label for="age">ഉണ്ടെങ്കിൽ ടി സൗകര്യം ആർ ആർ ടി ഹോം ക്വാറന്റൈനിങ്ങിന് ശിപാർശ ചെയ്യുന്നുവോ</label>
-                                        </div>
-
-                                        <div class="col-auto bd-l">
-
-                                            <div class="row">
-                                                <div class="col">
-
-                                                    <label class="checkbox yes">
-                                                        <input type="checkbox" name="" id="" <?php echo $details['relative_confirmation_from_rrt'] == '1' ? 'checked' : ''; ?>>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-
-                                                </div>
-                                                <div class="col">
-
-                                                    <label class="checkbox no">
-                                                        <input type="checkbox" name="" id="" <?php echo $details['relative_confirmation_from_rrt'] == '0' ? 'checked' : ''; ?>>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-
-                                        <div class="col-auto">
-                                            <label for="age">ആർ ആർ ടി കൺവീനറുടെ പേരും ഒപ്പും</label>
-                                        </div>
-
-                                        <div class="col">
-
-                                            <input type="text"  class="form-control" value="<?php echo $details['rrt_name']; ?>">
-
-                                        </div>
-                                    </div>
-
-                                </form>
-
+                        </div>
+
+                        <div class="col-12">
+                            <hr class="mt-4">
+                        </div>
+
+                        <div class="mb-2 col-md-12 ">
+                            <label class="mb-3 mt-4"><b>Primary Contact Persons</b></label>
+                        </div>
+
+                        <div class="col-12 add-row-group">
+                            <div class="row no-gutters all-form-group-wrap">
+                                <div class="form-group mb-3 col-md-3">
+                                    <label class="mb-2">Name </label>
+                                    <input id="" type="text" placeholder="Name">
+                                </div>
+                                <div class="form-group mb-3 col-md-3">
+                                    <label class="mb-2">Mobile Number</label>
+                                    <input id="" type="text" placeholder="Name">
+                                </div>
+                                <div class="form-group mb-3 col-md-3">
+                                    <label class="mb-2">Location</label>
+                                    <input id="" type="text" placeholder="Location">
+                                </div>
+                                <div class="form-group mb-3 col-md-3 add-btn-wrap">
+                                    <label class="mb-2">Age</label>
+                                    <input id="" type="text" placeholder="Age">
+                                        <button>+</button>
+                                </div>
                             </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="table-responsive modal-responsive">
+
+                                <table class="resizable editable data-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="filter">Name</th>
+                                            <th class="filter editable">Mobile Number</th>
+                                            <th class="filter">Location</th>
+                                            <th class="filter editable">Age</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <hr class="mt-4">
+                        </div>
+
+                        <div class="mb-2 col-md-12 ">
+                            <label class="mb-3 mt-4"><b>Secondary Contact Persons</b></label>
+                        </div>
+
+
+                        <div class="col-12 add-row-group">
+                            <div class="row no-gutters all-form-group-wrap">
+                                <div class="form-group mb-3 col-md-3">
+                                    <label class="mb-2">Name </label>
+                                    <input id="" type="text" placeholder="Name">
+                                </div>
+                                <div class="form-group mb-3 col-md-3">
+                                    <label class="mb-2">Mobile Number</label>
+                                    <input id="" type="text" placeholder="Name">
+                                </div>
+                                <div class="form-group mb-3 col-md-3">
+                                    <label class="mb-2">Location</label>
+                                    <input id="" type="text" placeholder="Location">
+                                </div>
+                                <div class="form-group mb-3 col-md-3 add-btn-wrap">
+                                    <label class="mb-2">Age</label>
+                                    <input id="" type="text" placeholder="Age">
+                                        <button>+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="table-responsive modal-responsive">
+
+                                <table class="resizable editable data-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="filter">Name</th>
+                                            <th class="filter editable">Mobile Number</th>
+                                            <th class="filter">Location</th>
+                                            <th class="filter editable">Age</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Muneer</td>
+                                            <td>64466554</td>
+                                            <td>conctetur</td>
+                                            <td>24</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                        <div class="sticky-save">
+
+                            <button onclick="save()" class="btn-primary">Save</button>
+                        </div>
+
+                        <!-- <div class="form-group col-auto ml-auto">
+                            <button onclick="save()" class="btn-primary">Submit</button>
+                            <button onclick="showReport()" class="btn-dark print mx-3"> Print </button>
+                            <button onclick="deleteRecord()" class="btn-dark dlt"> Delete </button>
+                        </div> -->
+
+                    </div>
+                </div>
+
+
+
+                <div class="primary-contact-detail">
+                    <div class="row">
 
                     </div>
                 </div>
             </div>
-
         </div>
-    </section>
 
+
+
+    </main>
+
+    <div class="loader">
+        <div class="spinner"></div>
+    </div>
 
 
     <script src="js/jquery.min.js"></script>
     <script src="js/resizableColumns.min.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/custom.js"></script>
-    <script src="js/login/login.js"></script>
-    <script>
-    $(document).ready(function () {
-    print()
-});
-    </script>
+    <script src="js/quarantine_add/add.js"></script>
 </body>
 
 </html>

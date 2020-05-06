@@ -272,8 +272,8 @@ button#btn-cancel:hover {
     }
 }
 
-.log-btn{
-    padding: 11.5px 15px; 
+.log-btn {
+    padding: 11.5px 15px;
 }
 
 .btn-primary {
@@ -379,6 +379,7 @@ button#btn-cancel:hover {
         margin-bottom: 5px;
         border: 1px solid #e5e5e5;
         background: #f3f3f3;
+        min-height: 25px;
 
         .close {
             position: absolute;
@@ -431,8 +432,8 @@ input {
     }
 }
 
-.custom-select-group{
-    label{
+.custom-select-group {
+    label {
         margin-right: 15px;
     }
 }
@@ -494,7 +495,9 @@ input {
 
 .radio-inline {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    padding-bottom: 15px;
+    justify-content: center;
 
     label {
         display: flex;
@@ -510,6 +513,37 @@ input {
     }
 }
 
+select {
+    width: 100%;
+    outline: none;
+    padding: 7px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    color: #525f7f;
+    transition: 0.3s;
+}
+
+
+.all-form-group-wrap {
+    input {
+        border-radius: 0 !important;
+    }
+
+    .add-btn-wrap{
+        input{
+            width: calc(100% - 40px);
+        }
+
+        button {
+            background: #808080;
+            color: #fff;
+            padding: 7.8px 12px;
+            border-radius: 0 5px 5px 0;
+        }
+
+    }
+}
 
 //divTable
 .table {
@@ -565,4 +599,20 @@ a.link-row {
 textarea {
     resize: none;
     width: 100%;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+.sticky-save {
+    position: fixed;
+    right: 0;
+    bottom: 30px;
+
+    button {
+        border-radius: 10px 0 0 10px;
+
+        &:hover {
+            padding-right: 20px;
+        }
+    }
 }
