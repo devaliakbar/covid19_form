@@ -68,6 +68,11 @@ $quarantineInfoCreateQuery = "CREATE TABLE quarantine_info(
     district VARCHAR(50),
     contact_number VARCHAR(50),
     passport_number VARCHAR(50),
+
+    location VARCHAR(100),
+    lat VARCHAR(50),
+    lon VARCHAR(50),
+
     orgin_country VARCHAR(50),
     orgin_state VARCHAR(50),
     orgin_district VARCHAR(50),

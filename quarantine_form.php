@@ -43,12 +43,12 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-3">
                             <label class="mb-2">Name</label>
-                            <input id="organisation_name" type="text" placeholder="Name">
+                            <input id="full_name" type="text" placeholder="Name">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Age</label>
-                            <input id="ward_no" type="text" placeholder="Age">
+                            <input id="age" type="text" placeholder="Age">
                         </div>
 
                         <div class="form-group radio-inline col-auto mb-3 col-md-3">
@@ -60,17 +60,17 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Contact No</label>
-                            <input id="address" type="text" placeholder="Contact No">
+                            <input id="contact_number" type="number" placeholder="Contact No">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">District</label>
-                            <input id="age" type="number" placeholder="District">
+                            <input id="district" type="text" placeholder="District">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Address</label>
-                            <input id="" type="text" placeholder="Address">
+                            <input id="address" type="text" placeholder="Address">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
@@ -79,7 +79,7 @@ if (isset($_COOKIE['keep_login'])) {
                         </div>
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Passport No</label>
-                            <input id="" type="text" placeholder="Passport No">
+                            <input id="passport_number" type="text" placeholder="Passport No">
                         </div>
                         <div class="col-12 pb-3">
                             <hr class="my-4">
@@ -87,61 +87,66 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Origin Country</label>
-                            <input id="" type="text" placeholder="Origin Country">
+                            <input id="orgin_country" type="text" placeholder="Origin Country">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Origin State</label>
-                            <input id="" type="text" placeholder="Origin State">
+                            <input id="orgin_state" type="text" placeholder="Origin State">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Origin District</label>
-                            <input id="" type="text" placeholder="Origin District">
+                            <input id="orgin_district" type="text" placeholder="Origin District">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">PHC Area</label>
-                            <input id="" type="text" placeholder="PHC Area">
+                            <input id="phc_area" type="text" placeholder="PHC Area">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">PHC Medical Officer Contact No</label>
+                            <input id="phc_medical_officer_contact_number" type="text" placeholder="PHC Medical Officer Contact No">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Place to visit</label>
-                            <select name="">
-                                <option selected disabled>Place to visit</option>
-                                <option value="month">Inter District</option>
-                                <option value="between">Inter State</option>
-                                <option value="between">International</option>
+                            <select id="place_to_vist">
+                                <option value="" selected >Place to visit</option>
+                                <option value="Inter District">Inter District</option>
+                                <option value="Inter State">Inter State</option>
+                                <option value="International">International</option>
                             </select>
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Departure Date</label>
-                            <input id="" type="text" placeholder="Departure Date">
+                            <input id="departure_date" type="date" placeholder="Departure Date">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Arrival Date</label>
-                            <input id="" type="text" placeholder="Arrival Date">
+                            <input id="arrival_date" type="date" placeholder="Arrival Date">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Date of Information Received</label>
-                            <input id="" type="text" placeholder="Date of Information Received">
+                            <input id="date_of_information_received" type="date" placeholder="Date of Information Received">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Source Of Information</label>
-                            <select name="">
-                                <option selected disabled>Source Of Information</option>
-                                <option value="month">Airport</option>
-                                <option value="between">Check post</option>
-                                <option value="between">DMO Office</option>
-                                <option value="between">Ward Member</option>
-                                <option value="between">Junior Health Inspector(JHI)</option>
-                                <option value="between">Junior Public Health Nurse</option>
-                                <option value="between">ASHA Worker</option>
-                                <option value="between">Volunteers</option>
+                            <select id="source_of_information">
+                                <option value="" selected>Source Of Information</option>
+                                <option value="Airport">Airport</option>
+                                <option value="Check Post">Check Post</option>
+                                <option value="DMO Office">DMO Office</option>
+                                <option value="Ward Member">Ward Member</option>
+                                <option value="Junior Health Inspector(JHI)">Junior Health Inspector(JHI)</option>
+                                <option value="Junior Public Health Nurse">Junior Public Health Nurse</option>
+                                <option value="ASHA Worker">ASHA Worker</option>
+                                <option value="Volunteers">Volunteers</option>
                             </select>
                         </div>
 
@@ -152,22 +157,22 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Panchayat Ward No.</label>
-                            <input id="" type="text" placeholder="Panchayat Ward No.">
+                            <input id="panchayat_ward_no" type="text" placeholder="Panchayat Ward No.">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Source of Contact Number</label>
-                            <input id="" type="text" placeholder="Source of Contact Number">
+                            <input id="source_of_contact_number" type="number" placeholder="Source of Contact Number">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Observation Started Date</label>
-                            <input id="" type="text" placeholder="Observation Started Date">
+                            <input id="observation_started_date" type="date" placeholder="Observation Started Date">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Observation End Date</label>
-                            <input id="" type="text" placeholder="Observation End Date">
+                            <input id="observation_end_date" type="date" placeholder="Observation End Date">
                         </div>
 
 
@@ -175,51 +180,51 @@ if (isset($_COOKIE['keep_login'])) {
                         <div class="form-group radio-inline col-auto mb-3 col-md-4">
                             <label class="">Current Health Status : </label>
 
-                            <label class="custom-radio">Symptomatic<input name="Status" type="radio"><span class="checkmark ml-2"></label>
-                            <label class="custom-radio">Asymptomatic<input name="Status" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Symptomatic<input id="current_health_status" name="current_health_status" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Asymptomatic<input name="current_health_status" type="radio"><span class="checkmark ml-2"></label>
                         </div>
 
                         <div class="form-group radio-inline col-auto mb-3 col-md-4">
                             <label class="">Risk Categorization : </label>
 
-                            <label class="custom-radio">High <input name="Risk" type="radio"><span class="checkmark ml-2"></label>
-                            <label class="custom-radio">Low <input name="Risk" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">High <input id="risk_categorization" name="risk_categorization" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Low <input name="risk_categorization" type="radio"><span class="checkmark ml-2"></label>
                         </div>
 
                         <div class="form-group radio-inline col-auto mb-3 col-md-4">
                             <label class="">Sample to test Taken : </label>
 
-                            <label class="custom-radio">Yes <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
-                            <label class="custom-radio">No <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Yes <input id="sample_to_test_taken" name="sample_to_test_taken" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">No <input name="sample_to_test_taken" type="radio"><span class="checkmark ml-2"></label>
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Date of Sample Taken</label>
-                            <input id="" type="date" placeholder="Date of Sample Taken">
+                            <input id="date_of_sample_taken" type="date" placeholder="Date of Sample Taken">
                         </div>
 
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Result</label>
-                            <select name="">
-                                <option selected disabled>Result</option>
-                                <option value="month">NAPos</option>
-                                <option value="between">Neg</option>
-                                <option value="between">Pending</option>
-                                <option value="between">Discharged</option>
-                                <option value="between">Released</option>
+                            <select id="result">
+                                <option value="" selected>Result</option>
+                                <option value="NAPos">NAPos</option>
+                                <option value="Neg">Neg</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Discharged">Discharged</option>
+                                <option value="Released">Released</option>
                             </select>
                         </div>
 
                         <div class="form-group radio-inline col-auto mb-3 col-md-3 align-self-start pt-4">
                             <label class="">Travelled with Positive Case : </label>
 
-                            <label class="custom-radio">Yes <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
-                            <label class="custom-radio">No <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Yes <input id="travelled_with_positive_case" name="travelled_with_positive_case" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">No <input name="travelled_with_positive_case" type="radio"><span class="checkmark ml-2"></label>
                         </div>
                         <div class="form-group mb-3 col-md-6 ">
-                            <label class="mb-2">Details</label>
-                            <textarea name="" id="" rows="5"></textarea>
+                            <label class="mb-2">Remark</label>
+                            <textarea  id="remark" rows="5"></textarea>
                         </div>
 
                         <div class="col-12">
@@ -232,27 +237,32 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Under 5</label>
-                            <input id="" type="text" placeholder="Under 5">
+                            <input id="under_five" type="number" placeholder="Under 5">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Between 5 - 10</label>
-                            <input id="" type="text" placeholder="Between 5 - 10">
+                            <input id="five_to_ten" type="number" placeholder="Between 5 - 10">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Between 10 - 17</label>
+                            <input id="ten_to_seventeen" type="number" placeholder="Between 17 - 59">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Between 17 - 59</label>
-                            <input id="" type="text" placeholder="Between 17 - 59">
+                            <input id="seventeen_to_fiftynine" type="number" placeholder="Between 17 - 59">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">59 and above</label>
-                            <input id="" type="text" placeholder="59 and above">
+                            <input id="sixty_and_above" type="number" placeholder="59 and above">
                         </div>
 
                         <div class="form-group mb-3 col-md-6 ">
                             <label class="mb-2">Details</label>
-                            <textarea name="" id="" rows="5"></textarea>
+                            <textarea id="details" rows="5"></textarea>
                         </div>
 
                         <div class="col-12">
@@ -437,7 +447,7 @@ if (isset($_COOKIE['keep_login'])) {
                         </div>
                         <div class="sticky-buttons">
 
-                            <button onclick="save()" class="btn-primary mb-3">Preview</button>
+                            <button onclick="save()" class="btn-primary mb-3 preview_btn">Preview</button>
 
                             <button onclick="save()" class="btn-primary">Save</button>
                         </div>
