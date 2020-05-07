@@ -144,8 +144,10 @@ $primaryContactInfoCreateQuery = "CREATE TABLE primary_contact_info(
     quarantine_id INT,
     name VARCHAR(100),
     mobile_no VARCHAR(100),
+    age INT,
     location VARCHAR(500),
-    age INT
+    lat VARCHAR(500),
+    lon VARCHAR(500)
 );";
 
 if (mysqli_query($conn, $primaryContactInfoCreateQuery)) {
@@ -161,8 +163,10 @@ $secondaryContactInfoCreateQuery = "CREATE TABLE secondary_contact_info(
     quarantine_id INT,
     name VARCHAR(100),
     mobile_no VARCHAR(100),
+    age INT,
     location VARCHAR(500),
-    age INT
+    lat VARCHAR(500),
+    lon VARCHAR(500)
 );";
 
 if (mysqli_query($conn, $secondaryContactInfoCreateQuery)) {

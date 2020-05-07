@@ -294,20 +294,20 @@ if (isset($_COOKIE['keep_login'])) {
                             <div class="row no-gutters all-form-group-wrap">
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Name </label>
-                                    <input id="" type="text" placeholder="Name">
+                                    <input id="p_name" type="text" placeholder="Name">
                                 </div>
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Mobile Number</label>
-                                    <input id="" type="text" placeholder="Name">
+                                    <input id="p_mobile" type="number" placeholder="Mobile Number">
                                 </div>
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Location</label>
-                                    <input id="" type="text" placeholder="Location">
+                                    <input id="p_location" type="text" placeholder="Location">
                                 </div>
                                 <div class="form-group mb-3 col-md-3 add-btn-wrap">
                                     <label class="mb-2">Age</label>
-                                    <input id="" type="text" placeholder="Age">
-                                    <button>+</button>
+                                    <input id="p_age" type="number" placeholder="Age">
+                                    <button onclick="addPrimaryContactPerson()">+</button>
                                 </div>
                             </div>
                         </div>
@@ -320,43 +320,14 @@ if (isset($_COOKIE['keep_login'])) {
                                         <tr>
                                             <th class="">Name</th>
                                             <th class="">Mobile Number</th>
-                                            <th class="">Location</th>
                                             <th class="">Age</th>
+                                            <th class="">Location</th>
                                             <th class="trash"></th>
 
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                                    <tbody id="primary_contact_tbl">
 
-                                        </tr>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-
-                                        </tr>
                                     </tbody>
 
                                 </table>
@@ -376,20 +347,20 @@ if (isset($_COOKIE['keep_login'])) {
                             <div class="row no-gutters all-form-group-wrap">
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Name </label>
-                                    <input id="" type="text" placeholder="Name">
+                                    <input id="s_name" type="text" placeholder="Name">
                                 </div>
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Mobile Number</label>
-                                    <input id="" type="text" placeholder="Name">
+                                    <input id="s_mobile" type="number" placeholder="Mobile Number">
                                 </div>
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Location</label>
-                                    <input id="" type="text" placeholder="Location">
+                                    <input id="s_location" type="text" placeholder="Location">
                                 </div>
                                 <div class="form-group mb-3 col-md-3 add-btn-wrap">
                                     <label class="mb-2">Age</label>
-                                    <input id="" type="text" placeholder="Age">
-                                    <button>+</button>
+                                    <input id="s_age" type="number" placeholder="Age">
+                                    <button onclick="addSecondaryContactPerson()">+</button>
                                 </div>
                             </div>
                         </div>
@@ -408,37 +379,8 @@ if (isset($_COOKIE['keep_login'])) {
 
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                                    <tbody id="secondary_contact_tbl">
 
-                                        </tr>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-
-                                        </tr>
                                     </tbody>
 
                                 </table>

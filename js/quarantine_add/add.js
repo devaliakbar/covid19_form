@@ -1,6 +1,133 @@
 $(".preview_btn").hide();
 
-var currentPersonLocation = { location: "", lat: "", lon: "" };
+//PRIMARY CONTACT PERSONS
+var primaryContactPersons = [];
+var currentPrimaryContactPersonLocation = { location: "", lat: "0", lon: "0" };
+
+var addPrimaryContactPerson = () => {
+  var name = $("#p_name").val();
+
+  if (name == "") {
+    return alert("Please enter the name");
+  }
+
+  var mobile = $("#p_mobile").val();
+  var age = $("#p_age").val();
+  var location = $("#p_location").val();
+
+  var currentPerson = {
+    name: name,
+    mobile_no: mobile,
+    age: age,
+    location: location,
+    lat: currentPrimaryContactPersonLocation.lat,
+    lon: currentPrimaryContactPersonLocation.lon,
+  };
+
+  primaryContactPersons.push(currentPerson);
+
+  currentPrimaryContactPersonLocation = { location: "", lat: "0", lon: "0" };
+
+  $("#p_name").val("");
+  $("#p_mobile").val("");
+  $("#p_age").val("");
+  $("#p_location").val("");
+
+  fillPrimaryContactPersons();
+};
+
+var fillPrimaryContactPersons = () => {
+  jQuery("#primary_contact_tbl").empty();
+  for (var i = 0; i < primaryContactPersons.length; i++) {
+    var primaryContactPersonInfo =
+      "<tr><td>" +
+      primaryContactPersons[i].name +
+      "</td><td>" +
+      primaryContactPersons[i].mobile_no +
+      "</td><td>" +
+      primaryContactPersons[i].age +
+      "</td> <td>" +
+      primaryContactPersons[i].location +
+      "</td><td><button onclick='removePrimaryContactPerson(" +
+      i +
+      ")'><i class='fa fa-trash' aria-hidden='true'></i></button></td></tr>";
+
+    jQuery("#primary_contact_tbl").append(primaryContactPersonInfo);
+  }
+};
+
+var removePrimaryContactPerson = (index) => {
+  primaryContactPersons.splice(index, 1);
+  fillPrimaryContactPersons();
+};
+
+//SECONDARY CONTACT PERSON
+
+var secondaryContactPersons = [];
+var currentSecondaryContactPersonLocation = {
+  location: "",
+  lat: "0",
+  lon: "0",
+};
+
+var addSecondaryContactPerson = () => {
+  var name = $("#s_name").val();
+
+  if (name == "") {
+    return alert("Please enter the name");
+  }
+
+  var mobile = $("#s_mobile").val();
+  var age = $("#s_age").val();
+  var location = $("#s_location").val();
+
+  var currentPerson = {
+    name: name,
+    mobile_no: mobile,
+    age: age,
+    location: location,
+    lat: currentSecondaryContactPersonLocation.lat,
+    lon: currentSecondaryContactPersonLocation.lon,
+  };
+
+  secondaryContactPersons.push(currentPerson);
+
+  currentSecondaryContactPersonLocation = { location: "", lat: "0", lon: "0" };
+
+  $("#s_name").val("");
+  $("#s_mobile").val("");
+  $("#s_age").val("");
+  $("#s_location").val("");
+
+  fillSecondaryContactPersons();
+};
+
+var fillSecondaryContactPersons = () => {
+  jQuery("#secondary_contact_tbl").empty();
+  for (var i = 0; i < secondaryContactPersons.length; i++) {
+    var secondaryContactPersonInfo =
+      "<tr><td>" +
+      secondaryContactPersons[i].name +
+      "</td><td>" +
+      secondaryContactPersons[i].mobile_no +
+      "</td><td>" +
+      secondaryContactPersons[i].age +
+      "</td> <td>" +
+      secondaryContactPersons[i].location +
+      "</td><td><button onclick='removeSecondaryContactPerson(" +
+      i +
+      ")'><i class='fa fa-trash' aria-hidden='true'></i></button></td></tr>";
+
+    jQuery("#secondary_contact_tbl").append(secondaryContactPersonInfo);
+  }
+};
+
+var removeSecondaryContactPerson = (index) => {
+  secondaryContactPersons.splice(index, 1);
+  fillSecondaryContactPersons();
+};
+
+//VISITED PLACES
 
 var visitedLocation = [];
 
@@ -12,7 +139,7 @@ var addVisitedPlace = () => {
   }
 
   var currentVisitedLocation = {
-    location: currentVisitedPlace,
+    location_name: currentVisitedPlace,
     lat: "0",
     lon: "0",
   };
@@ -29,7 +156,7 @@ var fillVisitedPlace = () => {
   for (var i = 0; i < visitedLocation.length; i++) {
     var locationName =
       "<div class='item'>" +
-      visitedLocation[i].location +
+      visitedLocation[i].location_name +
       "<span class='close' onclick='removeVisitedPlace(" +
       i +
       ")'>X</span></div>";
@@ -42,6 +169,8 @@ var removeVisitedPlace = (index) => {
   visitedLocation.splice(index, 1);
   fillVisitedPlace();
 };
+
+var currentPersonLocation = { location: "", lat: "", lon: "" };
 
 //SAVE
 var save = () => {
@@ -174,6 +303,12 @@ var save = () => {
   record.details = $("#details").val().trim();
 
   record.visitedLocation = visitedLocation;
+
+  record.primaryContactList = primaryContactPersons;
+
+  record.secondaryConatctList = secondaryContactPersons;
+
+  console.log(record);
 
   return;
   saveToServer(record);
