@@ -84,36 +84,58 @@
     .bd-l {
         border-left: 1px solid #000;
     }
-    .custom-checkbox .checkmark{
+
+    .custom-checkbox .checkmark {
         top: 8px;
     }
 
     .yes,
-    .no{
+    .no {
         position: relative;
         margin: 0;
-        &::after{
+
+        &::after {
             content: 'ഉണ്ട്';
             display: block;
             font-size: 14px;
         }
-        .checkmark{
+
+        .checkmark {
             top: 10px;
         }
     }
-    .no{
-        &::after{
+
+    .no {
+        &::after {
             content: 'ഇല്ല';
         }
     }
 }
 
-.checkbox{
+.checkbox {
     display: flex;
     align-items: center;
-    input{
+
+    input {
         margin-right: 5px;
     }
 }
-  
-  
+
+th.trash {
+    width: 30px;
+}
+
+table.editable {
+    td{
+        button{
+            &:hover{
+                color: rgb(231, 60, 29);
+            }
+        }
+    }
+}
+label{
+    b {
+        font-size: 16px;
+    }
+}

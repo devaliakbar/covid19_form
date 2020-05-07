@@ -298,7 +298,7 @@ if (isset($_COOKIE['keep_login'])) {
                                 <div class="form-group mb-3 col-md-3 add-btn-wrap">
                                     <label class="mb-2">Age</label>
                                     <input id="" type="text" placeholder="Age">
-                                        <button>+</button>
+                                    <button>+</button>
                                 </div>
                             </div>
                         </div>
@@ -309,10 +309,12 @@ if (isset($_COOKIE['keep_login'])) {
                                 <table class="resizable editable data-table">
                                     <thead>
                                         <tr>
-                                            <th class="filter">Name</th>
-                                            <th class="filter editable">Mobile Number</th>
-                                            <th class="filter">Location</th>
-                                            <th class="filter editable">Age</th>
+                                            <th class="">Name</th>
+                                            <th class="">Mobile Number</th>
+                                            <th class="">Location</th>
+                                            <th class="">Age</th>
+                                            <th class="trash"></th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -321,24 +323,30 @@ if (isset($_COOKIE['keep_login'])) {
                                             <td>64466554</td>
                                             <td>conctetur</td>
                                             <td>24</td>
+                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                                         </tr>
                                         <tr>
                                             <td>Muneer</td>
                                             <td>64466554</td>
                                             <td>conctetur</td>
                                             <td>24</td>
+                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                                         </tr>
                                         <tr>
                                             <td>Muneer</td>
                                             <td>64466554</td>
                                             <td>conctetur</td>
                                             <td>24</td>
+                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+
                                         </tr>
                                         <tr>
                                             <td>Muneer</td>
                                             <td>64466554</td>
                                             <td>conctetur</td>
                                             <td>24</td>
+                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+
                                         </tr>
                                     </tbody>
 
@@ -372,7 +380,7 @@ if (isset($_COOKIE['keep_login'])) {
                                 <div class="form-group mb-3 col-md-3 add-btn-wrap">
                                     <label class="mb-2">Age</label>
                                     <input id="" type="text" placeholder="Age">
-                                        <button>+</button>
+                                    <button>+</button>
                                 </div>
                             </div>
                         </div>
@@ -383,10 +391,12 @@ if (isset($_COOKIE['keep_login'])) {
                                 <table class="resizable editable data-table">
                                     <thead>
                                         <tr>
-                                            <th class="filter">Name</th>
-                                            <th class="filter editable">Mobile Number</th>
-                                            <th class="filter">Location</th>
-                                            <th class="filter editable">Age</th>
+                                            <th class="">Name</th>
+                                            <th class="">Mobile Number</th>
+                                            <th class="">Location</th>
+                                            <th class="">Age</th>
+                                            <th class="trash"></th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -395,31 +405,47 @@ if (isset($_COOKIE['keep_login'])) {
                                             <td>64466554</td>
                                             <td>conctetur</td>
                                             <td>24</td>
+                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                                         </tr>
                                         <tr>
                                             <td>Muneer</td>
                                             <td>64466554</td>
                                             <td>conctetur</td>
                                             <td>24</td>
+                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                                         </tr>
                                         <tr>
                                             <td>Muneer</td>
                                             <td>64466554</td>
                                             <td>conctetur</td>
                                             <td>24</td>
+                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+
                                         </tr>
                                         <tr>
                                             <td>Muneer</td>
                                             <td>64466554</td>
                                             <td>conctetur</td>
                                             <td>24</td>
+                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+
                                         </tr>
                                     </tbody>
 
                                 </table>
                             </div>
                         </div>
-                        <div class="sticky-save">
+
+
+                        <div class="col-12">
+                            <div class="map-wrapper mt-4">
+                                <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9045.724588914265!2d-73.91995050493409!3d40.83568454670568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f43aac16e2ff%3A0xac8fb867da716282!2sJoker%20Stairs!5e0!3m2!1sen!2sin!4v1588811071682!5m2!1sen!2sin" height="450" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                        </div>
+
+                        <div class="sticky-buttons">
+
+                            <button onclick="save()" class="btn-primary mb-3">Preview</button>
 
                             <button onclick="save()" class="btn-primary">Save</button>
                         </div>
@@ -435,11 +461,6 @@ if (isset($_COOKIE['keep_login'])) {
 
 
 
-                <div class="primary-contact-detail">
-                    <div class="row">
-
-                    </div>
-                </div>
             </div>
         </div>
 

@@ -603,16 +603,28 @@ textarea {
     border-radius: 5px;
 }
 
-.sticky-save {
+.sticky-buttons {
     position: fixed;
     right: 0;
     bottom: 30px;
+    display: flex;
+    flex-direction: column;
 
     button {
         border-radius: 10px 0 0 10px;
+        min-width: 83px;
 
         &:hover {
             padding-right: 20px;
         }
     }
+}
+.map-wrapper{
+    border-radius: 10px;
+    overflow: hidden;
+}
+.table-responsive.modal-responsive{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
 }

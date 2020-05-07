@@ -1,6 +1,5 @@
 (function ($) {
 
-  
   $(window).scroll(function(){
     windowHeight = $(document).height();
     console.log(windowHeight);
