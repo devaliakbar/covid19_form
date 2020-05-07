@@ -2,6 +2,47 @@ $(".preview_btn").hide();
 
 var currentPersonLocation = { location: "", lat: "", lon: "" };
 
+var visitedLocation = [];
+
+var addVisitedPlace = () => {
+  var currentVisitedPlace = $("#visited_location").val().trim();
+  if (currentVisitedPlace == "") {
+    alert("Enter a Location Name");
+    return;
+  }
+
+  var currentVisitedLocation = {
+    location: currentVisitedPlace,
+    lat: "0",
+    lon: "0",
+  };
+
+  visitedLocation.push(currentVisitedLocation);
+
+  $("#visited_location").val("");
+
+  fillVisitedPlace();
+};
+
+var fillVisitedPlace = () => {
+  jQuery(".add-list").empty();
+  for (var i = 0; i < visitedLocation.length; i++) {
+    var locationName =
+      "<div class='item'>" +
+      visitedLocation[i].location +
+      "<span class='close' onclick='removeVisitedPlace(" +
+      i +
+      ")'>X</span></div>";
+
+    jQuery(".add-list").append(locationName);
+  }
+};
+
+var removeVisitedPlace = (index) => {
+  visitedLocation.splice(index, 1);
+  fillVisitedPlace();
+};
+
 //SAVE
 var save = () => {
   var record = {};
@@ -131,6 +172,8 @@ var save = () => {
   record.sixty_and_above = $("#sixty_and_above").val().trim();
 
   record.details = $("#details").val().trim();
+
+  record.visitedLocation = visitedLocation;
 
   return;
   saveToServer(record);

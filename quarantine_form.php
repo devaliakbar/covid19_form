@@ -276,10 +276,9 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-4">
                             <label class="mb-2">Name of the Location</label>
-                            <div class="add-group"><input id="" type="text" placeholder="Name of the Location"><button>+</button></div>
+                            <div class="add-group"><input id="visited_location" type="text" placeholder="Name of the Location"><button onclick="addVisitedPlace()">+</button></div>
                             <div class="add-list">
-                                <div class="item">Ernakulam<span class="close">X</span></div>
-                                <div class="item">Alapuzha<span class="close">X<span></span></span></div>
+
                             </div>
                         </div>
 
