@@ -5,15 +5,15 @@ var primaryContactPersons = [];
 var currentPrimaryContactPersonLocation = { location: "", lat: "0", lon: "0" };
 
 var addPrimaryContactPerson = () => {
-  var name = $("#p_name").val();
+  var name = mysql_real_escape_string($("#p_name").val().trim());
 
   if (name == "") {
     return alert("Please enter the name");
   }
 
-  var mobile = $("#p_mobile").val();
-  var age = $("#p_age").val();
-  var location = $("#p_location").val();
+  var mobile = $("#p_mobile").val().trim();
+  var age = $("#p_age").val().trim();
+  var location = $("#p_location").val().trim();
 
   var currentPerson = {
     name: name,
@@ -71,15 +71,15 @@ var currentSecondaryContactPersonLocation = {
 };
 
 var addSecondaryContactPerson = () => {
-  var name = $("#s_name").val();
+  var name = mysql_real_escape_string($("#s_name").val().trim());
 
   if (name == "") {
     return alert("Please enter the name");
   }
 
-  var mobile = $("#s_mobile").val();
-  var age = $("#s_age").val();
-  var location = $("#s_location").val();
+  var mobile = $("#s_mobile").val().trim();
+  var age = $("#s_age").val().trim();
+  var location = $("#s_location").val().trim();
 
   var currentPerson = {
     name: name,
@@ -170,7 +170,7 @@ var removeVisitedPlace = (index) => {
   fillVisitedPlace();
 };
 
-var currentPersonLocation = { location: "", lat: "", lon: "" };
+var currentPersonLocation = { location: "Thoma", lat: "0", lon: "0" };
 
 //SAVE
 var save = () => {
@@ -240,6 +240,8 @@ var save = () => {
 
   record.panchayat_ward_no = $("#panchayat_ward_no").val().trim();
 
+  record.source_of_contact_number = $("#source_of_contact_number").val().trim();
+
   record.observation_started_date = $("#observation_started_date").val().trim();
 
   record.observation_end_date = $("#observation_end_date").val().trim();
@@ -288,7 +290,7 @@ var save = () => {
     record.travelled_with_positive_case = 2;
   }
 
-  record.result = $("#remark").val().trim();
+  record.remark = $("#remark").val().trim();
 
   record.under_five = $("#under_five").val().trim();
 

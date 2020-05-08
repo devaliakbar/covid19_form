@@ -48,7 +48,7 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Age</label>
-                            <input id="age" type="text" placeholder="Age">
+                            <input id="age" type="number" placeholder="Age">
                         </div>
 
                         <div class="form-group radio-inline col-auto mb-3 col-md-3">
@@ -256,8 +256,8 @@ if (isset($_COOKIE['keep_login'])) {
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
-                            <label class="mb-2">59 and above</label>
-                            <input id="sixty_and_above" type="number" placeholder="59 and above">
+                            <label class="mb-2">60 and above</label>
+                            <input id="sixty_and_above" type="number" placeholder="60 and above">
                         </div>
 
                         <div class="form-group mb-3 col-md-6 ">
@@ -373,8 +373,8 @@ if (isset($_COOKIE['keep_login'])) {
                                         <tr>
                                             <th class="">Name</th>
                                             <th class="">Mobile Number</th>
-                                            <th class="">Location</th>
                                             <th class="">Age</th>
+                                            <th class="">Location</th>
                                             <th class="trash"></th>
 
                                         </tr>

@@ -1,7 +1,7 @@
 (function ($) {
   $(window).scroll(function () {
     windowHeight = $(document).height();
-    console.log(windowHeight);
+    //  console.log(windowHeight);
   });
   // Navbar
   var allPanels = $(".dropdown > ul").hide();
