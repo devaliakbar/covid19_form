@@ -14,17 +14,19 @@ function initMap() {
     zoom: 11,
   });
 
-  new google.maps.Marker({
-    position: { lat: currentLat, lng: currentLon },
-    map: map,
-    label: {
-      fontSize: "11pt",
-      fontWeight: "bold",
-      color: "blue",
-      text: $("#full_name").val(),
-    },
-    animation: google.maps.Animation.BOUNCE,
-  });
+  if (currentPersonLocation.lat != "0" && currentPersonLocation.lon != "0") {
+    new google.maps.Marker({
+      position: { lat: currentLat, lng: currentLon },
+      map: map,
+      label: {
+        fontSize: "11pt",
+        fontWeight: "bold",
+        color: "blue",
+        text: $("#full_name").val(),
+      },
+      animation: google.maps.Animation.BOUNCE,
+    });
+  }
 
   //SETTING VISITED PLACES
 
