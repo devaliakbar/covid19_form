@@ -388,7 +388,7 @@ if (isset($_COOKIE['keep_login'])) {
                         </div>
                         <div class="sticky-buttons">
 
-                            <button onclick="save()" class="btn-primary mb-3 preview_btn">Preview</button>
+                            <button onclick="showReport()" class="btn-primary mb-3 preview_btn">Preview</button>
 
                             <button onclick="save()" class="btn-primary">Save</button>
                         </div>

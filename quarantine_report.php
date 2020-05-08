@@ -19,7 +19,7 @@ if (isset($_COOKIE['keep_login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <title>Record</title>
+    <title>Quarantine Form</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@ if (isset($_COOKIE['keep_login'])) {
     <main class="payments-page">
 
         <div class="header">
-            <h1>Basic Info</h1>
+            <h1>Quarantine Form</h1>
             <div class="breadcrumb">
                 <a href="#" onclick="window.location.replace('quarantine_form_list.php')"><i class="fas fa-home"></i></a>
             </div>
@@ -41,45 +41,45 @@ if (isset($_COOKIE['keep_login'])) {
                 <div class="basic-info">
                     <div class="row">
 
-                        <div class="form-group mb-3 col-md-3">
+                    <div class="form-group mb-3 col-md-3">
                             <label class="mb-2">Name</label>
-                            <input id="organisation_name" type="text" placeholder="Name">
+                            <input id="full_name" type="text" placeholder="Name" disabled>
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Age</label>
-                            <input id="ward_no" type="text" placeholder="Age">
+                            <input id="age" type="number" placeholder="Age" disabled>
                         </div>
 
                         <div class="form-group radio-inline col-auto mb-3 col-md-3">
                             <label class="">Gender : </label>
 
-                            <label class="custom-radio">Male <input id="sex" name="sex" type="radio"><span class="checkmark ml-2"></label>
-                            <label class="custom-radio">Female <input name="sex" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Male <input id="sex" name="sex" type="radio" disabled><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Female <input name="sex" type="radio" disabled><span class="checkmark ml-2"></label>
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Contact No</label>
-                            <input id="address" type="text" placeholder="Contact No">
+                            <input id="contact_number" type="number" placeholder="Contact No" disabled>
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">District</label>
-                            <input id="age" type="number" placeholder="District">
+                            <input disabled id="district" type="text" placeholder="District">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Address</label>
-                            <input id="" type="text" placeholder="Address">
+                            <input disabled disabled id="address" type="text" placeholder="Address">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Location</label>
-                            <input id="" type="text" placeholder="Location">
+                            <input disabled id="location" type="text" placeholder="Location">
                         </div>
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Passport No</label>
-                            <input id="" type="text" placeholder="Passport No">
+                            <input disabled id="passport_number" type="text" placeholder="Passport No">
                         </div>
                         <div class="col-12 pb-3">
                             <hr class="my-4">
@@ -87,61 +87,66 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Origin Country</label>
-                            <input id="" type="text" placeholder="Origin Country">
+                            <input disabled id="orgin_country" type="text" placeholder="Origin Country">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Origin State</label>
-                            <input id="" type="text" placeholder="Origin State">
+                            <input disabled id="orgin_state" type="text" placeholder="Origin State">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Origin District</label>
-                            <input id="" type="text" placeholder="Origin District">
+                            <input disabled id="orgin_district" type="text" placeholder="Origin District">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">PHC Area</label>
-                            <input id="" type="text" placeholder="PHC Area">
+                            <input disabled id="phc_area" type="text" placeholder="PHC Area">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">PHC Medical Officer Contact No</label>
+                            <input disabled id="phc_medical_officer_contact_number" type="number" placeholder="PHC Medical Officer Contact No">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Place to visit</label>
-                            <select name="">
-                                <option selected disabled>Place to visit</option>
-                                <option value="month">Inter District</option>
-                                <option value="between">Inter State</option>
-                                <option value="between">International</option>
+                            <select disabled id="place_to_vist">
+                                <option value="" selected >Place to visit</option>
+                                <option value="Inter District">Inter District</option>
+                                <option value="Inter State">Inter State</option>
+                                <option value="International">International</option>
                             </select>
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Departure Date</label>
-                            <input id="" type="text" placeholder="Departure Date">
+                            <input disabled id="departure_date" type="date" placeholder="Departure Date">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Arrival Date</label>
-                            <input id="" type="text" placeholder="Arrival Date">
+                            <input disabled id="arrival_date" type="date" placeholder="Arrival Date">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Date of Information Received</label>
-                            <input id="" type="text" placeholder="Date of Information Received">
+                            <input disabled id="date_of_information_received" type="date" placeholder="Date of Information Received">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Source Of Information</label>
-                            <select name="">
-                                <option selected disabled>Source Of Information</option>
-                                <option value="month">Airport</option>
-                                <option value="between">Check post</option>
-                                <option value="between">DMO Office</option>
-                                <option value="between">Ward Member</option>
-                                <option value="between">Junior Health Inspector(JHI)</option>
-                                <option value="between">Junior Public Health Nurse</option>
-                                <option value="between">ASHA Worker</option>
-                                <option value="between">Volunteers</option>
+                            <select disabled id="source_of_information">
+                                <option value="" selected>Source Of Information</option>
+                                <option value="Airport">Airport</option>
+                                <option value="Check Post">Check Post</option>
+                                <option value="DMO Office">DMO Office</option>
+                                <option value="Ward Member">Ward Member</option>
+                                <option value="Junior Health Inspector(JHI)">Junior Health Inspector(JHI)</option>
+                                <option value="Junior Public Health Nurse">Junior Public Health Nurse</option>
+                                <option value="ASHA Worker">ASHA Worker</option>
+                                <option value="Volunteers">Volunteers</option>
                             </select>
                         </div>
 
@@ -152,22 +157,22 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Panchayat Ward No.</label>
-                            <input id="" type="text" placeholder="Panchayat Ward No.">
+                            <input disabled id="panchayat_ward_no" type="text" placeholder="Panchayat Ward No.">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Source of Contact Number</label>
-                            <input id="" type="text" placeholder="Source of Contact Number">
+                            <input disabled id="source_of_contact_number" type="number" placeholder="Source of Contact Number">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Observation Started Date</label>
-                            <input id="" type="text" placeholder="Observation Started Date">
+                            <input disabled id="observation_started_date" type="date" placeholder="Observation Started Date">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Observation End Date</label>
-                            <input id="" type="text" placeholder="Observation End Date">
+                            <input disabled id="observation_end_date" type="date" placeholder="Observation End Date">
                         </div>
 
 
@@ -175,51 +180,51 @@ if (isset($_COOKIE['keep_login'])) {
                         <div class="form-group radio-inline col-auto mb-3 col-md-4">
                             <label class="">Current Health Status : </label>
 
-                            <label class="custom-radio">Symptomatic<input name="Status" type="radio"><span class="checkmark ml-2"></label>
-                            <label class="custom-radio">Asymptomatic<input name="Status" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Symptomatic<input disabled id="current_health_status" name="current_health_status" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Asymptomatic<input disabled name="current_health_status" type="radio"><span class="checkmark ml-2"></label>
                         </div>
 
                         <div class="form-group radio-inline col-auto mb-3 col-md-4">
                             <label class="">Risk Categorization : </label>
 
-                            <label class="custom-radio">High <input name="Risk" type="radio"><span class="checkmark ml-2"></label>
-                            <label class="custom-radio">Low <input name="Risk" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">High <input disabled id="risk_categorization" name="risk_categorization" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Low <input disabled name="risk_categorization" type="radio"><span class="checkmark ml-2"></label>
                         </div>
 
                         <div class="form-group radio-inline col-auto mb-3 col-md-4">
                             <label class="">Sample to test Taken : </label>
 
-                            <label class="custom-radio">Yes <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
-                            <label class="custom-radio">No <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Yes <input disabled id="sample_to_test_taken" name="sample_to_test_taken" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">No <input disabled name="sample_to_test_taken" type="radio"><span class="checkmark ml-2"></label>
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Date of Sample Taken</label>
-                            <input id="" type="date" placeholder="Date of Sample Taken">
+                            <input disabled id="date_of_sample_taken" type="date" placeholder="Date of Sample Taken">
                         </div>
 
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Result</label>
-                            <select name="">
-                                <option selected disabled>Result</option>
-                                <option value="month">NAPos</option>
-                                <option value="between">Neg</option>
-                                <option value="between">Pending</option>
-                                <option value="between">Discharged</option>
-                                <option value="between">Released</option>
+                            <select disabled id="result">
+                                <option value="" selected>Result</option>
+                                <option value="NAPos">NAPos</option>
+                                <option value="Neg">Neg</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Discharged">Discharged</option>
+                                <option value="Released">Released</option>
                             </select>
                         </div>
 
                         <div class="form-group radio-inline col-auto mb-3 col-md-3 align-self-start pt-4">
                             <label class="">Travelled with Positive Case : </label>
 
-                            <label class="custom-radio">Yes <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
-                            <label class="custom-radio">No <input name="test_Taken" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">Yes <input disabled id="travelled_with_positive_case" name="travelled_with_positive_case" type="radio"><span class="checkmark ml-2"></label>
+                            <label class="custom-radio">No <input disabled name="travelled_with_positive_case" type="radio"><span class="checkmark ml-2"></label>
                         </div>
                         <div class="form-group mb-3 col-md-6 ">
-                            <label class="mb-2">Details</label>
-                            <textarea name="" id="" rows="5"></textarea>
+                            <label class="mb-2">Remark</label>
+                            <textarea disabled id="remark" rows="5"></textarea>
                         </div>
 
                         <div class="col-12">
@@ -232,27 +237,32 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Under 5</label>
-                            <input id="" type="text" placeholder="Under 5">
+                            <input disabled id="under_five" type="number" placeholder="Under 5">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Between 5 - 10</label>
-                            <input id="" type="text" placeholder="Between 5 - 10">
+                            <input disabled id="five_to_ten" type="number" placeholder="Between 5 - 10">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Between 10 - 17</label>
+                            <input disabled id="ten_to_seventeen" type="number" placeholder="Between 10 - 17">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Between 17 - 59</label>
-                            <input id="" type="text" placeholder="Between 17 - 59">
+                            <input disabled id="seventeen_to_fiftynine" type="number" placeholder="Between 17 - 59">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
-                            <label class="mb-2">59 and above</label>
-                            <input id="" type="text" placeholder="59 and above">
+                            <label class="mb-2">60 and above</label>
+                            <input disabled id="sixty_and_above" type="number" placeholder="60 and above">
                         </div>
 
                         <div class="form-group mb-3 col-md-6 ">
                             <label class="mb-2">Details</label>
-                            <textarea name="" id="" rows="5"></textarea>
+                            <textarea disabled id="details" rows="5"></textarea>
                         </div>
 
                         <div class="col-12">
@@ -265,11 +275,10 @@ if (isset($_COOKIE['keep_login'])) {
                         </div>
 
                         <div class="form-group mb-3 col-md-4">
-                            <label class="mb-2">Name of the Location</label>
-                            <div class="add-group"><input id="" type="text" placeholder="Name of the Location"><button>+</button></div>
+                            <!-- <label class="mb-2">Name of the Location</label>
+                            <div class="add-group"><input disabled id="visited_location" type="text" placeholder="Name of the Location"><button onclick="addVisitedPlace()">+</button></div> -->
                             <div class="add-list">
-                                <div class="item">Ernakulam<span class="close">X</span></div>
-                                <div class="item">Alapuzha<span class="close">X<span></span></span></div>
+
                             </div>
                         </div>
 
@@ -281,27 +290,27 @@ if (isset($_COOKIE['keep_login'])) {
                             <label class="mb-3 mt-4"><b>Primary Contact Persons</b></label>
                         </div>
 
-                        <div class="col-12 add-row-group">
+                        <!-- <div class="col-12 add-row-group">
                             <div class="row no-gutters all-form-group-wrap">
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Name </label>
-                                    <input id="" type="text" placeholder="Name">
+                                    <input disabled id="p_name" type="text" placeholder="Name">
                                 </div>
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Mobile Number</label>
-                                    <input id="" type="text" placeholder="Name">
+                                    <input id="p_mobile" type="number" placeholder="Mobile Number">
                                 </div>
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Location</label>
-                                    <input id="" type="text" placeholder="Location">
+                                    <input id="p_location" type="text" placeholder="Location">
                                 </div>
                                 <div class="form-group mb-3 col-md-3 add-btn-wrap">
                                     <label class="mb-2">Age</label>
-                                    <input id="" type="text" placeholder="Age">
-                                    <button>+</button>
+                                    <input id="p_age" type="number" placeholder="Age">
+                                    <button onclick="addPrimaryContactPerson()">+</button>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="col-12">
                             <div class="table-responsive modal-responsive">
@@ -311,43 +320,14 @@ if (isset($_COOKIE['keep_login'])) {
                                         <tr>
                                             <th class="">Name</th>
                                             <th class="">Mobile Number</th>
-                                            <th class="">Location</th>
                                             <th class="">Age</th>
-                                            <th class="trash"></th>
+                                            <th class="">Location</th>
+
 
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                                    <tbody id="primary_contact_tbl">
 
-                                        </tr>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-
-                                        </tr>
                                     </tbody>
 
                                 </table>
@@ -363,27 +343,27 @@ if (isset($_COOKIE['keep_login'])) {
                         </div>
 
 
-                        <div class="col-12 add-row-group">
+                        <!-- <div class="col-12 add-row-group">
                             <div class="row no-gutters all-form-group-wrap">
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Name </label>
-                                    <input id="" type="text" placeholder="Name">
+                                    <input id="s_name" type="text" placeholder="Name">
                                 </div>
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Mobile Number</label>
-                                    <input id="" type="text" placeholder="Name">
+                                    <input id="s_mobile" type="number" placeholder="Mobile Number">
                                 </div>
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Location</label>
-                                    <input id="" type="text" placeholder="Location">
+                                    <input id="s_location" type="text" placeholder="Location">
                                 </div>
                                 <div class="form-group mb-3 col-md-3 add-btn-wrap">
                                     <label class="mb-2">Age</label>
-                                    <input id="" type="text" placeholder="Age">
-                                    <button>+</button>
+                                    <input id="s_age" type="number" placeholder="Age">
+                                    <button onclick="addSecondaryContactPerson()">+</button>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="col-12">
                             <div class="table-responsive modal-responsive">
@@ -393,45 +373,15 @@ if (isset($_COOKIE['keep_login'])) {
                                         <tr>
                                             <th class="">Name</th>
                                             <th class="">Mobile Number</th>
-                                            <th class="">Location</th>
                                             <th class="">Age</th>
-                                            <th class="trash"></th>
+                                            <th class="">Location</th>
+
 
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                                    <tbody id="secondary_contact_tbl">
 
-                                        </tr>
-                                        <tr>
-                                            <td>Muneer</td>
-                                            <td>64466554</td>
-                                            <td>conctetur</td>
-                                            <td>24</td>
-                                            <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-
-                                        </tr>
                                     </tbody>
-
                                 </table>
                             </div>
                         </div>
@@ -445,16 +395,10 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="sticky-buttons">
 
-                            <button onclick="save()" class="btn-primary mb-3">Preview</button>
+                            <button onclick="editInfo()" class="btn-primary mb-3">Edit</button>
 
-                            <button onclick="save()" class="btn-primary">Save</button>
                         </div>
 
-                        <!-- <div class="form-group col-auto ml-auto">
-                            <button onclick="save()" class="btn-primary">Submit</button>
-                            <button onclick="showReport()" class="btn-dark print mx-3"> Print </button>
-                            <button onclick="deleteRecord()" class="btn-dark dlt"> Delete </button>
-                        </div> -->
 
                     </div>
                 </div>
@@ -477,7 +421,7 @@ if (isset($_COOKIE['keep_login'])) {
     <script src="js/resizableColumns.min.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/custom.js"></script>
-    <script src="js/quarantine_add/add.js"></script>
+    <script src="js/quarantine_report/report.js"></script>
 </body>
 
 </html>

@@ -554,3 +554,7 @@ function mysql_real_escape_string(str) {
     }
   });
 }
+
+var showReport = () => {
+  window.location = "quarantine_report.php?q=" + query;
+};
