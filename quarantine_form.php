@@ -107,7 +107,7 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">PHC Medical Officer Contact No</label>
-                            <input id="phc_medical_officer_contact_number" type="text" placeholder="PHC Medical Officer Contact No">
+                            <input id="phc_medical_officer_contact_number" type="number" placeholder="PHC Medical Officer Contact No">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
@@ -247,7 +247,7 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Between 10 - 17</label>
-                            <input id="ten_to_seventeen" type="number" placeholder="Between 17 - 59">
+                            <input id="ten_to_seventeen" type="number" placeholder="Between 10 - 17">
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">

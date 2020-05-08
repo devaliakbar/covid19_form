@@ -4,7 +4,7 @@ include 'common.php';
 $userInfoCreateQuery = "CREATE TABLE user_info(
     user_username VARCHAR(50),
     user_password VARCHAR(50)
-);";
+)ENGINE = INNODB;";
 
 if (mysqli_query($conn, $userInfoCreateQuery)) {
     echo "<br>Table User Info created successfully<br>";
@@ -49,7 +49,7 @@ $personInfoCreateQuery = "CREATE TABLE person_info(
     relative_home_available BOOLEAN,
     relative_confirmation_from_rrt BOOLEAN,
     rrt_name VARCHAR(50)
-);";
+)ENGINE = INNODB;";
 
 if (mysqli_query($conn, $personInfoCreateQuery)) {
     echo "<br>Table Person Info created successfully<br>";
@@ -94,7 +94,7 @@ $quarantineInfoCreateQuery = "CREATE TABLE quarantine_info(
     result VARCHAR(50),
     travelled_with_positive_case BOOLEAN,
     remark VARCHAR(500)
-);";
+)ENGINE = INNODB;";
 
 if (mysqli_query($conn, $quarantineInfoCreateQuery)) {
     echo "<br>Table Quarantine Info created successfully<br>";
@@ -113,7 +113,7 @@ $familyInfoCreateQuery = "CREATE TABLE family_info(
     seventeen_to_fiftynine INT,
     sixty_and_above INT,
     details VARCHAR(500)
-);";
+)ENGINE = INNODB;";
 
 if (mysqli_query($conn, $familyInfoCreateQuery)) {
     echo "<br>Table Family Info created successfully<br>";
@@ -129,7 +129,7 @@ $vistedPlaceInfoCreateQuery = "CREATE TABLE visited_place_info(
     location_name VARCHAR(100),
     lat VARCHAR(500),
     lon VARCHAR(500)
-);";
+)ENGINE = INNODB;";
 
 if (mysqli_query($conn, $vistedPlaceInfoCreateQuery)) {
     echo "<br>Table Visited Place Info created successfully<br>";
@@ -148,7 +148,7 @@ $primaryContactInfoCreateQuery = "CREATE TABLE primary_contact_info(
     location VARCHAR(500),
     lat VARCHAR(500),
     lon VARCHAR(500)
-);";
+)ENGINE = INNODB;";
 
 if (mysqli_query($conn, $primaryContactInfoCreateQuery)) {
     echo "<br>Table Primary Contact Info created successfully<br>";
@@ -167,7 +167,7 @@ $secondaryContactInfoCreateQuery = "CREATE TABLE secondary_contact_info(
     location VARCHAR(500),
     lat VARCHAR(500),
     lon VARCHAR(500)
-);";
+)ENGINE = INNODB;";
 
 if (mysqli_query($conn, $secondaryContactInfoCreateQuery)) {
     echo "<br>Table Secondary Contact Info created successfully<br>";

@@ -11,15 +11,17 @@ var addPrimaryContactPerson = () => {
     return alert("Please enter the name");
   }
 
-  var mobile = $("#p_mobile").val().trim();
-  var age = $("#p_age").val().trim();
+  var mobile = mysql_real_escape_string($("#p_mobile").val().trim());
+  var age = mysql_real_escape_string(
+    $("#p_age").val().trim() == "" ? 0 : $("#p_age").val().trim()
+  );
   var location = $("#p_location").val().trim();
 
   var currentPerson = {
     name: name,
     mobile_no: mobile,
     age: age,
-    location: location,
+    location: mysql_real_escape_string(location),
     lat: currentPrimaryContactPersonLocation.lat,
     lon: currentPrimaryContactPersonLocation.lon,
   };
@@ -77,15 +79,17 @@ var addSecondaryContactPerson = () => {
     return alert("Please enter the name");
   }
 
-  var mobile = $("#s_mobile").val().trim();
-  var age = $("#s_age").val().trim();
+  var mobile = mysql_real_escape_string($("#s_mobile").val().trim());
+  var age = mysql_real_escape_string(
+    $("#s_age").val().trim() == "" ? 0 : $("#s_age").val().trim()
+  );
   var location = $("#s_location").val().trim();
 
   var currentPerson = {
     name: name,
     mobile_no: mobile,
     age: age,
-    location: location,
+    location: mysql_real_escape_string(location),
     lat: currentSecondaryContactPersonLocation.lat,
     lon: currentSecondaryContactPersonLocation.lon,
   };
@@ -176,13 +180,15 @@ var currentPersonLocation = { location: "Thoma", lat: "0", lon: "0" };
 var save = () => {
   var record = {};
 
-  if ($("#full_name").val() == "") {
+  if ($("#full_name").val().trim() == "") {
     return alert("Please enter name");
   }
 
   record.full_name = mysql_real_escape_string($("#full_name").val().trim());
 
-  record.age = $("#age").val().trim() == "" ? 0 : $("#age").val().trim();
+  record.age = mysql_real_escape_string(
+    $("#age").val().trim() == "" ? 0 : $("#age").val().trim()
+  );
 
   if ($("#sex").prop("checked")) {
     record.sex = 1;
@@ -206,7 +212,7 @@ var save = () => {
     $("#passport_number").val().trim()
   );
 
-  record.location = currentPersonLocation.location;
+  record.location = mysql_real_escape_string(currentPersonLocation.location);
   record.lat = currentPersonLocation.lat;
   record.lon = currentPersonLocation.lon;
 
@@ -238,9 +244,13 @@ var save = () => {
 
   record.source_of_information = $("#source_of_information").val().trim();
 
-  record.panchayat_ward_no = $("#panchayat_ward_no").val().trim();
+  record.panchayat_ward_no = mysql_real_escape_string(
+    $("#panchayat_ward_no").val().trim()
+  );
 
-  record.source_of_contact_number = $("#source_of_contact_number").val().trim();
+  record.source_of_contact_number = mysql_real_escape_string(
+    $("#source_of_contact_number").val().trim()
+  );
 
   record.observation_started_date = $("#observation_started_date").val().trim();
 
@@ -290,19 +300,35 @@ var save = () => {
     record.travelled_with_positive_case = 2;
   }
 
-  record.remark = $("#remark").val().trim();
+  record.remark = mysql_real_escape_string($("#remark").val().trim());
 
-  record.under_five = $("#under_five").val().trim();
+  record.under_five = mysql_real_escape_string(
+    $("#under_five").val().trim() == "" ? 0 : $("#under_five").val().trim()
+  );
 
-  record.five_to_ten = $("#five_to_ten").val().trim();
+  record.five_to_ten = mysql_real_escape_string(
+    $("#five_to_ten").val().trim() == "" ? 0 : $("#five_to_ten").val().trim()
+  );
 
-  record.ten_to_seventeen = $("#ten_to_seventeen").val().trim();
+  record.ten_to_seventeen = mysql_real_escape_string(
+    $("#ten_to_seventeen").val().trim() == ""
+      ? 0
+      : $("#ten_to_seventeen").val().trim()
+  );
 
-  record.seventeen_to_fiftynine = $("#seventeen_to_fiftynine").val().trim();
+  record.seventeen_to_fiftynine = mysql_real_escape_string(
+    $("#seventeen_to_fiftynine").val().trim() == ""
+      ? 0
+      : $("#seventeen_to_fiftynine").val().trim()
+  );
 
-  record.sixty_and_above = $("#sixty_and_above").val().trim();
+  record.sixty_and_above = mysql_real_escape_string(
+    $("#sixty_and_above").val().trim() == ""
+      ? 0
+      : $("#sixty_and_above").val().trim()
+  );
 
-  record.details = $("#details").val().trim();
+  record.details = mysql_real_escape_string($("#details").val().trim());
 
   record.visitedLocation = visitedLocation;
 
@@ -310,14 +336,11 @@ var save = () => {
 
   record.secondaryConatctList = secondaryContactPersons;
 
-  console.log(record);
-
-  return;
   saveToServer(record);
 };
 
 var saveToServer = async (body) => {
-  var url = "api/add.php";
+  var url = "api/add_quarantine.php";
   showLoader();
   const response = await fetch(url, {
     method: "POST",
@@ -326,18 +349,20 @@ var saveToServer = async (body) => {
   hideLoader();
   if (response.status == 200) {
     var jsonResponce = await response.json();
-    if (jsonResponce["success"]) {
-      $(".preview_btn").show();
-      alert("Successfully Saved");
-    } else {
-      alert("Failed To Save");
-    }
+    console.log(jsonResponce);
+    // if (jsonResponce["success"]) {
+    //   $(".preview_btn").show();
+    //   alert("Successfully Saved");
+    // } else {
+    //   alert("Failed To Save");
+    // }
   } else {
     alert("Failed To Save");
   }
 };
 
 function mysql_real_escape_string(str) {
+  str = str.toString();
   return str.replace(/[\0\x08\x09\x1a\n\r"'\\\%]/g, function (char) {
     switch (char) {
       case "\0":
