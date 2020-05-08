@@ -395,6 +395,8 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="sticky-buttons">
 
+                            <button onclick="deleteReport()" class="btn-primary mb-3 preview_btn">Delete</button>
+
                             <button onclick="editInfo()" class="btn-primary mb-3">Edit</button>
 
                         </div>

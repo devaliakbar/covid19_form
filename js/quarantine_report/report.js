@@ -226,3 +226,29 @@ var currentPersonLocation = { location: "Thoma", lat: "0", lon: "0" };
 var editInfo = () => {
   window.location = "quarantine_form.php?q=" + query;
 };
+
+var deleteReport = async () => {
+  var deleteConfirm = confirm("Are you sure, do you want to delete?");
+
+  if (deleteConfirm == false) {
+    return;
+  }
+
+  showLoader();
+  const response = await fetch("api/delete_quarantine.php", {
+    method: "POST",
+    body: JSON.stringify({ id: query }),
+  });
+  hideLoader();
+  if (response.status == 200) {
+    var jsonResponce = await response.json();
+    if (jsonResponce["success"]) {
+      alert("Successfully Deleted");
+      window.location.replace("quarantine_form_list.php");
+    } else {
+      alert("Failed To Delete");
+    }
+  } else {
+    alert("Failed To Delete");
+  }
+};

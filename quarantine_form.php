@@ -390,7 +390,7 @@ if (isset($_COOKIE['keep_login'])) {
 
                             <button onclick="showReport()" class="btn-primary mb-3 preview_btn">Preview</button>
 
-                            <button onclick="save()" class="btn-primary">Save</button>
+                            <button onclick="save()" class="btn-primary mb-3">Save</button>
                         </div>
 
                         <!-- <div class="form-group col-auto ml-auto">
