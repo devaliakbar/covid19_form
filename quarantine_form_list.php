@@ -58,10 +58,9 @@ if (isset($_COOKIE['keep_login'])) {
                         <div class="th" class="filter editable">Person Name</div>
                         <div class="th" class="filter editable">Sex</div>
                         <div class="th" class="filter editable">Age</div>
-                        <div class="th" class="filter">Country</div>
+                        <div class="th" class="filter">Orgin Country</div>
                         <div class="th" class="filter">Address</div>
-                        <div class="th" class="filter"></div>
-                        <div class="th" class="filter"></div>
+
                     </div>
                 </div>
                 <div class="tbody">
