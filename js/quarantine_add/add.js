@@ -151,9 +151,11 @@ var displayDetails = (
   $("#details").val(family["details"]);
 
   //************************ */
-  visitedLocation = visitedPlace;
-  primaryContactPersons = primaryContact;
-  secondaryContactPersons = secondaryContact;
+
+  visitedLocation = visitedPlace == undefined ? [] : visitedPlace;
+  primaryContactPersons = primaryContact == undefined ? [] : primaryContact;
+  secondaryContactPersons =
+    secondaryContact == undefined ? [] : secondaryContact;
 
   fillVisitedPlace();
   fillPrimaryContactPersons();
@@ -507,6 +509,12 @@ var save = () => {
 
 var saveToServer = async (body) => {
   var url = "api/add_quarantine.php";
+
+  if (query != null) {
+    url = "api/update_quarantine.php";
+    body.id = query;
+  }
+
   showLoader();
   const response = await fetch(url, {
     method: "POST",
@@ -517,7 +525,9 @@ var saveToServer = async (body) => {
     var jsonResponce = await response.json();
     if (jsonResponce["success"]) {
       $(".preview_btn").show();
-      query = jsonResponce["id"];
+      if (query == null) {
+        query = jsonResponce["id"];
+      }
       alert("Successfully Saved");
     } else {
       alert("Failed To Save");
