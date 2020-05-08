@@ -19,7 +19,7 @@ if (isset($_COOKIE['keep_login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <title>Record</title>
+    <title>Quarantine Form</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@ if (isset($_COOKIE['keep_login'])) {
     <main class="payments-page">
 
         <div class="header">
-            <h1>Basic Info</h1>
+            <h1>Quarantine Form</h1>
             <div class="breadcrumb">
                 <a href="#" onclick="window.location.replace('quarantine_form_list.php')"><i class="fas fa-home"></i></a>
             </div>
@@ -75,7 +75,7 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Location</label>
-                            <input id="" type="text" placeholder="Location">
+                            <input id="location" type="text" placeholder="Location">
                         </div>
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Passport No</label>
