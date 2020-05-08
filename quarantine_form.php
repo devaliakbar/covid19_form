@@ -20,6 +20,9 @@ if (isset($_COOKIE['keep_login'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <title>Quarantine Form</title>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBC0qDIqeNTbOwEtKjvvjNsEQPYmsEYJ_k"></script>
+
 </head>
 
 <body>
@@ -276,7 +279,7 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-4">
                             <label class="mb-2">Name of the Location</label>
-                            <div class="add-group"><input id="visited_location" type="text" placeholder="Name of the Location"><button onclick="addVisitedPlace()">+</button></div>
+                            <div class="add-group"><input id="visited_location" type="text" placeholder="Name of the Location"><button>+</button></div>
                             <div class="add-list">
 
                             </div>

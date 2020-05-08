@@ -1,3 +1,93 @@
+//SETTING MAP
+
+function initMap() {
+  var currentLat = 9.9312;
+  var currentLon = 76.2673;
+
+  if (currentPersonLocation.lat != "0" && currentPersonLocation.lon != "0") {
+    currentLat = parseFloat(currentPersonLocation.lat);
+    currentLon = parseFloat(currentPersonLocation.lon);
+  }
+
+  var map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: currentLat, lng: currentLon },
+    zoom: 11,
+  });
+
+  new google.maps.Marker({
+    position: { lat: currentLat, lng: currentLon },
+    map: map,
+    label: {
+      fontSize: "11pt",
+      fontWeight: "bold",
+      color: "blue",
+      text: $("#full_name").val(),
+    },
+    animation: google.maps.Animation.BOUNCE,
+  });
+
+  //SETTING VISITED PLACES
+
+  for (var i = 0; i < visitedLocation.length; i++) {
+    var vLat = parseFloat(visitedLocation[i].lat);
+    var vLon = parseFloat(visitedLocation[i].lon);
+    new google.maps.Marker({
+      position: { lat: vLat, lng: vLon },
+      map: map,
+      label: {
+        fontSize: "11pt",
+        color: "blue",
+        text: "Visited Place",
+        fontWeight: "bold",
+      },
+      icon: "http://maps.google.com/mapfiles/ms/icons/orange-dot.png",
+      animation: google.maps.Animation.BOUNCE,
+    });
+  }
+
+  //SETTING PRIMARY CONTACT
+  for (var i = 0; i < primaryContactPersons.length; i++) {
+    var vLat = parseFloat(primaryContactPersons[i].lat);
+    var vLon = parseFloat(primaryContactPersons[i].lon);
+
+    if (vLat != "0" && vLon != "0") {
+      new google.maps.Marker({
+        position: { lat: vLat, lng: vLon },
+        map: map,
+        label: {
+          fontSize: "11pt",
+          color: "blue",
+          text: "Primary Contact",
+          fontWeight: "bold",
+        },
+        icon: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png",
+        animation: google.maps.Animation.BOUNCE,
+      });
+    }
+  }
+
+  //SETTING SECONDARY CONTACT
+  for (var i = 0; i < secondaryContactPersons.length; i++) {
+    var vLat = parseFloat(secondaryContactPersons[i].lat);
+    var vLon = parseFloat(secondaryContactPersons[i].lon);
+
+    if (vLat != "0" && vLon != "0") {
+      new google.maps.Marker({
+        position: { lat: vLat, lng: vLon },
+        map: map,
+        label: {
+          fontSize: "11pt",
+          color: "blue",
+          text: "Secondary Contact",
+          fontWeight: "bold",
+        },
+        icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
+        animation: google.maps.Animation.BOUNCE,
+      });
+    }
+  }
+}
+
 //LOADING IF EDIT ACTION
 $(document).ready(function () {
   const urlParams = new URLSearchParams(window.location.search);
@@ -149,13 +239,16 @@ var displayDetails = (
   $("#details").val(family["details"]);
 
   //************************ */
-  visitedLocation = visitedPlace;
-  primaryContactPersons = primaryContact;
-  secondaryContactPersons = secondaryContact;
+  visitedLocation = visitedPlace == undefined ? [] : visitedPlace;
+  primaryContactPersons = primaryContact == undefined ? [] : primaryContact;
+  secondaryContactPersons =
+    secondaryContact == undefined ? [] : secondaryContact;
 
   fillVisitedPlace();
   fillPrimaryContactPersons();
   fillSecondaryContactPersons();
+
+  initMap();
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -2,6 +2,99 @@ $(".preview_btn").hide();
 
 //LOADING IF EDIT ACTION
 $(document).ready(function () {
+  //////////SETTING MAP////////////
+  //////////SETTING MAP////////////
+
+  var autocomplete;
+  autocomplete = new google.maps.places.Autocomplete(
+    document.getElementById("location"),
+    {
+      types: ["geocode"],
+    }
+  );
+
+  google.maps.event.addListener(autocomplete, "place_changed", function () {
+    var near_place = autocomplete.getPlace();
+
+    currentPersonLocation = {
+      location: $("#location").val(),
+      lat: near_place.geometry.location.lat(),
+      lon: near_place.geometry.location.lng(),
+    };
+  });
+
+  //FOR VISITED PLACE
+  var visitedAutocomplete;
+  visitedAutocomplete = new google.maps.places.Autocomplete(
+    document.getElementById("visited_location"),
+    {
+      types: ["geocode"],
+    }
+  );
+
+  google.maps.event.addListener(
+    visitedAutocomplete,
+    "place_changed",
+    function () {
+      var near_place = visitedAutocomplete.getPlace();
+
+      addVisitedPlace(
+        $("#visited_location").val().trim(),
+        near_place.geometry.location.lat(),
+        near_place.geometry.location.lng()
+      );
+    }
+  );
+
+  //FOR PRIMARY VISIT
+  var primaryLocAutocomplete;
+  primaryLocAutocomplete = new google.maps.places.Autocomplete(
+    document.getElementById("p_location"),
+    {
+      types: ["geocode"],
+    }
+  );
+
+  google.maps.event.addListener(
+    primaryLocAutocomplete,
+    "place_changed",
+    function () {
+      var near_place = primaryLocAutocomplete.getPlace();
+
+      currentPrimaryContactPersonLocation = {
+        location: $("#p_location").val().trim(),
+        lat: near_place.geometry.location.lat(),
+        lon: near_place.geometry.location.lng(),
+      };
+    }
+  );
+
+  //FOR SECONDARY VISIT
+  var secondaryLocAutocomplete;
+  secondaryLocAutocomplete = new google.maps.places.Autocomplete(
+    document.getElementById("s_location"),
+    {
+      types: ["geocode"],
+    }
+  );
+
+  google.maps.event.addListener(
+    secondaryLocAutocomplete,
+    "place_changed",
+    function () {
+      var near_place = secondaryLocAutocomplete.getPlace();
+
+      currentSecondaryContactPersonLocation = {
+        location: $("#s_location").val().trim(),
+        lat: near_place.geometry.location.lat(),
+        lon: near_place.geometry.location.lng(),
+      };
+    }
+  );
+
+  //////////SETTING MAP////////////
+  //////////SETTING MAP////////////
+
   const urlParams = new URLSearchParams(window.location.search);
   query = urlParams.get("q");
   if (query != null) {
@@ -183,13 +276,14 @@ var addPrimaryContactPerson = () => {
   var age = mysql_real_escape_string(
     $("#p_age").val().trim() == "" ? 0 : $("#p_age").val().trim()
   );
-  var location = $("#p_location").val().trim();
 
   var currentPerson = {
     name: name,
     mobile_no: mobile,
     age: age,
-    location: mysql_real_escape_string(location),
+    location: mysql_real_escape_string(
+      currentPrimaryContactPersonLocation.location
+    ),
     lat: currentPrimaryContactPersonLocation.lat,
     lon: currentPrimaryContactPersonLocation.lon,
   };
@@ -303,17 +397,11 @@ var removeSecondaryContactPerson = (index) => {
 
 var visitedLocation = [];
 
-var addVisitedPlace = () => {
-  var currentVisitedPlace = $("#visited_location").val().trim();
-  if (currentVisitedPlace == "") {
-    alert("Enter a Location Name");
-    return;
-  }
-
+var addVisitedPlace = (loationName, lat, lon) => {
   var currentVisitedLocation = {
-    location_name: currentVisitedPlace,
-    lat: "0",
-    lon: "0",
+    location_name: loationName,
+    lat: lat,
+    lon: lon,
   };
 
   visitedLocation.push(currentVisitedLocation);
@@ -342,7 +430,7 @@ var removeVisitedPlace = (index) => {
   fillVisitedPlace();
 };
 
-var currentPersonLocation = { location: "Thoma", lat: "0", lon: "0" };
+var currentPersonLocation = { location: "", lat: "0", lon: "0" };
 
 //SAVE
 var save = () => {

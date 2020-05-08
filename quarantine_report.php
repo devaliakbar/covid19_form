@@ -20,6 +20,9 @@ if (isset($_COOKIE['keep_login'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <title>Quarantine Form</title>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBC0qDIqeNTbOwEtKjvvjNsEQPYmsEYJ_k"></script>
+
 </head>
 
 <body>
@@ -388,8 +391,11 @@ if (isset($_COOKIE['keep_login'])) {
 
 
                         <div class="col-12">
-                            <div class="map-wrapper mt-4">
-                                <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9045.724588914265!2d-73.91995050493409!3d40.83568454670568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f43aac16e2ff%3A0xac8fb867da716282!2sJoker%20Stairs!5e0!3m2!1sen!2sin!4v1588811071682!5m2!1sen!2sin" height="450" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            <div style="height: 500px;" id="map" class="map-wrapper mt-4">
+
+
+
+                                <!-- <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9045.724588914265!2d-73.91995050493409!3d40.83568454670568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f43aac16e2ff%3A0xac8fb867da716282!2sJoker%20Stairs!5e0!3m2!1sen!2sin!4v1588811071682!5m2!1sen!2sin" height="450" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
                             </div>
                         </div>
 
