@@ -45,13 +45,21 @@ var fetchData = async () => {
 var fillTable = (persons) => {
   jQuery(".tbody").empty();
   for (var i = 0; i < persons.length; i++) {
-    var gender = persons[i]["sex"] == "1" ? "Male" : "Female";
+    var age = persons[i]["age"] == 0 ? "" : persons[i]["age"];
+    var gender = "";
+
+    if (persons[i]["sex"] == "1") {
+      gender = "Male";
+    } else if (persons[i]["sex"] == "0") {
+      gender = "Female";
+    }
+
     var appendRaw =
       "<div class='tr' onclick='showDetail(" + persons[i]["_id"] + ")'>";
     appendRaw += "<div class='td'>" + (i + 1) + "</div>";
     appendRaw += "<div class='td'>" + persons[i]["full_name"] + "</div>";
     appendRaw += "<div class='td'>" + gender + "</div>";
-    appendRaw += "<div class='td'>" + persons[i]["age"] + "</div>";
+    appendRaw += "<div class='td'>" + age + "</div>";
     appendRaw += "<div class='td'>" + persons[i]["orgin_country"] + "</div>";
     appendRaw += "<div class='td'>" + persons[i]["address"] + "</div>";
     // appendRaw +=
