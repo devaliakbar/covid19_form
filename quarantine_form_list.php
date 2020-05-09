@@ -79,13 +79,13 @@ if ($a_type == "1") {
                                     <div class="col-12">
                                         <div class="form-group mb-3">
                                             <label for="">Current Password</label>
-                                            <input type="password" class="form-control">
+                                            <input id="u_c_pass" type="password" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label for="">New Password</label>
-                                            <input type="password" class="form-control">
+                                            <input id="u_n_pass" type="password" class="form-control">
                                         </div>
-                                        <button class="btm btn-primary mt-3">Submit</button>
+                                        <button onclick="changeUserPassword()" class="btm btn-primary mt-3">Submit</button>
                                     </div>
                                 </div>
                             </div>
@@ -99,14 +99,14 @@ if ($a_type == "1") {
                                     <div class="col-12">
                                         <div class="form-group mb-3">
                                             <label for="">Current Password</label>
-                                            <input type="password" class="form-control">
+                                            <input id="a_c_pass" type="password" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label for="">New Password</label>
-                                            <input type="password" class="form-control">
+                                            <input id="a_n_pass" type="password" class="form-control">
                                         </div>
 
-                                        <button class="btm btn-primary mt-3">Submit</button>
+                                        <button onclick="changeAdminPassword()" class="btm btn-primary mt-3">Submit</button>
                                     </div>
                                 </div>
                             </div>
@@ -164,6 +164,7 @@ if ($a_type == "1") {
     <script src="js/datepicker.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/quarantine_home/home.js"></script>
+    <script src="js/settings/settings.js"></script>
 </body>
 
 </html>
