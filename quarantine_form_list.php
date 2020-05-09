@@ -68,7 +68,7 @@ if (isset($_COOKIE['keep_login'])) {
                         <div class="col-md-6 bd-md-r mb-3">
                             <h4 class="mb-3">Change User Password</h4>
 
-                            <form action="" class="form-2 w-100">
+                            <div  class="form-2 w-100">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group mb-3">
@@ -82,13 +82,13 @@ if (isset($_COOKIE['keep_login'])) {
                                         <button class="btm btn-primary mt-3">Submit</button>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
 
                         </div>
                         <div class="col-md-6 mb-3">
                             <h4 class="mb-3">Change Admin Password</h4>
 
-                            <form action="" class="form-2 w-100">
+                            <div  class="form-2 w-100">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group mb-3">
@@ -103,7 +103,7 @@ if (isset($_COOKIE['keep_login'])) {
                                         <button class="btm btn-primary mt-3">Submit</button>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
 
                         </div>
                     </div>
