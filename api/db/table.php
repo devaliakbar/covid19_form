@@ -3,7 +3,8 @@ include 'common.php';
 
 $userInfoCreateQuery = "CREATE TABLE user_info(
     user_username VARCHAR(50),
-    user_password VARCHAR(50)
+    user_password VARCHAR(50),
+    type INT
 )ENGINE = INNODB;";
 
 if (mysqli_query($conn, $userInfoCreateQuery)) {
@@ -19,9 +20,16 @@ if (mysqli_query($conn, $deleteAllUserQuery)) {
     echo "Failed To Delete Old Users: " . mysqli_error($conn);
 }
 
-$addUserQuery = "INSERT INTO user_info(user_username, user_password)VALUES('admin', 'admin');";
+$addUserQuery = "INSERT INTO user_info(user_username, user_password,type)VALUES('admin', 'admin', 1);";
 if (mysqli_query($conn, $addUserQuery)) {
     echo "<br>Added Username : admin and Password : admin<br>";
+} else {
+    echo "Failed To Create Users: " . mysqli_error($conn);
+}
+
+$addUserQuery = "INSERT INTO user_info(user_username, user_password,type)VALUES('user', 'user', 0);";
+if (mysqli_query($conn, $addUserQuery)) {
+    echo "<br>Added Username : user and Password : user<br>";
 } else {
     echo "Failed To Create Users: " . mysqli_error($conn);
 }

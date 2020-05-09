@@ -4,6 +4,7 @@ if (isset($_COOKIE['keep_login'])) {
         header("Location: login.php");
         exit();
     }
+    $a_type = $_COOKIE['type'];
 } else {
     header("Location: login.php");
     exit();
@@ -40,7 +41,12 @@ if (isset($_COOKIE['keep_login'])) {
 
             <a href="quarantine_form.php"><button class="btn btn-dark add-btn">Add</button></a>
 
-                <button class="btn btn-dark settings-btn">Settings</button>
+            <?php
+if ($a_type == "1") {
+
+    echo '<button class="btn btn-dark settings-btn">Settings</button>';
+}
+?>
 
                 <button class="btn btn-dark log-btn" onclick='$("form").submit();'>Log Out</button>
 
@@ -115,7 +121,7 @@ if (isset($_COOKIE['keep_login'])) {
         <div class="content">
             <div class="table-wrap">
                 <div class="searchbox">
-                    <form method="post" class="form-inline main">
+                    <form method="post" action="logout.php" class="form-inline main">
                         <div class="form-group">
                             <input type="text" id="search_key" class="form-control" placeholder="Search" aria-describedby="helpId">
                             <button disabled><i class="fa fa-search" aria-hidden="true"></i></button>

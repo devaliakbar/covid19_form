@@ -8,7 +8,8 @@ $password = $body["password"];
 
 $checkUser = "SELECT
     user_username,
-    user_password
+    user_password,
+    type
     FROM
     user_info
     WHERE
@@ -18,6 +19,11 @@ $result = $conn->query($checkUser);
 
 if ($result->num_rows > 0) {
     $response["success"] = true;
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $response["type"] = $row['type'];
+    }
+
 } else {
     $response["status"] = "USER";
 }

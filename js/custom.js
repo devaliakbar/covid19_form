@@ -130,12 +130,9 @@
 
   $(".settings-modal").hide();
   $(".settings-btn,.modal .close").on("click", function () {
-    $(".settings-modal").fadeToggle('fast');
+    $(".settings-modal").fadeToggle("fast");
     $("body").toggleClass("modal-open");
   });
-
-
-
 })(jQuery);
 
 var openedNav = 0;
@@ -146,4 +143,20 @@ function showLoader() {
 
 function hideLoader() {
   $(".loader").fadeOut();
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }

@@ -1,6 +1,10 @@
 var searchTimer;
 
+var accountType = "";
+
 $(document).ready(function () {
+  accountType = getCookie("type");
+
   fetchData();
 
   $("#search_key").on("change keyup paste", function () {
@@ -57,10 +61,14 @@ var fillTable = (persons) => {
       "<a href='norka_report.php?q=" +
       persons[i]["_id"] +
       "' class='td'> <i class='fas fa-eye'></i></a>";
-    appendRaw +=
-      "<a href='norka_add.php?q=" +
-      persons[i]["_id"] +
-      "' class='td'> <i class='fa fa-edit' aria-hidden='true'></i></div></a>";
+
+    if (accountType == "1") {
+      appendRaw +=
+        "<a href='norka_add.php?q=" +
+        persons[i]["_id"] +
+        "' class='td'> <i class='fa fa-edit' aria-hidden='true'></i></div></a>";
+    }
+
     appendRaw += "</div>";
     jQuery(".tbody").append(appendRaw);
   }
