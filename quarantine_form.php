@@ -27,7 +27,7 @@ if (isset($_COOKIE['keep_login'])) {
 
 <body>
 
-    <main class="payments-page">
+    <main class="quarantine-form">
 
         <div class="header">
             <h1>Quarantine Form</h1>
@@ -116,7 +116,7 @@ if (isset($_COOKIE['keep_login'])) {
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Place to visit</label>
                             <select id="place_to_vist">
-                                <option value="" selected >Place to visit</option>
+                                <option value="" selected>Place to visit</option>
                                 <option value="Inter District">Inter District</option>
                                 <option value="Inter State">Inter State</option>
                                 <option value="International">International</option>
@@ -227,7 +227,7 @@ if (isset($_COOKIE['keep_login'])) {
                         </div>
                         <div class="form-group mb-3 col-md-6 ">
                             <label class="mb-2">Remark</label>
-                            <textarea  id="remark" rows="5"></textarea>
+                            <textarea id="remark" rows="5"></textarea>
                         </div>
 
                         <div class="col-12">
@@ -297,24 +297,23 @@ if (isset($_COOKIE['keep_login'])) {
                             <div class="row no-gutters all-form-group-wrap">
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Name </label>
-                                    <input id="p_name" type="text" placeholder="Name">
+                                    <input id="s_name" type="text" placeholder="Name">
                                 </div>
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Mobile Number</label>
-                                    <input id="p_mobile" type="number" placeholder="Mobile Number">
+                                    <input id="s_mobile" type="number" placeholder="Mobile Number">
                                 </div>
                                 <div class="form-group mb-3 col-md-3">
-                                    <label class="mb-2">Location</label>
-                                    <input id="p_location" type="text" placeholder="Location">
+                                    <label class="mb-2">Age</label>
+                                    <input id="s_age" type="number" placeholder="Age">
                                 </div>
                                 <div class="form-group mb-3 col-md-3 add-btn-wrap">
-                                    <label class="mb-2">Age</label>
-                                    <input id="p_age" type="number" placeholder="Age">
-                                    <button onclick="addPrimaryContactPerson()">+</button>
+                                    <label class="mb-2">Location</label>
+                                    <input id="s_location" type="text" placeholder="Location">
+                                    <button onclick="addSecondaryContactPerson()">+</button>
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-12">
                             <div class="table-responsive modal-responsive">
 
@@ -357,12 +356,12 @@ if (isset($_COOKIE['keep_login'])) {
                                     <input id="s_mobile" type="number" placeholder="Mobile Number">
                                 </div>
                                 <div class="form-group mb-3 col-md-3">
-                                    <label class="mb-2">Location</label>
-                                    <input id="s_location" type="text" placeholder="Location">
-                                </div>
-                                <div class="form-group mb-3 col-md-3 add-btn-wrap">
                                     <label class="mb-2">Age</label>
                                     <input id="s_age" type="number" placeholder="Age">
+                                </div>
+                                <div class="form-group mb-3 col-md-3 add-btn-wrap">
+                                    <label class="mb-2">Location</label>
+                                    <input id="s_location" type="text" placeholder="Location">
                                     <button onclick="addSecondaryContactPerson()">+</button>
                                 </div>
                             </div>

@@ -27,7 +27,7 @@ if (isset($_COOKIE['keep_login'])) {
 
 <body>
 
-    <main class="payments-page">
+    <main class="quarantine-form ">
 
         <div class="header">
             <h1>Quarantine Form</h1>
@@ -274,10 +274,10 @@ if (isset($_COOKIE['keep_login'])) {
 
 
                         <div class="mb-2 col-md-12 ">
-                            <label class="mb-3 mt-4"><b>Visited Places</b></label>
+                            <label class="mt-4"><b>Visited Places</b></label>
                         </div>
 
-                        <div class="form-group mb-3 col-md-4">
+                        <div class="form-group mb-3 col-md-4 borderd-add-list">
                             <!-- <label class="mb-2">Name of the Location</label>
                             <div class="add-group"><input disabled id="visited_location" type="text" placeholder="Name of the Location"><button onclick="addVisitedPlace()">+</button></div> -->
                             <div class="add-list">

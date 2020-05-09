@@ -127,6 +127,15 @@
   // $(document).on('click','.close',function(){
   //   $(this).parent().remove();
   // });
+
+  $(".settings-modal").hide();
+  $(".settings-btn,.modal .close").on("click", function () {
+    $(".settings-modal").fadeToggle('fast');
+    $("body").toggleClass("modal-open");
+  });
+
+
+
 })(jQuery);
 
 var openedNav = 0;
