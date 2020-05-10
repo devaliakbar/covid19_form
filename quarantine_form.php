@@ -297,20 +297,20 @@ if (isset($_COOKIE['keep_login'])) {
                             <div class="row no-gutters all-form-group-wrap">
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Name </label>
-                                    <input id="s_name" type="text" placeholder="Name">
+                                    <input id="p_name" type="text" placeholder="Name">
                                 </div>
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Mobile Number</label>
-                                    <input id="s_mobile" type="number" placeholder="Mobile Number">
+                                    <input id="p_mobile" type="number" placeholder="Mobile Number">
                                 </div>
                                 <div class="form-group mb-3 col-md-3">
                                     <label class="mb-2">Age</label>
-                                    <input id="s_age" type="number" placeholder="Age">
+                                    <input id="p_age" type="number" placeholder="Age">
                                 </div>
                                 <div class="form-group mb-3 col-md-3 add-btn-wrap">
                                     <label class="mb-2">Location</label>
-                                    <input id="s_location" type="text" placeholder="Location">
-                                    <button onclick="addSecondaryContactPerson()">+</button>
+                                    <input id="p_location" type="text" placeholder="Location">
+                                    <button onclick="addPrimaryContactPerson()">+</button>
                                 </div>
                             </div>
                         </div>
