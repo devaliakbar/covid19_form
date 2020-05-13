@@ -66,52 +66,71 @@ if (isset($_COOKIE['keep_login'])) {
                             <input id="contact_number" type="number" placeholder="Contact No">
                         </div>
 
+
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">District</label>
+                            <select id="district">
+                                <option value="" selected>District</option>
+
+                            </select>
+                        </div>
+
+
+
+<!--
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">District</label>
                             <input id="district" type="text" placeholder="District">
-                        </div>
+                        </div> -->
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Address</label>
                             <input id="address" type="text" placeholder="Address">
                         </div>
 
+
+
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">State Statutes</label>
+                            <select id="state_statutes">
+                                <option value="" selected>State Statutes</option>
+                                <option value="Municipality">Municipality</option>
+                                <option value="Corporation">Corporation</option>
+                                <option value="Panchayat">Panchayat</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">State Statutes Name</label>
+                            <select id="state_statutes_name">
+                                <option value="" selected>State Statutes Name</option>
+
+                            </select>
+                        </div>
+
+                        <!-- <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">State Statutes Name</label>
+                            <input id="state_statutes_name" type="text" placeholder="State Statutes Name">
+                        </div> -->
+
+
+
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Location</label>
                             <input id="location" type="text" placeholder="Location">
                         </div>
                         <div class="form-group mb-3 col-md-3 ">
-                            <label class="mb-2">Passport No</label>
-                            <input id="passport_number" type="text" placeholder="Passport No">
+                            <label class="mb-2">Passport No / Adhar Card No</label>
+                            <input id="passport_number" type="text" placeholder="Passport No / Adhar Card No">
                         </div>
                         <div class="col-12 pb-3">
                             <hr class="my-4">
                         </div>
 
-                        <div class="form-group mb-3 col-md-3 ">
-                            <label class="mb-2">Origin Country</label>
-                            <input id="orgin_country" type="text" placeholder="Origin Country">
-                        </div>
 
-                        <div class="form-group mb-3 col-md-3 ">
-                            <label class="mb-2">Origin State</label>
-                            <input id="orgin_state" type="text" placeholder="Origin State">
-                        </div>
-
-                        <div class="form-group mb-3 col-md-3 ">
-                            <label class="mb-2">Origin District</label>
-                            <input id="orgin_district" type="text" placeholder="Origin District">
-                        </div>
-
-                        <div class="form-group mb-3 col-md-3 ">
-                            <label class="mb-2">PHC Area</label>
-                            <input id="phc_area" type="text" placeholder="PHC Area">
-                        </div>
-
-                        <div class="form-group mb-3 col-md-3 ">
-                            <label class="mb-2">PHC Medical Officer Contact No</label>
-                            <input id="phc_medical_officer_contact_number" type="number" placeholder="PHC Medical Officer Contact No">
-                        </div>
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Place to visit</label>
@@ -122,6 +141,43 @@ if (isset($_COOKIE['keep_login'])) {
                                 <option value="International">International</option>
                             </select>
                         </div>
+
+
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Arrive From</label>
+                            <select id="orgin_country">
+                                <option value="" selected>Arrive From</option>
+
+                            </select>
+                        </div>
+
+
+                        <!-- <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Arrive From</label>
+                            <input id="orgin_country" type="text" placeholder="Arrive From">
+                        </div> -->
+<!--
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">State</label>
+                            <input id="orgin_state" type="text" placeholder="State">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">District</label>
+                            <input id="orgin_district" type="text" placeholder="District">
+                        </div> -->
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">PHC / Area</label>
+                            <input id="phc_area" type="text" placeholder="PHC / Area">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">PHC Medical Officer Contact No</label>
+                            <input id="phc_medical_officer_contact_number" type="number" placeholder="PHC Medical Officer Contact No">
+                        </div>
+
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Departure Date</label>
@@ -150,6 +206,7 @@ if (isset($_COOKIE['keep_login'])) {
                                 <option value="Junior Public Health Nurse">Junior Public Health Nurse</option>
                                 <option value="ASHA Worker">ASHA Worker</option>
                                 <option value="Volunteers">Volunteers</option>
+                                <option value="Panchayat President">Panchayat President</option>
                             </select>
                         </div>
 
@@ -172,6 +229,20 @@ if (isset($_COOKIE['keep_login'])) {
                             <label class="mb-2">Observation Started Date</label>
                             <input id="observation_started_date" type="date" placeholder="Observation Started Date">
                         </div>
+
+
+
+                        <div class="form-group mb-3 col-md-3 ">
+                            <label class="mb-2">Observation Period</label>
+                            <select id="ob_period">
+                                <option value="" selected>Observation Period</option>
+                                <option value="14">14 Days</option>
+                                <option value="28">28 Days</option>
+                            </select>
+                        </div>
+
+
+
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Observation End Date</label>
@@ -234,6 +305,8 @@ if (isset($_COOKIE['keep_login'])) {
                             <hr class="mt-4">
                         </div>
 
+<div id="if_positive_only" style="width:100%;">
+
                         <div class="mb-2 col-md-12 ">
                             <label class="mb-3 mt-4"><b>Family Info</b></label>
                         </div>
@@ -288,6 +361,8 @@ if (isset($_COOKIE['keep_login'])) {
                         <div class="col-12">
                             <hr class="mt-4">
                         </div>
+
+
 
                         <div class="mb-2 col-md-12 ">
                             <label class="mb-3 mt-4"><b>Primary Contact Persons</b></label>
@@ -388,6 +463,10 @@ if (isset($_COOKIE['keep_login'])) {
                                 </table>
                             </div>
                         </div>
+
+
+                        </div>
+
                         <div class="sticky-buttons">
 
                             <button onclick="showReport()" class="btn-primary mb-3 preview_btn">Preview</button>
@@ -422,6 +501,7 @@ if (isset($_COOKIE['keep_login'])) {
     <script src="js/datepicker.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/quarantine_add/add.js"></script>
+    <script src="js/quarantine_add/place.js"></script>
 </body>
 
 </html>

@@ -160,3 +160,9 @@ function getCookie(cname) {
   }
   return "";
 }
+
+function getDisplayDate(pDate) {
+  var day = ("0" + pDate.getDate()).slice(-2);
+  var month = ("0" + (pDate.getMonth() + 1)).slice(-2);
+  return pDate.getFullYear() + "-" + month + "-" + day;
+}

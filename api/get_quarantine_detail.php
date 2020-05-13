@@ -21,6 +21,10 @@ if (mysqli_num_rows($result) > 0) {
         $temp['age'] = $row["age"];
         $temp['sex'] = $row["sex"];
         $temp['address'] = $row["address"];
+
+        $temp['state_statutes'] = $row["state_statutes"];
+        $temp['state_statutes_name'] = $row["state_statutes_name"];
+
         $temp['district'] = $row["district"];
         $temp['contact_number'] = $row["contact_number"];
         $temp['passport_number'] = $row["passport_number"];

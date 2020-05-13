@@ -1,7 +1,31 @@
 $(".preview_btn").hide();
 
+$("#if_positive_only").hide();
+
 //LOADING IF EDIT ACTION
 $(document).ready(function () {
+  fetchLocations();
+  //SHOW FAMILY INFO AND VISITED PLACE IF POSITIVE
+  $("#result").change(function () {
+    if ($("#result").val() == "NAPos") {
+      $("#if_positive_only").show();
+    } else {
+      $("#if_positive_only").hide();
+    }
+  });
+
+  //SETTING OBSERVATION DAYS //DAYS SELECT
+  $("#ob_period").change(function () {
+    setUpObservationEndDate();
+  });
+
+  //SETTING OBSERVATION DAYS //START DAY SELECT
+  $("#observation_started_date")
+    .datepicker()
+    .on("input change", function (e) {
+      setUpObservationEndDate();
+    });
+
   //////////SETTING MAP////////////
   //////////SETTING MAP////////////
 
@@ -94,18 +118,9 @@ $(document).ready(function () {
 
   //////////SETTING MAP////////////
   //////////SETTING MAP////////////
-
-  const urlParams = new URLSearchParams(window.location.search);
-  query = urlParams.get("q");
-  if (query != null) {
-    $(".preview_btn").show();
-    fetchData();
-  }
 });
 
 var fetchData = async () => {
-  showLoader();
-
   const response = await fetch("api/get_quarantine_detail.php?q=" + query, {
     method: "GET",
   });
@@ -162,7 +177,22 @@ var displayDetails = (
 
   $("#address").val(quarantineDetails["address"]);
 
+  //NEW PANCHAYAT ADDING
+  $("#state_statutes").val(quarantineDetails["state_statutes"]);
+  $("#state_statutes_name").val(quarantineDetails["state_statutes_name"]);
+
   $("#passport_number").val(quarantineDetails["passport_number"]);
+
+  $("#place_to_vist").val(quarantineDetails["place_to_vist"]);
+
+  //FILLING CORRESPONDING LOCATION
+  if ($("#place_to_vist").val().trim() == "Inter District") {
+    setUpArriveFromLocation(district);
+  } else if ($("#place_to_vist").val().trim() == "International") {
+    setUpArriveFromLocation(countries);
+  } else {
+    setUpArriveFromLocation(states);
+  }
 
   $("#orgin_country").val(quarantineDetails["orgin_country"]);
 
@@ -175,8 +205,6 @@ var displayDetails = (
   $("#phc_medical_officer_contact_number").val(
     quarantineDetails["phc_medical_officer_contact_number"]
   );
-
-  $("#place_to_vist").val(quarantineDetails["place_to_vist"]);
 
   $("#departure_date").val(quarantineDetails["departure_date"]);
 
@@ -221,6 +249,11 @@ var displayDetails = (
   $("#date_of_sample_taken").val(quarantineDetails["date_of_sample_taken"]);
 
   $("#result").val(quarantineDetails["result"]);
+  if ($("#result").val() == "NAPos") {
+    $("#if_positive_only").show();
+  } else {
+    $("#if_positive_only").hide();
+  }
 
   if (quarantineDetails["travelled_with_positive_case"] == "1") {
     $("#travelled_with_positive_case").attr("checked", "checked");
@@ -464,6 +497,12 @@ var save = () => {
 
   record.address = mysql_real_escape_string($("#address").val().trim());
 
+  //NEW PANCHAYAT
+  record.state_statutes = $("#state_statutes").val().trim();
+  record.state_statutes_name = mysql_real_escape_string(
+    $("#state_statutes_name").val().trim()
+  );
+
   record.passport_number = mysql_real_escape_string(
     $("#passport_number").val().trim()
   );
@@ -476,11 +515,12 @@ var save = () => {
     $("#orgin_country").val().trim()
   );
 
-  record.orgin_state = mysql_real_escape_string($("#orgin_state").val().trim());
+  record.orgin_state = ""; //mysql_real_escape_string($("#orgin_state").val().trim());
 
-  record.orgin_district = mysql_real_escape_string(
-    $("#orgin_district").val().trim()
-  );
+  record.orgin_district = "";
+  //  mysql_real_escape_string(
+  //   $("#orgin_district").val().trim()
+  // );
 
   record.phc_area = mysql_real_escape_string($("#phc_area").val().trim());
 
@@ -655,4 +695,28 @@ function mysql_real_escape_string(str) {
 
 var showReport = () => {
   window.location = "quarantine_report.php?q=" + query;
+};
+
+function parseDate(input) {
+  let parts = input.split("-");
+
+  // new Date(year, month [, day [, hours[, minutes[, seconds[, ms]]]]])
+  return new Date(parts[0], parts[1] - 1, parts[2]); // Note: months are 0-based
+}
+
+var setUpObservationEndDate = () => {
+  var observationDays = $("#ob_period").val().trim();
+  var observationStartedDate = $("#observation_started_date").val().trim();
+  if (observationDays != "" && observationStartedDate != "") {
+    var startDate = parseDate(observationStartedDate);
+
+    var endDate = new Date();
+
+    //ADDING START DATE + OBSERVATION DAY
+    endDate.setTime(
+      startDate.getTime() + observationDays * 24 * 60 * 60 * 1000
+    );
+
+    $("#observation_end_date").val(getDisplayDate(endDate));
+  }
 };

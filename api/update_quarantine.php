@@ -34,6 +34,10 @@ if (mysqli_query($conn, "DELETE FROM family_info WHERE quarantine_id = '" . $bod
                 `age` = '" . $body['age'] . "',
                 `sex` = '" . $body['sex'] . "',
                 `address` = '" . $body['address'] . "',
+
+                `state_statutes` = '" . $body['state_statutes'] . "',
+                `state_statutes_name` = '" . $body['state_statutes_name'] . "',
+
                 `district` = '" . $body['district'] . "',
                 `contact_number` = '" . $body['contact_number'] . "',
                 `passport_number` = '" . $body['passport_number'] . "',

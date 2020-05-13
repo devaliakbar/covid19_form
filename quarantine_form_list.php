@@ -138,7 +138,7 @@ if ($a_type == "1") {
                                 <div class="th" class="filter editable">Person Name</div>
                                 <div class="th" class="filter editable">Sex</div>
                                 <div class="th" class="filter editable">Age</div>
-                                <div class="th" class="filter">Orgin Country</div>
+                                <div class="th" class="filter">Travelled From</div>
                                 <div class="th" class="filter">Address</div>
 
                             </div>

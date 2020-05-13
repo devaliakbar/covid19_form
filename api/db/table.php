@@ -73,6 +73,12 @@ $quarantineInfoCreateQuery = "CREATE TABLE quarantine_info(
     age INT,
     sex BOOLEAN,
     address VARCHAR(100),
+
+
+    state_statutes VARCHAR(50),
+    state_statutes_name VARCHAR(50),
+
+
     district VARCHAR(50),
     contact_number VARCHAR(50),
     passport_number VARCHAR(50),
@@ -179,6 +185,32 @@ $secondaryContactInfoCreateQuery = "CREATE TABLE secondary_contact_info(
 
 if (mysqli_query($conn, $secondaryContactInfoCreateQuery)) {
     echo "<br>Table Secondary Contact Info created successfully<br>";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
+
+// COUNTRY LIST
+
+$countryListCreateQuery = "CREATE TABLE country_list(
+    _id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100)
+)ENGINE = INNODB;";
+
+if (mysqli_query($conn, $countryListCreateQuery)) {
+    echo "<br>Table Country List created successfully<br>";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
+
+// Panchayat LIST
+
+$panchayatListCreateQuery = "CREATE TABLE panchayat_list(
+    _id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100)
+)ENGINE = INNODB;";
+
+if (mysqli_query($conn, $panchayatListCreateQuery)) {
+    echo "<br>Table Panchayat List created successfully<br>";
 } else {
     echo "Error creating table: " . mysqli_error($conn);
 }

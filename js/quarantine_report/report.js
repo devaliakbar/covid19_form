@@ -159,6 +159,10 @@ var displayDetails = (
 
   $("#address").val(quarantineDetails["address"]);
 
+  //NEW PANCHAYAT ADDING
+  $("#state_statutes").val(quarantineDetails["state_statutes"]);
+  $("#state_statutes_name").val(quarantineDetails["state_statutes_name"]);
+
   $("#passport_number").val(quarantineDetails["passport_number"]);
 
   $("#orgin_country").val(quarantineDetails["orgin_country"]);
@@ -218,6 +222,11 @@ var displayDetails = (
   $("#date_of_sample_taken").val(quarantineDetails["date_of_sample_taken"]);
 
   $("#result").val(quarantineDetails["result"]);
+  if ($("#result").val() == "NAPos") {
+    $("#if_positive_only").show();
+  } else {
+    $("#if_positive_only").hide();
+  }
 
   if (quarantineDetails["travelled_with_positive_case"] == "1") {
     $("#travelled_with_positive_case").attr("checked", "checked");
