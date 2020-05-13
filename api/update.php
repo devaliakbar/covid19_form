@@ -11,6 +11,7 @@ SET
 `full_name` = '" . $body['full_name'] . "',
 `sex` = '" . $body['sex'] . "',
 `age` = '" . $body['age'] . "',
+`phone` = '" . $body['phone'] . "',
 `address` = '" . $body['address'] . "',
 `current_country` = '" . $body['current_country'] . "',
 `return_registered` ='" . $body['return_registered'] . "',

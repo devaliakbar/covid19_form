@@ -66,6 +66,11 @@ if (isset($_COOKIE['keep_login'])) {
                     </div>
 
                     <div class="form-group mb-3 col-md-3 ">
+                    <label  class="mb-2">Phone</label>
+                        <input id="phone" type="number" placeholder="phone">
+                    </div>
+
+                    <div class="form-group mb-3 col-md-3 ">
                     <label  class="mb-2">വിലാസം</label>
                         <input id="address" type="text" placeholder="വിലാസം">
                     </div>

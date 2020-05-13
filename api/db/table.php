@@ -41,6 +41,9 @@ $personInfoCreateQuery = "CREATE TABLE person_info(
     organisation_name VARCHAR(50),
     ward_no VARCHAR(50),
     full_name VARCHAR(50),
+
+    phone VARCHAR(50),
+
     sex BOOLEAN,
     age INT,
     address VARCHAR(100),

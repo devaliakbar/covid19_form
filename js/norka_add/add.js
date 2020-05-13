@@ -64,6 +64,8 @@ var displayDetails = (personDetails) => {
 
   $("#full_name").val(personDetails["full_name"]);
 
+  $("#phone").val(personDetails["phone"]);
+
   if (personDetails["sex"] == "1") {
     $("#sex").attr("checked", "checked");
   } else {
@@ -160,6 +162,8 @@ var save = () => {
   record.ward_no = mysql_real_escape_string($("#ward_no").val().trim());
 
   record.full_name = mysql_real_escape_string($("#full_name").val().trim());
+
+  record.phone = mysql_real_escape_string($("#phone").val().trim());
 
   if ($("#sex").prop("checked")) {
     record.sex = 1;

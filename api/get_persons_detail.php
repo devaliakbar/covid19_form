@@ -20,6 +20,7 @@ if (mysqli_num_rows($result) > 0) {
         $temp['full_name'] = $row["full_name"];
         $temp['sex'] = $row["sex"];
         $temp['age'] = $row["age"];
+        $temp['phone'] = $row["phone"];
         $temp['address'] = $row["address"];
         $temp['current_country'] = $row["current_country"];
         $temp['return_registered'] = $row["return_registered"];
