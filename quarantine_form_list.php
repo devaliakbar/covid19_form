@@ -39,6 +39,8 @@ if (isset($_COOKIE['keep_login'])) {
 
             <div class="ml-auto">
 
+            <a href="report/getReport.php"><button class="btn btn-dark add-btn">Get Report</button></a>
+
             <a href="quarantine_form.php"><button class="btn btn-dark add-btn">Add</button></a>
 
             <?php

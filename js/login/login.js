@@ -18,7 +18,10 @@ var login = async (username, password) => {
     var jsonResponce = await response.json();
     if (jsonResponce["success"]) {
       //SETTING ACCOUNT TYPE
-      document.cookie = "type=" + jsonResponce["type"] + ";";
+
+      setCookie("type", jsonResponce["type"], 365);
+
+      // document.cookie = "type=" + jsonResponce["type"] + ";";
       $("form").submit();
     } else {
       alert("Invalid Username or Password");
