@@ -45,12 +45,12 @@ if (isset($_COOKIE['keep_login'])) {
                 <div class="basic-info">
                     <div class="row">
 
-                    <div class="form-group mb-3 col-md-3">
+                        <div class="form-group mb-3 col-md-3">
                             <label class="mb-2">Name</label>
                             <input id="full_name" type="text" placeholder="Name" disabled>
                         </div>
 
-                        <div class="form-group mb-3 col-md-3 ">
+                        <div class="form-group mb-3 col-md-1">
                             <label class="mb-2">Age</label>
                             <input id="age" type="number" placeholder="Age" disabled>
                         </div>
@@ -62,7 +62,7 @@ if (isset($_COOKIE['keep_login'])) {
                             <label class="custom-radio">Female <input name="sex" type="radio" disabled><span class="checkmark ml-2"></label>
                         </div>
 
-                        <div class="form-group mb-3 col-md-3 ">
+                        <div class="form-group mb-3 col-md-2">
                             <label class="mb-2">Contact No</label>
                             <input id="contact_number" type="number" placeholder="Contact No" disabled>
                         </div>
@@ -77,7 +77,7 @@ if (isset($_COOKIE['keep_login'])) {
                             <input disabled disabled id="address" type="text" placeholder="Address">
                         </div>
 
-                        <div class="form-group mb-3 col-md-3 ">
+                        <div class="form-group mb-3 col-md-2">
                             <label class="mb-2">State Statutes</label>
                             <select id="state_statutes" disabled>
                                 <option value="" selected>State Statutes</option>
@@ -93,11 +93,11 @@ if (isset($_COOKIE['keep_login'])) {
                             <input id="state_statutes_name" type="text" placeholder="State Statutes Name" disabled>
                         </div>
 
-                        <div class="form-group mb-3 col-md-3 ">
+                        <div class="form-group mb-3 col-md-2">
                             <label class="mb-2">Location</label>
                             <input disabled id="location" type="text" placeholder="Location">
                         </div>
-                        <div class="form-group mb-3 col-md-3 ">
+                        <div class="form-group mb-3 col-md-2">
                             <label class="mb-2">Passport No / Adhar Card No</label>
                             <input disabled id="passport_number" type="text" placeholder="Passport No / Adhar Card No">
                         </div>
@@ -108,7 +108,7 @@ if (isset($_COOKIE['keep_login'])) {
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">Place to visit</label>
                             <select disabled id="place_to_vist">
-                                <option value="" selected >Place to visit</option>
+                                <option value="" selected>Place to visit</option>
                                 <option value="Inter District">Inter District</option>
                                 <option value="Inter State">Inter State</option>
                                 <option value="International">International</option>
@@ -220,13 +220,13 @@ if (isset($_COOKIE['keep_login'])) {
                             <label class="custom-radio">No <input disabled name="sample_to_test_taken" type="radio"><span class="checkmark ml-2"></label>
                         </div>
 
-                        <div class="form-group mb-3 col-md-3 ">
+                        <div class="form-group mb-3 col-md-2">
                             <label class="mb-2">Date of Sample Taken</label>
                             <input disabled id="date_of_sample_taken" type="date" placeholder="Date of Sample Taken">
                         </div>
 
 
-                        <div class="form-group mb-3 col-md-3 ">
+                        <div class="form-group mb-3 col-md-2">
                             <label class="mb-2">Result</label>
                             <select disabled id="result">
                                 <option value="" selected>Result</option>
@@ -244,7 +244,7 @@ if (isset($_COOKIE['keep_login'])) {
                             <label class="custom-radio">Yes <input disabled id="travelled_with_positive_case" name="travelled_with_positive_case" type="radio"><span class="checkmark ml-2"></label>
                             <label class="custom-radio">No <input disabled name="travelled_with_positive_case" type="radio"><span class="checkmark ml-2"></label>
                         </div>
-                        <div class="form-group mb-3 col-md-6 ">
+                        <div class="form-group mb-3 col-md-5 ">
                             <label class="mb-2">Remark</label>
                             <textarea disabled id="remark" rows="5"></textarea>
                         </div>
@@ -252,165 +252,169 @@ if (isset($_COOKIE['keep_login'])) {
                         <div class="col-12">
                             <hr class="mt-4">
                         </div>
-
-<div id="if_positive_only" style="width:100%;">
-
-                        <div class="mb-2 col-md-12 ">
-                            <label class="mb-3 mt-4"><b>Family Info</b></label>
-                        </div>
-
-                        <div class="form-group mb-3 col-md-3 ">
-                            <label class="mb-2">Under 5</label>
-                            <input disabled id="under_five" type="number" placeholder="Under 5">
-                        </div>
-
-                        <div class="form-group mb-3 col-md-3 ">
-                            <label class="mb-2">Between 5 - 10</label>
-                            <input disabled id="five_to_ten" type="number" placeholder="Between 5 - 10">
-                        </div>
-
-                        <div class="form-group mb-3 col-md-3 ">
-                            <label class="mb-2">Between 10 - 17</label>
-                            <input disabled id="ten_to_seventeen" type="number" placeholder="Between 10 - 17">
-                        </div>
-
-                        <div class="form-group mb-3 col-md-3 ">
-                            <label class="mb-2">Between 17 - 59</label>
-                            <input disabled id="seventeen_to_fiftynine" type="number" placeholder="Between 17 - 59">
-                        </div>
-
-                        <div class="form-group mb-3 col-md-3 ">
-                            <label class="mb-2">60 and above</label>
-                            <input disabled id="sixty_and_above" type="number" placeholder="60 and above">
-                        </div>
-
-                        <div class="form-group mb-3 col-md-6 ">
-                            <label class="mb-2">Details</label>
-                            <textarea disabled id="details" rows="5"></textarea>
-                        </div>
-
                         <div class="col-12">
-                            <hr class="mt-4">
-                        </div>
+
+                            <div id="if_positive_only" >
+
+                                <div class="row">
+                                    <div class="mb-2 col-md-12 ">
+                                        <label class="mb-3 mt-4"><b>Family Info</b></label>
+                                    </div>
+
+                                    <div class="form-group mb-3 col-md-2">
+                                        <label class="mb-2">Under 5</label>
+                                        <input disabled id="under_five" type="number" placeholder="Under 5">
+                                    </div>
+
+                                    <div class="form-group mb-3 col-md-2">
+                                        <label class="mb-2">Between 5 - 10</label>
+                                        <input disabled id="five_to_ten" type="number" placeholder="Between 5 - 10">
+                                    </div>
+
+                                    <div class="form-group mb-3 col-md-2">
+                                        <label class="mb-2">Between 10 - 17</label>
+                                        <input disabled id="ten_to_seventeen" type="number" placeholder="Between 10 - 17">
+                                    </div>
+
+                                    <div class="form-group mb-3 col-md-2">
+                                        <label class="mb-2">Between 17 - 59</label>
+                                        <input disabled id="seventeen_to_fiftynine" type="number" placeholder="Between 17 - 59">
+                                    </div>
+
+                                    <div class="form-group mb-3 col-md-2">
+                                        <label class="mb-2">60 and above</label>
+                                        <input disabled id="sixty_and_above" type="number" placeholder="60 and above">
+                                    </div>
+
+                                    <div class="form-group mb-3 col-md-6 ">
+                                        <label class="mb-2">Details</label>
+                                        <textarea disabled id="details" rows="5"></textarea>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <hr class="mt-4">
+                                    </div>
 
 
-                        <div class="mb-2 col-md-12 ">
-                            <label class="mt-4"><b>Visited Places</b></label>
-                        </div>
+                                    <div class="mb-2 col-md-12 ">
+                                        <label class="mt-4"><b>Visited Places</b></label>
+                                    </div>
 
-                        <div class="form-group mb-3 col-md-4 borderd-add-list">
-                            <!-- <label class="mb-2">Name of the Location</label>
-                            <div class="add-group"><input disabled id="visited_location" type="text" placeholder="Name of the Location"><button onclick="addVisitedPlace()">+</button></div> -->
-                            <div class="add-list">
+                                    <div class="form-group mb-3 col-md-4 borderd-add-list">
+                                        <!-- <label class="mb-2">Name of the Location</label>
+<div class="add-group"><input disabled id="visited_location" type="text" placeholder="Name of the Location"><button onclick="addVisitedPlace()">+</button></div> -->
+                                        <div class="add-list">
 
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <hr class="mt-4">
+                                    </div>
+
+
+
+                                    <div class="mb-2 col-md-12 ">
+                                        <label class="mb-3 mt-4"><b>Primary Contact Persons</b></label>
+                                    </div>
+
+                                    <!-- <div class="col-12 add-row-group">
+<div class="row no-gutters all-form-group-wrap">
+    <div class="form-group mb-3 col-md-3">
+        <label class="mb-2">Name </label>
+        <input disabled id="p_name" type="text" placeholder="Name">
+    </div>
+    <div class="form-group mb-3 col-md-3">
+        <label class="mb-2">Mobile Number</label>
+        <input id="p_mobile" type="number" placeholder="Mobile Number">
+    </div>
+    <div class="form-group mb-3 col-md-3">
+        <label class="mb-2">Location</label>
+        <input id="p_location" type="text" placeholder="Location">
+    </div>
+    <div class="form-group mb-3 col-md-3 add-btn-wrap">
+        <label class="mb-2">Age</label>
+        <input id="p_age" type="number" placeholder="Age">
+        <button onclick="addPrimaryContactPerson()">+</button>
+    </div>
+</div>
+</div> -->
+
+                                    <div class="col-12">
+                                        <div class="table-responsive modal-responsive">
+
+                                            <table class="resizable editable data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="">Name</th>
+                                                        <th class="">Mobile Number</th>
+                                                        <th class="">Age</th>
+                                                        <th class="">Location</th>
+
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="primary_contact_tbl">
+
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <hr class="mt-4">
+                                    </div>
+
+                                    <div class="mb-2 col-md-12 ">
+                                        <label class="mb-3 mt-4"><b>Secondary Contact Persons</b></label>
+                                    </div>
+
+
+                                    <!-- <div class="col-12 add-row-group">
+<div class="row no-gutters all-form-group-wrap">
+    <div class="form-group mb-3 col-md-3">
+        <label class="mb-2">Name </label>
+        <input id="s_name" type="text" placeholder="Name">
+    </div>
+    <div class="form-group mb-3 col-md-3">
+        <label class="mb-2">Mobile Number</label>
+        <input id="s_mobile" type="number" placeholder="Mobile Number">
+    </div>
+    <div class="form-group mb-3 col-md-3">
+        <label class="mb-2">Location</label>
+        <input id="s_location" type="text" placeholder="Location">
+    </div>
+    <div class="form-group mb-3 col-md-3 add-btn-wrap">
+        <label class="mb-2">Age</label>
+        <input id="s_age" type="number" placeholder="Age">
+        <button onclick="addSecondaryContactPerson()">+</button>
+    </div>
+</div>
+</div> -->
+
+                                    <div class="col-12">
+                                        <div class="table-responsive modal-responsive">
+
+                                            <table class="resizable editable data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="">Name</th>
+                                                        <th class="">Mobile Number</th>
+                                                        <th class="">Age</th>
+                                                        <th class="">Location</th>
+
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="secondary_contact_tbl">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-12">
-                            <hr class="mt-4">
-                        </div>
-
-
-
-                        <div class="mb-2 col-md-12 ">
-                            <label class="mb-3 mt-4"><b>Primary Contact Persons</b></label>
-                        </div>
-
-                        <!-- <div class="col-12 add-row-group">
-                            <div class="row no-gutters all-form-group-wrap">
-                                <div class="form-group mb-3 col-md-3">
-                                    <label class="mb-2">Name </label>
-                                    <input disabled id="p_name" type="text" placeholder="Name">
-                                </div>
-                                <div class="form-group mb-3 col-md-3">
-                                    <label class="mb-2">Mobile Number</label>
-                                    <input id="p_mobile" type="number" placeholder="Mobile Number">
-                                </div>
-                                <div class="form-group mb-3 col-md-3">
-                                    <label class="mb-2">Location</label>
-                                    <input id="p_location" type="text" placeholder="Location">
-                                </div>
-                                <div class="form-group mb-3 col-md-3 add-btn-wrap">
-                                    <label class="mb-2">Age</label>
-                                    <input id="p_age" type="number" placeholder="Age">
-                                    <button onclick="addPrimaryContactPerson()">+</button>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <div class="col-12">
-                            <div class="table-responsive modal-responsive">
-
-                                <table class="resizable editable data-table">
-                                    <thead>
-                                        <tr>
-                                            <th class="">Name</th>
-                                            <th class="">Mobile Number</th>
-                                            <th class="">Age</th>
-                                            <th class="">Location</th>
-
-
-                                        </tr>
-                                    </thead>
-                                    <tbody id="primary_contact_tbl">
-
-                                    </tbody>
-
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <hr class="mt-4">
-                        </div>
-
-                        <div class="mb-2 col-md-12 ">
-                            <label class="mb-3 mt-4"><b>Secondary Contact Persons</b></label>
-                        </div>
-
-
-                        <!-- <div class="col-12 add-row-group">
-                            <div class="row no-gutters all-form-group-wrap">
-                                <div class="form-group mb-3 col-md-3">
-                                    <label class="mb-2">Name </label>
-                                    <input id="s_name" type="text" placeholder="Name">
-                                </div>
-                                <div class="form-group mb-3 col-md-3">
-                                    <label class="mb-2">Mobile Number</label>
-                                    <input id="s_mobile" type="number" placeholder="Mobile Number">
-                                </div>
-                                <div class="form-group mb-3 col-md-3">
-                                    <label class="mb-2">Location</label>
-                                    <input id="s_location" type="text" placeholder="Location">
-                                </div>
-                                <div class="form-group mb-3 col-md-3 add-btn-wrap">
-                                    <label class="mb-2">Age</label>
-                                    <input id="s_age" type="number" placeholder="Age">
-                                    <button onclick="addSecondaryContactPerson()">+</button>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <div class="col-12">
-                            <div class="table-responsive modal-responsive">
-
-                                <table class="resizable editable data-table">
-                                    <thead>
-                                        <tr>
-                                            <th class="">Name</th>
-                                            <th class="">Mobile Number</th>
-                                            <th class="">Age</th>
-                                            <th class="">Location</th>
-
-
-                                        </tr>
-                                    </thead>
-                                    <tbody id="secondary_contact_tbl">
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
 
                         </div>
 
@@ -425,19 +429,19 @@ if (isset($_COOKIE['keep_login'])) {
                         </div>
 
 
-<?php
-if ($a_type == "1") {
+                        <?php
+                        if ($a_type == "1") {
 
-    echo ' <div class="sticky-buttons">
+                            echo ' <div class="sticky-buttons">
 
     <button onclick="deleteReport()" class="btn-primary mb-3 preview_btn">Delete</button>
 
     <button onclick="editInfo()" class="btn-primary mb-3">Edit</button>
 
 </div>';
-}
+                        }
 
-?>
+                        ?>
 
 
 
