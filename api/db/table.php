@@ -209,7 +209,9 @@ if (mysqli_query($conn, $countryListCreateQuery)) {
 
 $panchayatListCreateQuery = "CREATE TABLE panchayat_list(
     _id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100)
+    name VARCHAR(100),
+    district VARCHAR(100),
+    type VARCHAR(100)
 )ENGINE = INNODB;";
 
 if (mysqli_query($conn, $panchayatListCreateQuery)) {

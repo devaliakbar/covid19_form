@@ -65,12 +65,20 @@ $(document).ready(function () {
       setUpArriveFromLocation(states);
     }
   });
+
+  //SETTING PANCHAYATH
+  $("#state_statutes").change(function () {
+    checkPanchayat();
+  });
+  $("#district").change(function () {
+    checkPanchayat();
+  });
 });
 
 var fetchLocations = async () => {
   showLoader();
   setUpDistrict();
-  const response = await fetch("api/get_locations.php", {
+  const response = await fetch("api/get_countries.php", {
     method: "GET",
   });
 
@@ -78,8 +86,8 @@ var fetchLocations = async () => {
     var jsonResponce = await response.json();
     if (jsonResponce["success"]) {
       countries = jsonResponce["country_list"];
-      panchayat_list = jsonResponce["panchayat_list"];
-      setUpPanchayat();
+      // panchayat_list = jsonResponce["panchayat_list"];
+      // setUpPanchayat();
 
       /////////
       ////////
@@ -101,7 +109,48 @@ var fetchLocations = async () => {
   }
 };
 
-var setUpPanchayat = () => {
+var checkPanchayat = (currentValue) => {
+  var district = $("#district").val().trim();
+  var type = $("#state_statutes").val().trim();
+
+  if (district == "" || type == "") {
+    return;
+  }
+
+  fetchPanchayath(district, type, currentValue);
+};
+
+var fetchPanchayath = async (district, type, currentValue) => {
+  showLoader();
+  setUpDistrict();
+  const response = await fetch(
+    "api/get_panchayat.php?district=" + district + "&type=" + type,
+    {
+      method: "GET",
+    }
+  );
+
+  if (response.status == 200) {
+    var jsonResponce = await response.json();
+    if (jsonResponce["success"]) {
+      panchayat_list = jsonResponce["panchayat_list"];
+    } else {
+      panchayat_list = [];
+    }
+    setUpPanchayat(currentValue);
+    hideLoader();
+  } else {
+    alert("Failed To Connect");
+  }
+};
+
+var setUpPanchayat = (currentValue) => {
+  $("#state_statutes_name").empty();
+
+  $("#state_statutes_name").append(
+    $("<option></option>").attr("value", "").text("State Statutes Name")
+  );
+
   for (var i = 0; i < panchayat_list.length; i++) {
     $("#state_statutes_name").append(
       $("<option></option>")
@@ -109,6 +158,7 @@ var setUpPanchayat = () => {
         .text(panchayat_list[i]["name"])
     );
   }
+  $("#state_statutes_name").val(currentValue);
 };
 
 var setUpDistrict = () => {

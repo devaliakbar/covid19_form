@@ -179,7 +179,9 @@ var displayDetails = (
 
   //NEW PANCHAYAT ADDING
   $("#state_statutes").val(quarantineDetails["state_statutes"]);
-  $("#state_statutes_name").val(quarantineDetails["state_statutes_name"]);
+
+  //$("#state_statutes_name").val(quarantineDetails["state_statutes_name"]);
+  checkPanchayat(quarantineDetails["state_statutes_name"]);
 
   $("#passport_number").val(quarantineDetails["passport_number"]);
 

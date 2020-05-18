@@ -26,7 +26,7 @@ foreach ($Reader as $Row) {
         $a = 1;
     } else {
         $country = trim($Row[0]);
-        insert($country, "country_list");
+        insertCountry($country);
     }
 
 }
@@ -42,25 +42,18 @@ foreach ($Reader as $Row) {
         $a = 1;
     } else {
         $panchayat = trim($Row[2]);
-        insert($panchayat, "panchayat_list");
+        insertPan($panchayat, trim($Row[0]), "Panchayat");
     }
 
 }
 
-$Reader->ChangeSheet(1);
-
-$a = 0;
 echo "<html><body>";
-
-foreach ($Reader as $Row) {
-    if ($a == 0) {
-        $a = 1;
-    } else {
-        $panchayat = trim($Row[0]);
-        insert($panchayat, "panchayat_list");
-    }
-
-}
+insertPan("Kochi", "Ernakulam", "Corporation");
+insertPan("Thiruvananthapuram", "Thiruvananthapuram", "Corporation");
+insertPan("Kozhikode", "Kozhikode", "Corporation");
+insertPan("Kollam", "Kollam", "Corporation");
+insertPan("Thrissur", "Thrissur", "Corporation");
+insertPan("Kannur", "Kannur", "Corporation");
 
 $Reader->ChangeSheet(2);
 
@@ -72,13 +65,13 @@ foreach ($Reader as $Row) {
         $a = 1;
     } else {
         $panchayat = trim($Row[1]);
-        insert($panchayat, "panchayat_list");
+        insertPan($panchayat, trim($Row[0]), "Municipality");
     }
 
 }
 
 echo "</body></html>";
-function insert($name, $tableName)
+function insertCountry($name)
 {
     include '../common.php';
 
@@ -86,7 +79,22 @@ function insert($name, $tableName)
         mysqli_error();
         die();
     }
-    $insertQuery = "INSERT INTO $tableName( name ) VALUES ('" . mysql_escape_mimic($name) . "');";
+    $insertQuery = "INSERT INTO country_list( name ) VALUES ('" . mysql_escape_mimic($name) . "');";
+    if (mysqli_query($conn, $insertQuery)) {
+        echo "<br>$name Inserted Successfully";
+    }
+
+}
+
+function insertPan($name, $district, $type)
+{
+    include '../common.php';
+
+    if (!$conn) {
+        mysqli_error();
+        die();
+    }
+    $insertQuery = "INSERT INTO panchayat_list( name,district,type ) VALUES ('" . mysql_escape_mimic($name) . "', '" . mysql_escape_mimic($district) . "', '" . mysql_escape_mimic($type) . "');";
     if (mysqli_query($conn, $insertQuery)) {
         echo "<br>$name Inserted Successfully";
     }
