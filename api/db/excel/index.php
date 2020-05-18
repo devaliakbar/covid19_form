@@ -32,7 +32,7 @@ foreach ($Reader as $Row) {
 }
 
 $Reader = new SpreadsheetReader('state.xls');
-$Reader->ChangeSheet(7);
+$Reader->ChangeSheet(3);
 
 $a = 0;
 echo "<html><body>";
@@ -47,7 +47,7 @@ foreach ($Reader as $Row) {
 
 }
 
-$Reader->ChangeSheet(6);
+$Reader->ChangeSheet(1);
 
 $a = 0;
 echo "<html><body>";
@@ -62,7 +62,7 @@ foreach ($Reader as $Row) {
 
 }
 
-$Reader->ChangeSheet(5);
+$Reader->ChangeSheet(2);
 
 $a = 0;
 echo "<html><body>";

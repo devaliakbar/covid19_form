@@ -125,11 +125,11 @@ $objWorkSheet->setCellValue('E1', 'Antinatal');
 
 $query = "SELECT _id FROM quarantine_info WHERE sex = 0;";
 $result = mysqli_query($conn, $query);
-$maleCount = mysqli_num_rows($result);
+$femaleCount = mysqli_num_rows($result);
 
 $query = "SELECT _id FROM quarantine_info WHERE sex = 1;";
 $result = mysqli_query($conn, $query);
-$femaleCount = mysqli_num_rows($result);
+$maleCount = mysqli_num_rows($result);
 
 $query = "SELECT _id FROM quarantine_info WHERE age > 60;";
 $result = mysqli_query($conn, $query);
