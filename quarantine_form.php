@@ -170,7 +170,45 @@ if (isset($_COOKIE['keep_login'])) {
 
                         <div class="form-group mb-3 col-md-3 ">
                             <label class="mb-2">PHC / Area</label>
-                            <input id="phc_area" type="text" placeholder="PHC / Area">
+
+                            <select id="phc_area">
+                                <option value="" selected>PHC / Area</option>
+                                <option value="GHShornur">GHShornur</option>
+                                <option value="Katampazhipuram">Katampazhipuram</option>
+                                <option value="Kavasserry">Kavasserry</option>
+
+                                <option value="Keralassery">Keralassery</option>
+                                <option value="Koduvayur">Koduvayur</option>
+                                <option value="Kollamkode">Kollamkode</option>
+
+
+                                <option value="Kongad">Kongad</option>
+                                <option value="Koppam">Koppam</option>
+                                <option value="Kozhinjampara">Kozhinjampara</option>
+
+                                <option value="Kumaramputhur">Kumaramputhur</option>
+                                <option value="Kunissery">Kunissery</option>
+                                <option value="Kuzhalmannam">Kuzhalmannam</option>
+
+                                <option value="Nanniyodu">Nanniyodu</option>
+                                <option value="Nenmara">Nenmara</option>
+                                <option value="Pallipuram">Pallipuram</option>
+
+                                <option value="Parali">Parali</option>
+                                <option value="Pazhambalakode">Pazhambalakode</option>
+                                <option value="Peringottukurissi">Peringottukurissi</option>
+
+
+                                <option value="Pudur">Pudur</option>
+                                <option value="Sholayur">Sholayur</option>
+                                <option value="Sreekrishnapuram">Sreekrishnapuram</option>
+
+                                <option value="Thrithala">Thrithala</option>
+                                <option value="Vadakkancherry">Vadakkancherry</option>
+
+
+                            </select>
+
                         </div>
 
                         <div class="form-group mb-3 col-md-3 ">
